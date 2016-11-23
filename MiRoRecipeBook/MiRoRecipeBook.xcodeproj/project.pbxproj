@@ -17,9 +17,9 @@
 		1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
 		1A8B5C641DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
 		1A8B5C651DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
-		1A8B5C6A1DE4EBD400E11D14 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* MainViewController.swift */; };
-		1A8B5C6B1DE4EBD400E11D14 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* MainViewController.swift */; };
-		1A8B5C6C1DE4EBD400E11D14 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* MainViewController.swift */; };
+		1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */; };
+		1A8B5C6B1DE4EBD400E11D14 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */; };
+		1A8B5C6C1DE4EBD400E11D14 /* HintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */; };
 		1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */; };
 		1A8B5C6E1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */; };
 		1A8B5C6F1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */; };
@@ -35,6 +35,7 @@
 		1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C7F1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C801DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
+		1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C831DE579E200E11D14 /* MiRoColor.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,12 +78,13 @@
 		1A8B5C601DE4E9FE00E11D14 /* MiRoRecipeBookUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBookUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A8B5C611DE4E9FE00E11D14 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		1A8B5C671DE4EBD400E11D14 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Presentation/MainViewController.swift; sourceTree = "<group>"; };
+		1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HintViewController.swift; path = Presentation/HintViewController.swift; sourceTree = "<group>"; };
 		1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuTableViewController.swift; path = Presentation/MenuTableViewController.swift; sourceTree = "<group>"; };
 		1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipesTableViewController.swift; path = Presentation/RecipesTableViewController.swift; sourceTree = "<group>"; };
 		1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-24.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-24.png"; sourceTree = "<group>"; };
 		1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-32.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-32.png"; sourceTree = "<group>"; };
 		1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-512.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-512.png"; sourceTree = "<group>"; };
+		1A8B5C831DE579E200E11D14 /* MiRoColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiRoColor.swift; path = Presentation/MiRoColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +192,9 @@
 		1A8B5C661DE4EBB500E11D14 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				1A8B5C671DE4EBD400E11D14 /* MainViewController.swift */,
-				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
-				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
+				1A8B5C821DE579C300E11D14 /* Views */,
+				1A8B5C811DE579B600E11D14 /* ViewControllers */,
+				1A8B5C831DE579E200E11D14 /* MiRoColor.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -213,6 +215,23 @@
 				1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		1A8B5C811DE579B600E11D14 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */,
+				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
+				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1A8B5C821DE579C300E11D14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		9A9C277898A936F4A689B552 /* Frameworks */ = {
@@ -437,7 +456,8 @@
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
-				1A8B5C6A1DE4EBD400E11D14 /* MainViewController.swift in Sources */,
+				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
+				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8B5C6E1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
-				1A8B5C6B1DE4EBD400E11D14 /* MainViewController.swift in Sources */,
+				1A8B5C6B1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A8B5C441DE4E87200E11D14 /* MiRoRecipeBookTests.swift in Sources */,
 				1A8B5C641DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C711DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
@@ -458,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8B5C6F1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
-				1A8B5C6C1DE4EBD400E11D14 /* MainViewController.swift in Sources */,
+				1A8B5C6C1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A8B5C4F1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift in Sources */,
 				1A8B5C651DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C721DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,

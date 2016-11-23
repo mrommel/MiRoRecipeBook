@@ -8,30 +8,32 @@
 
 import UIKit
 
-struct Bird{
-    var name:String!
+struct MenuItem {
+    var name: String!
 }
 
 class MenuTableViewController: UITableViewController {
 
-    var birds: [Bird] = []
+    var menuItems: [MenuItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        birds.append(Bird(name: "Recipes"))
-        birds.append(Bird(name: "Categories"))
-        birds.append(Bird(name: "Integrients"))
+        menuItems.append(MenuItem(name: "Recipes"))
+        menuItems.append(MenuItem(name: "Categories"))
+        menuItems.append(MenuItem(name: "Integrients"))
+        
+        self.title = "RecipeBook"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return birds.count
+        return menuItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = birds[indexPath.row].name
+        cell.textLabel?.text = menuItems[indexPath.row].name
         // Configure the cell...
         
         return cell
@@ -51,7 +53,7 @@ class MenuTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 1))
-        footerView.backgroundColor = UIColor.blue
+        footerView.backgroundColor = UIColor.white
         
         return footerView
     }

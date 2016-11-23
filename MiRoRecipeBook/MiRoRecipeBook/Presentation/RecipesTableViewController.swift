@@ -16,13 +16,11 @@ class RecipesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "recipes"
+        self.title = "Recipes"
         
         recipes.append("abc")
         recipes.append("def")
         recipes.append("efd")
-        
-        self.tableView.tableFooterView = nil;
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
