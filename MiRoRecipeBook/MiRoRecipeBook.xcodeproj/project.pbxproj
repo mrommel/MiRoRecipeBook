@@ -36,6 +36,11 @@
 		1A8B5C7F1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C801DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C831DE579E200E11D14 /* MiRoColor.swift */; };
+		1A8B5C861DE5EE1100E11D14 /* ingredients-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */; };
+		1A8B5C881DE5EF2300E11D14 /* ingredients-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */; };
+		1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
+		1A8B5C8B1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
+		1A8B5C8C1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +90,9 @@
 		1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-32.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-32.png"; sourceTree = "<group>"; };
 		1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-512.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-512.png"; sourceTree = "<group>"; };
 		1A8B5C831DE579E200E11D14 /* MiRoColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiRoColor.swift; path = Presentation/MiRoColor.swift; sourceTree = "<group>"; };
+		1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-512.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-512.png"; sourceTree = "<group>"; };
+		1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-64.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-64.png"; sourceTree = "<group>"; };
+		1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegrientsTableViewController.swift; path = Presentation/IntegrientsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +221,8 @@
 				1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */,
 				1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */,
 				1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */,
+				1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */,
+				1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 				1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */,
 				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
 				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
+				1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -367,6 +378,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8B5C881DE5EF2300E11D14 /* ingredients-64.png in Resources */,
+				1A8B5C861DE5EE1100E11D14 /* ingredients-512.png in Resources */,
 				1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */,
 				1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */,
 				1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
@@ -453,6 +466,7 @@
 			files = (
 				1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */,
 				1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */,
+				1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
@@ -467,6 +481,7 @@
 			files = (
 				1A8B5C6E1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C6B1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
+				1A8B5C8B1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1A8B5C441DE4E87200E11D14 /* MiRoRecipeBookTests.swift in Sources */,
 				1A8B5C641DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C711DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
@@ -479,6 +494,7 @@
 			files = (
 				1A8B5C6F1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C6C1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
+				1A8B5C8C1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1A8B5C4F1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift in Sources */,
 				1A8B5C651DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A8B5C721DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,

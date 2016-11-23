@@ -9,7 +9,9 @@
 import UIKit
 
 struct MenuItem {
+    var image: String!
     var name: String!
+    var identifier: String!
 }
 
 class MenuTableViewController: UITableViewController {
@@ -17,12 +19,14 @@ class MenuTableViewController: UITableViewController {
     var menuItems: [MenuItem] = []
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        menuItems.append(MenuItem(name: "Recipes"))
-        menuItems.append(MenuItem(name: "Categories"))
-        menuItems.append(MenuItem(name: "Integrients"))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", identifier:"recipesTableViewController"))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", identifier:"integrientsTableViewController"))
+        menuItems.append(MenuItem(image: "", name: "", identifier:""))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Settings", identifier:""))
         
         self.title = "RecipeBook"
     }
@@ -32,26 +36,27 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as UITableViewCell
+        cell.imageView?.image = UIImage.init(named: menuItems[indexPath.row].image)
         cell.textLabel?.text = menuItems[indexPath.row].name
-        // Configure the cell...
+        cell.detailTextLabel?.text = "test"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch (indexPath.row) {
-        case 0:
-            let recipesTableViewController = storyboard?.instantiateViewController(withIdentifier: "recipesTableViewController") as! RecipesTableViewController
-            self.revealViewController().pushFrontViewController(recipesTableViewController, animated: true)
-            
-            break;
-        default:
-            break;
+        
+        if menuItems[indexPath.row].identifier.isEmpty {
+            return;
         }
+        
+        let targetViewController = storyboard?.instantiateViewController(withIdentifier: menuItems[indexPath.row].identifier)
+        self.revealViewController().pushFrontViewController(targetViewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
         let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 1))
         footerView.backgroundColor = UIColor.white
         

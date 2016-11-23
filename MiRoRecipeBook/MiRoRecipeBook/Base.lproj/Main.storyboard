@@ -31,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="-1038" y="-523"/>
         </scene>
-        <!--Menu-->
+        <!--Menu View Controller-->
         <scene sceneID="SSR-C2-nEQ">
             <objects>
-                <tableViewController id="32H-yd-VlT" userLabel="Menu" customClass="MenuTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="32H-yd-VlT" userLabel="Menu View Controller" customClass="MenuTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="QeL-8M-7BW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ct2-sz-mtQ" id="Wah-gA-B0s">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tjR-Jn-sll" id="8cb-35-3q7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="-1039" y="385"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Recipes Navigation Controller-->
         <scene sceneID="9Lr-pO-aVz">
             <objects>
-                <navigationController id="Vty-5O-WFb" sceneMemberID="viewController">
+                <navigationController id="Vty-5O-WFb" userLabel="Recipes Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvA-IY-UYm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -120,6 +120,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8e-Ap-Z5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1767" y="385"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="5is-94-PL7">
+            <objects>
+                <tableViewController storyboardIdentifier="integrientsTableViewController" id="zhM-D1-Eyn" customClass="IntegrientsTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eqC-jk-1dF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.20392156859999999" green="0.68627450980000004" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="integrientsCell" id="o6U-VN-4rA">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6U-VN-4rA" id="Akz-aA-yjF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="zhM-D1-Eyn" id="qui-tu-WFo"/>
+                            <outlet property="delegate" destination="zhM-D1-Eyn" id="K29-bS-xDm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="8Er-pF-1oB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMJ-6K-yht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1039" y="1060"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W5L-2v-GzS">
+            <objects>
+                <navigationController id="Ghc-ZY-BCT" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MQs-VV-CXq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zhM-D1-Eyn" kind="relationship" relationship="rootViewController" id="47N-au-xKN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nf4-A2-bWc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1767" y="1060"/>
         </scene>
         <!--Hint ViewController-->
         <scene sceneID="e3k-6W-F9O">
@@ -162,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="-71.200000000000003" y="237.93103448275863"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Menu Navigation Controller-->
         <scene sceneID="DMI-HL-VwU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lvp-Gl-gjM" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lvp-Gl-gjM" userLabel="Menu Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0Dg-Lu-uzA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s7m-W7-VzP">
