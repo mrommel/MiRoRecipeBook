@@ -3,3 +3,7 @@
 //
 
 #import "SWRevealViewController.h"
+#import "RecipeWebservice.h"
+#import "RecipeManager.h"
+#import "Recipe.h"
+#import "CoreDataManager.h"

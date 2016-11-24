@@ -36,6 +36,9 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 0:
+            let recipeWebservice = RecipeWebService()
+            let recipeManager = RecipeManager(context:CoreDataManager.sharedInstance().mainContext, webservice:recipeWebservice)
+            recipeManager!.import()
             break;
         default:
             break;

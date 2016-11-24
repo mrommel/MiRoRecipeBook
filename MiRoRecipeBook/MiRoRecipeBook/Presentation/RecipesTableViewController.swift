@@ -18,9 +18,15 @@ class RecipesTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Recipes"
         
-        recipes.append("abc")
-        recipes.append("def")
-        recipes.append("efd")
+        let recipeWebservice = RecipeWebService()
+        let recipeManager = RecipeManager(context:CoreDataManager.sharedInstance().mainContext, webservice:recipeWebservice)
+        
+        let allRecipes = recipeManager?.allRecipes() as! [Recipe]
+        for (_, obj) in allRecipes.enumerated() {
+            recipes.append(obj.name)
+        }
+        
+        NSLog("recipes: %d", recipes.count)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
