@@ -26,7 +26,7 @@ class MenuTableViewController: UITableViewController {
         menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
         menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", identifier:"integrientsTableViewController"))
         menuItems.append(MenuItem(image: "", name: "", identifier:""))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Settings", identifier:""))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Settings", identifier:"settingsViewController"))
         
         self.title = "RecipeBook"
     }

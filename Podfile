@@ -6,6 +6,7 @@ use_frameworks!
 def shared_pods
   pod "GoogleAnalytics"
   pod "HockeySDK", "~> 3.8.6"
+  #pod 'Sync', '~> 2'
 end
 
 target "MiRoRecipeBook" do

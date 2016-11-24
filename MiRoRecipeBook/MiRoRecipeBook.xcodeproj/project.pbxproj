@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */; };
 		1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */; };
 		1A8B5C311DE4E87200E11D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2F1DE4E87200E11D14 /* Main.storyboard */; };
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
@@ -65,6 +66,7 @@
 		0120B57678DA6E78ECEA1273 /* Pods-MiRoRecipeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.debug.xcconfig"; sourceTree = "<group>"; };
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
 		09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiRoRecipeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Presentation/SettingsTableViewController.swift; sourceTree = "<group>"; };
 		1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiRoRecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8B5C301DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
 				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
 				1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */,
+				1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
 				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
+				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +586,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -623,6 +628,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
