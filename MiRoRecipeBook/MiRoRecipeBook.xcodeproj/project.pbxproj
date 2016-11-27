@@ -13,6 +13,7 @@
 		1A0C10CE1DE6EA9000935B33 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10CD1DE6EA9000935B33 /* Recipe.m */; };
 		1A0C10D11DE6F2B900935B33 /* Recipe+CoreDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10D01DE6F2B900935B33 /* Recipe+CoreDataAccess.m */; };
 		1A0C10D41DE6F7B400935B33 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10D31DE6F7B400935B33 /* CoreDataManager.m */; };
+		1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */; };
 		1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */; };
 		1A8B5C311DE4E87200E11D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2F1DE4E87200E11D14 /* Main.storyboard */; };
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		1A0C10D01DE6F2B900935B33 /* Recipe+CoreDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+CoreDataAccess.m"; path = "Data/Recipe+CoreDataAccess.m"; sourceTree = "<group>"; };
 		1A0C10D21DE6F7B400935B33 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = Data/CoreDataManager.h; sourceTree = "<group>"; };
 		1A0C10D31DE6F7B400935B33 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = Data/CoreDataManager.m; sourceTree = "<group>"; };
+		1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = Presentation/RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiRoRecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8B5C301DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */,
 				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
 				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
+				1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */,
 				1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */,
 				1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */,
 			);
@@ -521,6 +524,7 @@
 				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A0C10D11DE6F2B900935B33 /* Recipe+CoreDataAccess.m in Sources */,
+				1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */,
 				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +608,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -654,6 +659,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

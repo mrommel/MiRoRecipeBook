@@ -12,9 +12,15 @@
 
 - (void)loadFromDictionary:(NSDictionary *)dict
 {
+    self.identifier = [[dict objectForKey:@"id"] stringValue];
     self.name = [dict objectForKey:@"name"];
     self.teaser = [dict objectForKey:@"teaser"];
     self.desc = [dict objectForKey:@"description"];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"Recipe: { id: %@, name: %@}", self.identifier, self.name];
 }
 
 + (Recipe *)findOrCreateRecipeWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext*)context

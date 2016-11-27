@@ -10,7 +10,7 @@ import UIKit
 
 class RecipesTableViewController: UITableViewController {
     
-    var recipes: [String] = []
+    var recipes: [Recipe] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class RecipesTableViewController: UITableViewController {
         
         let allRecipes = recipeManager?.allRecipes() as! [Recipe]
         for (_, obj) in allRecipes.enumerated() {
-            recipes.append(obj.name)
+            recipes.append(obj)
         }
         
         NSLog("recipes: %d", recipes.count)
@@ -35,18 +35,25 @@ class RecipesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = recipes[indexPath.row]
+        cell.textLabel?.text = recipes[indexPath.row].name
         // Configure the cell...
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch (indexPath.row) {
-        case 0:
-            break;
-        default:
-            break;
+        
+        performSegue(withIdentifier: "showRecipe", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        NSLog("segue: %@", segue.identifier ?? "default")
+        
+        if segue.identifier == "showRecipe" {
+            let indexPath = self.tableView.indexPathForSelectedRow;
+            let recipe = recipes[(indexPath?.row)!];
+            let viewController = segue.destination as! RecipeDetailViewController;
+            viewController.recipe = recipe;
         }
     }
     

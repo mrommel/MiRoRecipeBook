@@ -10,8 +10,9 @@
 
 @interface Recipe (CoreDataAccess)
 
-- (void)loadFromDictionary:(NSDictionary *)dict;
-
 + (Recipe *)findOrCreateRecipeWithIdentifier:(NSString *)identifier inContext:(NSManagedObjectContext*)context;
+
+- (void)loadFromDictionary:(NSDictionary *)dict;
+- (NSString *)description;
 
 @end

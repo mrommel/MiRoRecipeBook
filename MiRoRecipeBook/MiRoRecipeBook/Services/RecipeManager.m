@@ -60,6 +60,13 @@
 - (NSArray *)allRecipes
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Recipe"];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"1==1"];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObjects:nameSort, nil];
+    
     return [self.context executeFetchRequest:request error:NULL];
 }
 
