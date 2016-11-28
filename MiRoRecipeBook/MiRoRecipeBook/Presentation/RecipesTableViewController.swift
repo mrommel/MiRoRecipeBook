@@ -18,10 +18,9 @@ class RecipesTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Recipes"
         
-        let recipeWebservice = RecipeWebService()
-        let recipeManager = RecipeManager(context:CoreDataManager.sharedInstance().mainContext, webservice:recipeWebservice)
+        let recipeManager = RecipeManager()
         
-        let allRecipes = recipeManager?.allRecipes() as! [Recipe]
+        let allRecipes = recipeManager.allRecipes()! as [Recipe]
         for (_, obj) in allRecipes.enumerated() {
             recipes.append(obj)
         }

@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */; };
-		1A0C10C71DE6DBC400935B33 /* RecipeWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C61DE6DBC400935B33 /* RecipeWebService.m */; };
-		1A0C10CA1DE6E86E00935B33 /* RecipeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C91DE6E86E00935B33 /* RecipeManager.m */; };
-		1A0C10CE1DE6EA9000935B33 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10CD1DE6EA9000935B33 /* Recipe.m */; };
-		1A0C10D11DE6F2B900935B33 /* Recipe+CoreDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10D01DE6F2B900935B33 /* Recipe+CoreDataAccess.m */; };
-		1A0C10D41DE6F7B400935B33 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10D31DE6F7B400935B33 /* CoreDataManager.m */; };
 		1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */; };
+		1A5317741DEB2DE9002FF14B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317731DEB2DE9002FF14B /* Recipe.swift */; };
+		1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */; };
+		1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317771DEB3D19002FF14B /* RecipeManager.swift */; };
 		1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */; };
 		1A8B5C311DE4E87200E11D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2F1DE4E87200E11D14 /* Main.storyboard */; };
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
@@ -48,6 +46,8 @@
 		1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
 		1A8B5C8B1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
 		1A8B5C8C1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
+		1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */; };
+		1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,17 +73,10 @@
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
 		09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiRoRecipeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Presentation/SettingsTableViewController.swift; sourceTree = "<group>"; };
-		1A0C10C51DE6DBC400935B33 /* RecipeWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeWebService.h; path = Services/RecipeWebService.h; sourceTree = "<group>"; };
-		1A0C10C61DE6DBC400935B33 /* RecipeWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeWebService.m; path = Services/RecipeWebService.m; sourceTree = "<group>"; };
-		1A0C10C81DE6E86E00935B33 /* RecipeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecipeManager.h; path = Services/RecipeManager.h; sourceTree = "<group>"; };
-		1A0C10C91DE6E86E00935B33 /* RecipeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecipeManager.m; path = Services/RecipeManager.m; sourceTree = "<group>"; };
-		1A0C10CC1DE6EA9000935B33 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipe.h; path = Data/Recipe.h; sourceTree = "<group>"; };
-		1A0C10CD1DE6EA9000935B33 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = Data/Recipe.m; sourceTree = "<group>"; };
-		1A0C10CF1DE6F2B900935B33 /* Recipe+CoreDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Recipe+CoreDataAccess.h"; path = "Data/Recipe+CoreDataAccess.h"; sourceTree = "<group>"; };
-		1A0C10D01DE6F2B900935B33 /* Recipe+CoreDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Recipe+CoreDataAccess.m"; path = "Data/Recipe+CoreDataAccess.m"; sourceTree = "<group>"; };
-		1A0C10D21DE6F7B400935B33 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = Data/CoreDataManager.h; sourceTree = "<group>"; };
-		1A0C10D31DE6F7B400935B33 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = Data/CoreDataManager.m; sourceTree = "<group>"; };
 		1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = Presentation/RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		1A5317731DEB2DE9002FF14B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Data/Recipe.swift; sourceTree = "<group>"; };
+		1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+Parsing.swift"; path = "Data/Recipe+Parsing.swift"; sourceTree = "<group>"; };
+		1A5317771DEB3D19002FF14B /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeManager.swift; path = Services/RecipeManager.swift; sourceTree = "<group>"; };
 		1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiRoRecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8B5C301DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +105,8 @@
 		1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-512.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-512.png"; sourceTree = "<group>"; };
 		1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-64.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-64.png"; sourceTree = "<group>"; };
 		1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegrientsTableViewController.swift; path = Presentation/IntegrientsTableViewController.swift; sourceTree = "<group>"; };
+		1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Data/CoreDataManager.swift; sourceTree = "<group>"; };
+		1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeWebService.swift; path = Services/RecipeWebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +138,8 @@
 		1A0C10C41DE6DB9E00935B33 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				1A0C10C51DE6DBC400935B33 /* RecipeWebService.h */,
-				1A0C10C61DE6DBC400935B33 /* RecipeWebService.m */,
-				1A0C10C81DE6E86E00935B33 /* RecipeManager.h */,
-				1A0C10C91DE6E86E00935B33 /* RecipeManager.m */,
+				1A5317771DEB3D19002FF14B /* RecipeManager.swift */,
+				1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -154,12 +147,9 @@
 		1A0C10CB1DE6EA7900935B33 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1A0C10CC1DE6EA9000935B33 /* Recipe.h */,
-				1A0C10CD1DE6EA9000935B33 /* Recipe.m */,
-				1A0C10CF1DE6F2B900935B33 /* Recipe+CoreDataAccess.h */,
-				1A0C10D01DE6F2B900935B33 /* Recipe+CoreDataAccess.m */,
-				1A0C10D21DE6F7B400935B33 /* CoreDataManager.h */,
-				1A0C10D31DE6F7B400935B33 /* CoreDataManager.m */,
+				1A5317731DEB2DE9002FF14B /* Recipe.swift */,
+				1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */,
+				1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -512,20 +502,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */,
-				1A0C10CA1DE6E86E00935B33 /* RecipeManager.m in Sources */,
+				1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */,
 				1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */,
 				1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
+				1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */,
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
-				1A0C10CE1DE6EA9000935B33 /* Recipe.m in Sources */,
-				1A0C10D41DE6F7B400935B33 /* CoreDataManager.m in Sources */,
-				1A0C10C71DE6DBC400935B33 /* RecipeWebService.m in Sources */,
+				1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */,
 				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
-				1A0C10D11DE6F2B900935B33 /* Recipe+CoreDataAccess.m in Sources */,
 				1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */,
 				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
+				1A5317741DEB2DE9002FF14B /* Recipe.swift in Sources */,
+				1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
