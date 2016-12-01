@@ -6,8 +6,8 @@ use_frameworks!
 def shared_pods
   pod "GoogleAnalytics"
   pod "HockeySDK", "~> 3.8.6"
-  pod 'SwiftyJSON'
-  #pod 'CoreDataManager'
+  pod "SwiftyJSON"
+  pod "MapleBacon"
 end
 
 target "MiRoRecipeBook" do

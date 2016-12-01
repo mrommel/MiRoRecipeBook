@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
         
-        //CoreDataManager.sharedInstance.persistentContainer;
-        
         return true
     }
 

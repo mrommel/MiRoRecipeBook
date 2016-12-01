@@ -7,36 +7,33 @@
 //
 
 import UIKit
+import MapleBacon
 
 class RecipeDetailViewController: UIViewController {
     
-    var recipe: Recipe? = nil
+    var recipe: Recipe?
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var descLabel: UILabel?
+    @IBOutlet weak var imageLabel: UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        self.title = recipe?.name
+        if recipe != nil {
+            NSLog("recipe: %@", recipe ?? "<default>")
+            self.title = recipe?.name
+            self.descLabel?.text = (recipe?.teaser)! + " " + (recipe?.desc)!;
+
+            var urlString = RestApiManager.baseURL + (recipe?.image_url)!
+            urlString = urlString.replacingOccurrences(of: "//", with: "/")
+            let imageUrl = URL(string: urlString)
+            let placeholder = UIImage(named: "recipe-default-image.png")
+            self.imageLabel?.setImage(withUrl: imageUrl!, placeholder: placeholder)
+        }
+    }
+    
+    @IBAction func goBackToList(_ sender: AnyObject) {
+        dismiss(animated: false, completion: nil)
     }
 }
 
-extension RecipeDetailViewController: UITableViewDataSource {
-    
-    func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell") {
-            //let item = items![(indexPath as NSIndexPath).row]
-            cell.textLabel?.text = "abc"
-            
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-}

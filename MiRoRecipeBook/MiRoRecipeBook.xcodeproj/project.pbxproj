@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */; };
+		1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A45C0901DEF730E009C9C4E /* recipe-default-image.png */; };
+		1A45C0931DEF8032009C9C4E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45C0921DEF8032009C9C4E /* Recipe.swift */; };
+		1A45C0951DEF8058009C9C4E /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45C0941DEF8058009C9C4E /* RecipeStep.swift */; };
 		1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */; };
-		1A5317741DEB2DE9002FF14B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317731DEB2DE9002FF14B /* Recipe.swift */; };
 		1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */; };
 		1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317771DEB3D19002FF14B /* RecipeManager.swift */; };
 		1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */; };
@@ -48,6 +50,7 @@
 		1A8B5C8C1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */; };
 		1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */; };
 		1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */; };
+		1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +76,10 @@
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
 		09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiRoRecipeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Presentation/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		1A45C0901DEF730E009C9C4E /* recipe-default-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "recipe-default-image.png"; path = "MiRoRecipeBook/Resources/Images/recipe-default-image.png"; sourceTree = "<group>"; };
+		1A45C0921DEF8032009C9C4E /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Data/Recipe.swift; sourceTree = "<group>"; };
+		1A45C0941DEF8058009C9C4E /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStep.swift; path = Data/RecipeStep.swift; sourceTree = "<group>"; };
 		1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeDetailViewController.swift; path = Presentation/RecipeDetailViewController.swift; sourceTree = "<group>"; };
-		1A5317731DEB2DE9002FF14B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Data/Recipe.swift; sourceTree = "<group>"; };
 		1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recipe+Parsing.swift"; path = "Data/Recipe+Parsing.swift"; sourceTree = "<group>"; };
 		1A5317771DEB3D19002FF14B /* RecipeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeManager.swift; path = Services/RecipeManager.swift; sourceTree = "<group>"; };
 		1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiRoRecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +112,7 @@
 		1A8B5C891DE5F11700E11D14 /* IntegrientsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegrientsTableViewController.swift; path = Presentation/IntegrientsTableViewController.swift; sourceTree = "<group>"; };
 		1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Data/CoreDataManager.swift; sourceTree = "<group>"; };
 		1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeWebService.swift; path = Services/RecipeWebService.swift; sourceTree = "<group>"; };
+		1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeStep+Parsing.swift"; path = "Data/RecipeStep+Parsing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +153,10 @@
 		1A0C10CB1DE6EA7900935B33 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1A5317731DEB2DE9002FF14B /* Recipe.swift */,
+				1A45C0921DEF8032009C9C4E /* Recipe.swift */,
 				1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */,
+				1A45C0941DEF8058009C9C4E /* RecipeStep.swift */,
+				1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */,
 				1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */,
 			);
 			name = Data;
@@ -253,6 +261,7 @@
 		1A8B5C741DE4EC2400E11D14 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1A45C0901DEF730E009C9C4E /* recipe-default-image.png */,
 				1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */,
 				1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */,
 				1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */,
@@ -420,6 +429,7 @@
 				1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */,
 				1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */,
 				1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
+				1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */,
 				1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */,
 				1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */,
 				1A8B5C311DE4E87200E11D14 /* Main.storyboard in Resources */,
@@ -508,14 +518,16 @@
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */,
+				1A45C0951DEF8058009C9C4E /* RecipeStep.swift in Sources */,
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
 				1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */,
 				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */,
 				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
-				1A5317741DEB2DE9002FF14B /* Recipe.swift in Sources */,
 				1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */,
+				1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */,
+				1A45C0931DEF8032009C9C4E /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

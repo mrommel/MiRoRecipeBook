@@ -15,7 +15,7 @@ class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-    let baseURL = "http://localhost:8000/"
+    static let baseURL = "http://localhost:8000/"
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {
         let request = NSMutableURLRequest(url: NSURL(string: path)! as URL)
@@ -24,39 +24,32 @@ class RestApiManager: NSObject {
         session.configuration.httpAdditionalHeaders?["Accept"] = "application/json; indent=4"
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            let json:JSON = JSON(data: data!)
-            onCompletion(json, error as NSError?)
+            
+            if error == nil {
+                let json:JSON = JSON(data: data!)
+                onCompletion(json, error as NSError?)
+            }
         })
         task.resume()
     }
 }
 
-typealias RecipeResponse = ([Recipe]?) -> Void
-
 class RecipeWebService: RestApiManager {
     
-    func getAllRecipeJSONs(onCompletion: @escaping (JSON) -> Void) {
-        let route = baseURL + "recipes/"
+    func getAllRecipeJSONs(onCompletion: @escaping ([JSON]?) -> Void) {
+        let route = RestApiManager.baseURL + "recipes/"
         makeHTTPGetRequest(path: route, onCompletion: { json, err in
-            onCompletion(json as JSON)
-        })
-    }
-    
-    func getAllRecipes(onCompletion: @escaping RecipeResponse) {
-        
-        self.getAllRecipeJSONs { json in
-        
-            let recipes: [Recipe] = []
             
-            let results = json["results"]
-            for (index: String, subJson: JSON) in results {
-                /*let recipe = Recipe()
-                recipe.name = subJson["name"]
-                recipes.addObject(recipe)*/
+            var recipeJSONs: [JSON] = []
+            
+            if let results = json.array {
+                for entry in results {
+                    recipeJSONs.append(entry)
+                }
             }
             
-            onCompletion(recipes)
-        }
+            onCompletion(recipeJSONs as [JSON]?)
+        })
     }
     
     /*
