@@ -38,6 +38,7 @@ class SettingsTableViewController: UITableViewController {
         case 0:
             let recipeManager = RecipeManager()
             recipeManager.importRecipes()
+            recipeManager.importIntegrients()
             
             self.tableView.deselectRow(at: indexPath, animated: true)
             break;

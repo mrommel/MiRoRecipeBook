@@ -52,6 +52,22 @@ class RecipeWebService: RestApiManager {
         })
     }
     
+    func getAllIntegrientJSONs(onCompletion: @escaping ([JSON]?) -> Void) {
+        let route = RestApiManager.baseURL + "integrients/"
+        makeHTTPGetRequest(path: route, onCompletion: { json, err in
+            
+            var integrientJSONs: [JSON] = []
+            
+            if let results = json.array {
+                for entry in results {
+                    integrientJSONs.append(entry)
+                }
+            }
+            
+            onCompletion(integrientJSONs as [JSON]?)
+        })
+    }
+    
     /*
      func makeHTTPPostRequest(path: String, body: [String: AnyObject], onCompletion: ServiceResponse) {
      var err: NSError?

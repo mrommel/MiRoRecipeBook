@@ -27,17 +27,35 @@ class RecipesTableViewController: UITableViewController {
         return recipeManager.allRecipes()!.count
     }
     
+    func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage {
+        
+        let scale = CGFloat(max(size.width/image.size.width,
+                                size.height/image.size.height))
+        let width:CGFloat  = image.size.width * scale
+        let height:CGFloat = image.size.height * scale;
+        
+        let rr:CGRect = CGRect.init(x: 0, y: 0, width: width, height: height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        image.draw(in: rr)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return newImage!
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as UITableViewCell
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
         cell.textLabel?.text = recipe.name
         
-        var urlString = RestApiManager.baseURL + (recipe.image_url)!
-        urlString = urlString.replacingOccurrences(of: "//", with: "/")
-        let imageUrl = URL(string: urlString)
-        let placeholder = UIImage(named: "recipe-default-image.png")
-        cell.imageView?.setImage(withUrl: imageUrl!, placeholder: placeholder)
+        
+        cell.imageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
+            
+            cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))
+            cell.imageView?.layer.cornerRadius = 20
+            cell.imageView?.clipsToBounds = true
+        })
         
         return cell
     }

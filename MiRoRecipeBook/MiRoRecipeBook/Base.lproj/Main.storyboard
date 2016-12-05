@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ct2-sz-mtQ" id="Wah-gA-B0s">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -84,11 +84,11 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="tjR-Jn-sll">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipeCell" id="tjR-Jn-sll">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tjR-Jn-sll" id="8cb-35-3q7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -127,28 +127,16 @@
         <!--Integrients Table View Controller-->
         <scene sceneID="5is-94-PL7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMJ-6K-yht" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="integrientsTableViewController" id="zhM-D1-Eyn" userLabel="Integrients Table View Controller" customClass="IntegrientsTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eqC-jk-1dF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.20392156859999999" green="0.68627450980000004" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="iLP-ow-kkk">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Integrients" id="Hd8-9b-kkk">
-                                    <barButtonItem key="leftBarButtonItem" image="menu-alt-24.png" id="SkP-sf-kkk">
-                                        <connections>
-                                            <action selector="openMenu:" destination="zhM-D1-Eyn" id="Yvc-qq-QEu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="integrientsCell" id="o6U-VN-4rA">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o6U-VN-4rA" id="Akz-aA-yjF">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -161,16 +149,12 @@
                             <outlet property="delegate" destination="zhM-D1-Eyn" id="K29-bS-xDm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Integrients" id="aLF-Ia-b9a">
-                        <barButtonItem key="leftBarButtonItem" image="menu-alt-24.png" id="53F-oC-kD7">
-                            <connections>
-                                <action selector="openMenu:" destination="zhM-D1-Eyn" id="zfM-PM-WZG"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Integrients 2" id="vzS-UT-RCc">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="SnV-8Z-lSx"/>
                     </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fMJ-6K-yht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-299" y="1338"/>
         </scene>
@@ -304,6 +288,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YSN-8b-r3i">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tni-jB-gUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="H8S-bw-e7W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="94d-YZ-S56">
@@ -315,7 +300,6 @@
                         <segue destination="zhM-D1-Eyn" kind="relationship" relationship="rootViewController" id="ug6-Sv-Lgx"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tni-jB-gUQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1238" y="1338"/>
         </scene>
@@ -345,7 +329,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mk7-hs-yz0" id="gHo-cS-pac">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

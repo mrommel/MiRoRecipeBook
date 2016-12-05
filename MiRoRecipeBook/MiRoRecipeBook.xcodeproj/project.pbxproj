@@ -51,6 +51,8 @@
 		1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */; };
 		1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */; };
 		1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */; };
+		1AAF719C1DF5AFF9002F4293 /* Integrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF719B1DF5AFF9002F4293 /* Integrient.swift */; };
+		1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +115,8 @@
 		1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Data/CoreDataManager.swift; sourceTree = "<group>"; };
 		1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeWebService.swift; path = Services/RecipeWebService.swift; sourceTree = "<group>"; };
 		1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeStep+Parsing.swift"; path = "Data/RecipeStep+Parsing.swift"; sourceTree = "<group>"; };
+		1AAF719B1DF5AFF9002F4293 /* Integrient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Integrient.swift; path = Data/Integrient.swift; sourceTree = "<group>"; };
+		1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Integrient+Parsing.swift"; path = "Data/Integrient+Parsing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				1A45C0941DEF8058009C9C4E /* RecipeStep.swift */,
 				1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */,
 				1AAC50ED1DEC515100EFEC1B /* CoreDataManager.swift */,
+				1AAF719B1DF5AFF9002F4293 /* Integrient.swift */,
+				1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */,
 				1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */,
 				1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
+				1AAF719C1DF5AFF9002F4293 /* Integrient.swift in Sources */,
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */,
@@ -524,6 +531,7 @@
 				1A8B5C841DE579E200E11D14 /* MiRoColor.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */,
+				1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */,
 				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
 				1AAC50EE1DEC515100EFEC1B /* CoreDataManager.swift in Sources */,
 				1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */,
@@ -691,6 +699,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0120B57678DA6E78ECEA1273 /* Pods-MiRoRecipeBook.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 45U4U6SXCJ;
@@ -708,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 45U4U6SXCJ;

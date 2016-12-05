@@ -22,18 +22,13 @@ class RecipeDetailViewController: UIViewController {
         if recipe != nil {
             NSLog("recipe: %@", recipe ?? "<default>")
             self.title = recipe?.name
-            self.descLabel?.text = (recipe?.teaser)! + " " + (recipe?.desc)!;
-
-            var urlString = RestApiManager.baseURL + (recipe?.image_url)!
-            urlString = urlString.replacingOccurrences(of: "//", with: "/")
-            let imageUrl = URL(string: urlString)
-            let placeholder = UIImage(named: "recipe-default-image.png")
-            self.imageLabel?.setImage(withUrl: imageUrl!, placeholder: placeholder)
+            self.descLabel?.text = (recipe!.teaser)! + " " + (recipe!.desc)!;
+            self.imageLabel?.setImage(withUrl: recipe!.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
         }
     }
     
     @IBAction func goBackToList(_ sender: AnyObject) {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
