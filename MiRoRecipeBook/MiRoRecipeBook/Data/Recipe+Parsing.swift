@@ -28,5 +28,4 @@ extension Recipe {
         let imageUrl = URL(string: urlString)
         return imageUrl
     }
-
 }

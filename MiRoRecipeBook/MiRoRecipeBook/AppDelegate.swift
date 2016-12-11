@@ -15,16 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
-        let navigationBarAppearace = UINavigationBar.appearance()
-        
-        navigationBarAppearace.tintColor = UIColor.white
-        navigationBarAppearace.barTintColor = MiRoColor.green
-        
-        // change navigation item title color
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        configureAppStyling()
         
         return true
     }
@@ -100,3 +93,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+private extension AppDelegate {
+    
+    func configureAppStyling() {
+        styleNavigationBar()
+        styleBarButtons()
+    }
+
+    func styleNavigationBar() {
+        UINavigationBar.appearance().barTintColor = ColorPalette.themeColor
+        UINavigationBar.appearance().tintColor = ColorPalette.tintColor
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName : FontPalette.navBarTitleFont(),
+            NSForegroundColorAttributeName : UIColor.black
+        ]
+    }
+    
+    func styleBarButtons() {
+        let barButtonTextAttributes = [
+            NSFontAttributeName : FontPalette.navBarButtonFont(),
+            NSForegroundColorAttributeName : ColorPalette.tintColor
+        ]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTextAttributes, for: .normal)
+    }
+}

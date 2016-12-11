@@ -72,6 +72,28 @@ class RecipesTableViewController: UITableViewController {
         return recipeItems![index]
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 12))
+        footerView.backgroundColor = ColorPalette.gray25
+        
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 12))
+        footerView.backgroundColor = ColorPalette.gray25
+        
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 12.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 12.0
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         NSLog("segue: %@", segue.identifier ?? "default")
         

@@ -27,6 +27,7 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as UITableViewCell
+        cell.imageView?.image = UIImage.init(named: "sync-64.png")
         cell.textLabel?.text = recipes[indexPath.row]
         // Configure the cell...
         

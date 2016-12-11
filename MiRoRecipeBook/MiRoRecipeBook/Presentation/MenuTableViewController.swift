@@ -26,7 +26,7 @@ class MenuTableViewController: UITableViewController {
         menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
         menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", identifier:"integrientsTableViewController"))
         menuItems.append(MenuItem(image: "", name: "", identifier:""))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Settings", identifier:"settingsViewController"))
+        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", identifier:"settingsViewController"))
         
         self.title = "RecipeBook"
     }
@@ -40,7 +40,6 @@ class MenuTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as UITableViewCell
         cell.imageView?.image = UIImage.init(named: menuItems[indexPath.row].image)
         cell.textLabel?.text = menuItems[indexPath.row].name
-        cell.detailTextLabel?.text = "test"
         
         return cell
     }
