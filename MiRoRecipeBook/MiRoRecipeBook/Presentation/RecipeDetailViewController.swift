@@ -26,7 +26,7 @@ class RecipeDetailViewController: UIViewController {
         
         if recipe != nil {
             NSLog("recipe: %@", recipe ?? "<default>")
-            self.navigationController?.title = recipe?.name
+            self.title = recipe?.name
             //self.descLabel?.text = (recipe!.teaser)! + " " + (recipe!.desc)!;
             //self.imageLabel?.setImage(withUrl: recipe!.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
             

@@ -39,10 +39,12 @@ class MenuTableViewController: UITableViewController {
 
     func createViewController(forScreenType screenType: ScreenType) -> UIViewController? {
         switch screenType {
+        case .recipes:
+            return AppDelegate.shared?.appDependecies?.recipesWireframe?.getRecipesInterface()
+        case .integrients:
+            return AppDelegate.shared?.appDependecies?.integrientsWireframe?.getIntegrientsInterface()
         case .settings:
             return AppDelegate.shared?.appDependecies?.settingsWireframe?.getSettingsInterface()
-        default:
-            return nil
         }
     }
 }
@@ -55,8 +57,19 @@ extension MenuTableViewController {
         
         let targetViewController = self.createViewController(forScreenType: menuItems[indexPath.row].screenType)
         let navigationController = AppDelegate.shared?.appDependecies?.rootNavigationController
+
+        let menuButton = UIButton(type: .custom)
+        menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+        menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+        menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+        targetViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+        
         navigationController?.viewControllers = [targetViewController!]
         self.revealViewController().pushFrontViewController(navigationController, animated: true)
+    }
+    
+    func openMenu(_ sender: AnyObject) {
+        self.revealViewController().revealToggle(nil)
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

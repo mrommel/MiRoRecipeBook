@@ -48,7 +48,7 @@ class RecipesTableViewController: UITableViewController {
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
         cell.textLabel?.text = recipe.name
-        
+        cell.detailTextLabel?.text = recipe.desc
         
         cell.imageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
             
@@ -62,7 +62,9 @@ class RecipesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "showRecipe", sender: self)
+        let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
+        let recipe = self.getRecipe(withIndex: indexPath.row)
+        AppDelegate.shared?.appDependecies?.recipesWireframe?.presentDetail(forRecipe:recipe)
     }
     
     func getRecipe(withIndex index: Int) -> Recipe {
@@ -86,6 +88,10 @@ class RecipesTableViewController: UITableViewController {
         return footerView
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 12.0
     }
@@ -93,23 +99,5 @@ class RecipesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 12.0
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        NSLog("segue: %@", segue.identifier ?? "default")
-        
-        if segue.identifier == "showRecipe" {
-            let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
-            NSLog("selected row: %d", indexPath.row)
-            let recipe = self.getRecipe(withIndex: indexPath.row)
-            NSLog("selected recipe: %@", recipe)
-            
-            if let destinationViewController = segue.destination as? RecipeDetailViewController {
-                destinationViewController.recipe = recipe
-            }
-        }
-    }
-    
-    @IBAction func openMenu(_ sender: AnyObject) {
-        self.revealViewController().revealToggle(nil)
-    }
+
 }

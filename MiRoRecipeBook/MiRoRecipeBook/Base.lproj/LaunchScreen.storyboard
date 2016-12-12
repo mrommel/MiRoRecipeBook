@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,28 +20,28 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wappen.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-TB-ovU">
-                                <rect key="frame" x="0.0" y="145" width="375" height="252"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe_background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-TB-ovU" userLabel="recipe">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="776"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.20392156859999999" green="0.68627450980000004" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7Lc-TB-ovU" secondAttribute="trailing" id="Kkk-Wd-zJp"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="7Lc-TB-ovU" secondAttribute="bottom" constant="270" id="Uz7-rb-SS3"/>
+                            <constraint firstItem="7Lc-TB-ovU" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="Kkk-Wd-zJp"/>
+                            <constraint firstItem="7Lc-TB-ovU" firstAttribute="bottomMargin" secondItem="xb3-aO-Qok" secondAttribute="top" id="Uz7-rb-SS3"/>
                             <constraint firstItem="7Lc-TB-ovU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UzJ-9r-plJ"/>
-                            <constraint firstItem="7Lc-TB-ovU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="125" id="sFD-J2-sez"/>
+                            <constraint firstItem="7Lc-TB-ovU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="b1s-mc-T2P"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184.80000000000001" y="317.99100449775113"/>
+            <point key="canvasLocation" x="184.5703125" y="317.96875"/>
         </scene>
     </scenes>
     <resources>
-        <image name="wappen.png" width="192" height="219"/>
+        <image name="recipe_background.jpg" width="2048" height="1152"/>
     </resources>
 </document>

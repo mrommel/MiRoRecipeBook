@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Recipes Table View Controller-->
+        <scene sceneID="Kxw-sY-ma5">
+            <objects>
+                <tableViewController storyboardIdentifier="RecipesTableViewController" id="5lt-pO-VRy" customClass="RecipesTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IzV-uH-t6D">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.20392156859999999" green="0.68627450980000004" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recipeCell" textLabel="6Mi-ej-hEB" detailTextLabel="cY8-8e-TYX" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="WGF-KB-2vj">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WGF-KB-2vj" id="3dn-fy-BaP">
+                                    <rect key="frame" x="0.0" y="0.0" width="830" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Mi-ej-hEB">
+                                            <rect key="frame" x="176" y="22" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cY8-8e-TYX">
+                                            <rect key="frame" x="176" y="43" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5lt-pO-VRy" id="4Ma-U7-Bde"/>
+                            <outlet property="delegate" destination="5lt-pO-VRy" id="AK8-Xo-u0Z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="eTp-FG-hyk"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Le-f7-vDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1274" y="384"/>
+        </scene>
+        <!--Recipe Detail View Controller-->
+        <scene sceneID="gA8-5W-n43">
+            <objects>
+                <viewController storyboardIdentifier="RecipeDetailViewController" id="TEt-O1-67a" userLabel="Recipe Detail View Controller" customClass="RecipeDetailViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bdy-nv-s90"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z7r-85-U3g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u6z-h8-dtT">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fq8-Kj-A5h">
+                                <rect key="frame" x="0.0" y="44" width="1024" height="724"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GYn-5I-2QU">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                                        <color key="backgroundColor" red="0.91372549020000005" green="0.87450980389999999" blue="0.71372549019999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="HsS-L1-sjz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GYn-5I-2QU" secondAttribute="bottom" id="Kwq-5H-hjj"/>
+                                    <constraint firstItem="GYn-5I-2QU" firstAttribute="leading" secondItem="fq8-Kj-A5h" secondAttribute="leading" id="MM6-2i-Uee"/>
+                                    <constraint firstItem="GYn-5I-2QU" firstAttribute="centerY" secondItem="fq8-Kj-A5h" secondAttribute="centerY" id="S7e-Ow-rni"/>
+                                    <constraint firstItem="GYn-5I-2QU" firstAttribute="top" secondItem="fq8-Kj-A5h" secondAttribute="top" id="THz-eu-ZHZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="GYn-5I-2QU" secondAttribute="trailing" id="tzb-QK-Tf7"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fq8-Kj-A5h" firstAttribute="bottom" secondItem="Z7r-85-U3g" secondAttribute="top" id="321-yj-inH"/>
+                            <constraint firstItem="fq8-Kj-A5h" firstAttribute="top" secondItem="Bdy-nv-s90" secondAttribute="bottom" constant="24" id="gRT-El-p1l"/>
+                            <constraint firstAttribute="trailing" secondItem="fq8-Kj-A5h" secondAttribute="trailing" id="gmk-3V-62I"/>
+                            <constraint firstItem="fq8-Kj-A5h" firstAttribute="leading" secondItem="u6z-h8-dtT" secondAttribute="leading" id="o3V-Hd-2tG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="GZb-s1-tFv"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="scrollView" destination="fq8-Kj-A5h" id="mwe-1G-d8L"/>
+                        <outlet property="stackView" destination="GYn-5I-2QU" id="5UT-mg-lLd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p7A-Pk-sfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="384.55772113943033"/>
+        </scene>
+    </scenes>
+</document>
