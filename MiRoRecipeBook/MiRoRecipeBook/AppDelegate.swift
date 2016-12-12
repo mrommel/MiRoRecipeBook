@@ -12,11 +12,15 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    static var shared: AppDelegate? = nil
     var window: UIWindow?
+    var appDependecies: AppDependecies?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
+        AppDelegate.shared = self
+        self.appDependecies = AppDependecies.init(withWindow: self.window!)
         configureAppStyling()
         
         return true
@@ -93,6 +97,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+}
+
 private extension AppDelegate {
     
     func configureAppStyling() {
@@ -106,7 +114,7 @@ private extension AppDelegate {
         
         UINavigationBar.appearance().titleTextAttributes = [
             NSFontAttributeName : FontPalette.navBarTitleFont(),
-            NSForegroundColorAttributeName : UIColor.black
+            NSForegroundColorAttributeName : UIColor.white
         ]
     }
     

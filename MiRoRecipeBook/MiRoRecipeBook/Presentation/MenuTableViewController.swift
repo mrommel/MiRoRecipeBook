@@ -8,10 +8,16 @@
 
 import UIKit
 
+enum ScreenType {
+    case recipes
+    case integrients
+    case settings
+}
+
 struct MenuItem {
     var image: String!
     var name: String!
-    var identifier: String!
+    var screenType: ScreenType!
 }
 
 class MenuTableViewController: UITableViewController {
@@ -22,15 +28,63 @@ class MenuTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", identifier:"recipesTableViewController"))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", identifier:"integrientsTableViewController"))
-        menuItems.append(MenuItem(image: "", name: "", identifier:""))
-        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", identifier:"settingsViewController"))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", screenType:ScreenType.recipes)) // "recipesTableViewController"
+        //menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", screenType:ScreenType.integrients)) // "integrientsTableViewController"
+        //menuItems.append(MenuItem(image: "", name: "", identifier:""))
+        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", screenType:ScreenType.settings)) // "settingsViewController"
         
         self.title = "RecipeBook"
     }
 
+    func createViewController(forScreenType screenType: ScreenType) -> UIViewController? {
+        switch screenType {
+        case .settings:
+            return AppDelegate.shared?.appDependecies?.settingsWireframe?.getSettingsInterface()
+        default:
+            return nil
+        }
+    }
+}
+
+// MARK: UITableViewDelegate methods
+
+extension MenuTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let targetViewController = self.createViewController(forScreenType: menuItems[indexPath.row].screenType)
+        let navigationController = AppDelegate.shared?.appDependecies?.rootNavigationController
+        navigationController?.viewControllers = [targetViewController!]
+        self.revealViewController().pushFrontViewController(navigationController, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 1))
+        footerView.backgroundColor = UIColor.white
+        
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 12.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+}
+
+// MARK: UITableViewDataSource methods
+
+extension MenuTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
@@ -44,29 +98,4 @@ class MenuTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if menuItems[indexPath.row].identifier.isEmpty {
-            return;
-        }
-        
-        let targetViewController = storyboard?.instantiateViewController(withIdentifier: menuItems[indexPath.row].identifier)
-        self.revealViewController().pushFrontViewController(targetViewController, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        let footerView = UIView(frame: CGRect(x:0,y: 0,width: tableView.frame.size.width,height: 1))
-        footerView.backgroundColor = UIColor.white
-        
-        return footerView
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 1.0
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 1.0
-    }
 }
