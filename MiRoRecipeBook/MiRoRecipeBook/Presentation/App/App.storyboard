@@ -116,6 +116,9 @@
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="hintLabel" destination="Up6-jF-IXa" id="o9W-uU-HHY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkA-ZO-NXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

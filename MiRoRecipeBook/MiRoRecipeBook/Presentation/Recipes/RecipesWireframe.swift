@@ -10,7 +10,7 @@ import Foundation
 
 class RecipesWireframe: CommonWireframe {
 
-fileprivate let kRecipesStoryboardName = "Recipes"
+    fileprivate let kRecipesStoryboardName = "Recipes"
 
     override init(withRootNavigationController navigationController: UINavigationController?) {
         super.init(withRootNavigationController: navigationController)

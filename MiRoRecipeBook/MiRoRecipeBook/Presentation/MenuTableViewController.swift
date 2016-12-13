@@ -28,11 +28,11 @@ class MenuTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", screenType:ScreenType.recipes))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Ingredients", screenType:ScreenType.ingredients))
-        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", screenType:ScreenType.settings))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes".localized, screenType:ScreenType.recipes))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Ingredients".localized, screenType:ScreenType.ingredients))
+        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings".localized, screenType:ScreenType.settings))
         
-        self.title = "RecipeBook"
+        self.title = "RecipeBook".localized
     }
 
     func createViewController(forScreenType screenType: ScreenType) -> UIViewController? {

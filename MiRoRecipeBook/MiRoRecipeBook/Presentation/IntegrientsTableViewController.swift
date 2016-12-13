@@ -16,7 +16,7 @@ class IngredientsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Ingredients"
+        self.title = "Ingredients".localized
         
         let ingredients = recipeManager.allIngredients()
         NSLog("recipes: %d", ingredients!.count)
@@ -50,6 +50,9 @@ class IngredientsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath) as UITableViewCell
         cell.textLabel?.text = ingredient.name
+        
+        //let recipes = recipeManager.getRecipes(forIngredient: (ingredient.identifier?.intValue)!)
+        //cell.detailTextLabel?.text = "\(recipes!.count) recipes"
         
         let imageUrl = ingredient.getImageUrl()!
         cell.imageView?.setImage(withUrl: imageUrl, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in

@@ -10,6 +10,8 @@ import Foundation
 
 class AppWireframe: CommonWireframe {
     
+    fileprivate let kAppStoryboardName = "App"
+    
     var window: UIWindow?
  
     override init(withRootNavigationController navigationController: UINavigationController?) {
@@ -25,9 +27,7 @@ class AppWireframe: CommonWireframe {
     }
     
     func presentRootViewController() {
-        let storyboard = UIStoryboard(name: "App", bundle: nil)
-        
-        let revealViewController = storyboard.instantiateViewController(withIdentifier: "SWRevealViewController") as! SWRevealViewController
+        let revealViewController = SWRevealViewController.instantiate(fromStoryboard: kAppStoryboardName)
         
         self.window?.rootViewController = revealViewController
 

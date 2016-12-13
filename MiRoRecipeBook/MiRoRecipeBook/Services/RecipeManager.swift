@@ -385,6 +385,8 @@ extension RecipeManager: IngredientsProtocol {
         
         // ... with identifier
         fetchRequest.predicate = NSPredicate.init(value: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             // go get the results

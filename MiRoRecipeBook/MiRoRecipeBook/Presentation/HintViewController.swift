@@ -10,10 +10,13 @@ import UIKit
 
 class HintViewController: UIViewController {
     
+    @IBOutlet weak var hintLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Hint"
+        self.title = "hint.title".localized
+        self.hintLabel.text = "hint.message".localized
     }
     
     @IBAction func openMenu(_ sender: AnyObject) {

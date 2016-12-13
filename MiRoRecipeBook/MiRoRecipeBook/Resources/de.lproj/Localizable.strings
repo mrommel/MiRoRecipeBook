@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  MiRoRecipeBook
+
+  Created by Michael Rommel on 13.12.16.
+  Copyright © 2016 Mobility Media. All rights reserved.
+*/
+
+"RecipeBook" = "RezeptBuch";
+
+// menu
+"Recipes" = "Zutaten";
+"Ingredients" = "Zutaten";
+"Settings" = "Einstellungen";
+
+// hint
+"hint.title" = "Hinweis";
+"hint.message" = "abc";

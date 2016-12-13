@@ -29,6 +29,8 @@
 		1A68C3221DFF470800C025E4 /* recipe_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C3211DFF470800C025E4 /* recipe_background.jpg */; };
 		1A68C3241DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3231DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift */; };
 		1A68C3261DFFF25500C025E4 /* RecipeIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3251DFFF25500C025E4 /* RecipeIngredient.swift */; };
+		1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3281E000E0B00C025E4 /* Localizable.swift */; };
+		1A68C32C1E000E9100C025E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C32E1E000E9100C025E4 /* Localizable.strings */; };
 		1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */; };
 		1A8B5C311DE4E87200E11D14 /* Ingredients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C2F1DE4E87200E11D14 /* Ingredients.storyboard */; };
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
@@ -114,6 +116,9 @@
 		1A68C3211DFF470800C025E4 /* recipe_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = recipe_background.jpg; path = MiRoRecipeBook/Resources/Images/recipe_background.jpg; sourceTree = "<group>"; };
 		1A68C3231DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IngredientRecipesDetailViewController.swift; path = Presentation/Integrients/IngredientRecipesDetailViewController.swift; sourceTree = "<group>"; };
 		1A68C3251DFFF25500C025E4 /* RecipeIngredient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeIngredient.swift; path = Data/RecipeIngredient.swift; sourceTree = "<group>"; };
+		1A68C3281E000E0B00C025E4 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Utils/Localizable.swift; sourceTree = "<group>"; };
+		1A68C32D1E000E9100C025E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A68C32F1E000EE700C025E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiRoRecipeBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A8B5C301DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Ingredients.storyboard; sourceTree = "<group>"; };
@@ -215,9 +220,9 @@
 				1A8B5C2B1DE4E87200E11D14 /* AppDelegate.swift */,
 				1A68C30F1DFE0A9300C025E4 /* AppDependecies.swift */,
 				1A68C3151DFECC1000C025E4 /* AppWireframe.swift */,
-				1A68C3181DFECC7700C025E4 /* App.storyboard */,
 				1A8B5C671DE4EBD400E11D14 /* HintViewController.swift */,
 				1A8B5C681DE4EBD400E11D14 /* MenuTableViewController.swift */,
+				1A68C3181DFECC7700C025E4 /* App.storyboard */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -231,6 +236,14 @@
 				1A68C31D1DFF397800C025E4 /* Recipes.storyboard */,
 			);
 			name = Recipes;
+			sourceTree = "<group>";
+		};
+		1A68C3271E000DF700C025E4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A68C3281E000E0B00C025E4 /* Localizable.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		1A8B5C1F1DE4E87200E11D14 = {
@@ -263,6 +276,7 @@
 				1A0C10CB1DE6EA7900935B33 /* Data */,
 				1A0C10C41DE6DB9E00935B33 /* Services */,
 				1A8B5C661DE4EBB500E11D14 /* Presentation */,
+				1A68C3271E000DF700C025E4 /* Utils */,
 				1A8B5C351DE4E87200E11D14 /* Assets.xcassets */,
 				1A8B5C371DE4E87200E11D14 /* LaunchScreen.storyboard */,
 				1A8B5C3A1DE4E87200E11D14 /* Info.plist */,
@@ -328,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				1A8B5C741DE4EC2400E11D14 /* Images */,
+				1A68C32E1E000E9100C025E4 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -481,6 +496,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 1A8B5C1F1DE4E87200E11D14;
 			productRefGroup = 1A8B5C291DE4E87200E11D14 /* Products */;
@@ -512,6 +528,7 @@
 				1A68C3061DFDFFA400C025E4 /* settings-64.png in Resources */,
 				1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */,
 				1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */,
+				1A68C32C1E000E9100C025E4 /* Localizable.strings in Resources */,
 				1A68C3141DFEC56800C025E4 /* Settings.storyboard in Resources */,
 				1A8B5C311DE4E87200E11D14 /* Ingredients.storyboard in Resources */,
 			);
@@ -600,6 +617,7 @@
 				1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */,
 				1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1AAF719C1DF5AFF9002F4293 /* Integrient.swift in Sources */,
+				1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */,
 				1A68C30E1DFE093800C025E4 /* CommonWireframe.swift in Sources */,
 				1A8B5C6D1DE4EBD400E11D14 /* MenuTableViewController.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
@@ -665,6 +683,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1A68C32E1E000E9100C025E4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A68C32D1E000E9100C025E4 /* en */,
+				1A68C32F1E000EE700C025E4 /* de */,
+			);
+			name = Localizable.strings;
+			path = MiRoRecipeBook/Resources;
+			sourceTree = "<group>";
+		};
 		1A8B5C2F1DE4E87200E11D14 /* Ingredients.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -688,6 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -739,6 +768,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
