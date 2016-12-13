@@ -9,10 +9,10 @@
 "RecipeBook" = "RezeptBuch";
 
 // menu
-"Recipes" = "Zutaten";
+"Recipes" = "Rezepte";
 "Ingredients" = "Zutaten";
 "Settings" = "Einstellungen";
 
 // hint
 "hint.title" = "Hinweis";
-"hint.message" = "abc";
+"hint.message" = "Bitte öffne das Menü und entdecke was du alles mit der App machen kannst.";
