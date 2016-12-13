@@ -107,6 +107,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
         cell.textLabel?.text = ingredient?.name
         cell.detailTextLabel?.text = recipeIngredient.quantity
         
+        //cell.imageView?.frame
         cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
             
             cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))

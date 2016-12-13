@@ -9,6 +9,11 @@
 import UIKit
 import MapleBacon
 
+class RecipeTableViewCell: UITableViewCell {
+    @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var recipeImageView: UIImageView!
+}
+
 class RecipesTableViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
@@ -95,17 +100,17 @@ extension RecipesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
-        cell.textLabel?.text = recipe.name
-        cell.detailTextLabel?.text = recipe.desc
+        cell.recipeTitleLabel?.text = recipe.name
+        //cell.detailTextLabel?.text = recipe.desc
         
-        cell.imageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
+        cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
             
-            cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))
+            /*cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))
             cell.imageView?.layer.cornerRadius = 20
-            cell.imageView?.clipsToBounds = true
+            cell.imageView?.clipsToBounds = true*/
         })
         
         return cell
