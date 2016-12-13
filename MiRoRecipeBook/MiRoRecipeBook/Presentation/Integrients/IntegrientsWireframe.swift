@@ -1,5 +1,5 @@
 //
-//  IntegrientsWireframe.swift
+//  IngredientsWireframe.swift
 //  MiRoRecipeBook
 //
 //  Created by Michael Rommel on 12.12.16.
@@ -8,18 +8,23 @@
 
 import Foundation
 
-class IntegrientsWireframe: CommonWireframe {
+class IngredientsWireframe: CommonWireframe {
     
-    fileprivate let kIntegrientsStoryboardName = "Integrients"
+    fileprivate let kIngredientsStoryboardName = "Ingredients"
     
     override init(withRootNavigationController navigationController: UINavigationController?) {
         super.init(withRootNavigationController: navigationController)
     }
     
-    func getIntegrientsInterface() -> IntegrientsTableViewController {
-        let integrientsTableViewController = IntegrientsTableViewController.instantiate(fromStoryboard: kIntegrientsStoryboardName)
+    func getIngredientsInterface() -> IngredientsTableViewController {
+        let ingredientsTableViewController = IngredientsTableViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
         
-        return integrientsTableViewController
+        return ingredientsTableViewController
     }
-    
+ 
+    func presentRecipes(forIngredientIdentifier ingredientIdentifier: Int) {
+        let ingredientRecipesDetailViewController = IngredientRecipesDetailViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
+        ingredientRecipesDetailViewController.ingredientIdentifier = ingredientIdentifier
+        self.rootNavigationController?.pushViewController(ingredientRecipesDetailViewController, animated: true)
+    }
 }

@@ -18,11 +18,12 @@ protocol RecipesProtocol: class {
     func allRecipes() -> [Recipe]?
 }
 
-protocol IntegrientsProtocol: class {
+protocol IngredientsProtocol: class {
     
-    func importIntegrients()
-    func getIntegrient(withIdentifier indentifier: Int) -> Integrient?
-    func allIntegrients() -> [Integrient]?
+    func importIngredients()
+    func getIngredient(withIdentifier indentifier: Int) -> Ingredient?
+    func allIngredients() -> [Ingredient]?
+    func getRecipes(forIngredient ingredient: Int) -> [Recipe]?
 }
 
 class RecipeManager: CoreDataManager {
@@ -182,43 +183,43 @@ extension RecipeManager: RecipesProtocol {
     }
 }
 
-extension RecipeManager: IntegrientsProtocol {
+extension RecipeManager: IngredientsProtocol {
     
-    func importIntegrients() {
+    func importIngredients() {
         
         let webservice = RecipeWebService()
-        webservice.getAllIntegrientJSONs(onCompletion: { integrientJSONs in
+        webservice.getAllIngredientJSONs(onCompletion: { ingredientJSONs in
             
-            for integrientJSON in integrientJSONs! as [JSON] {
-                let identifier = integrientJSON["id"].intValue
-                NSLog("got recipe from web service: %d => %@", identifier, integrientJSON["name"].stringValue)
+            for ingredientJSON in ingredientJSONs! as [JSON] {
+                let identifier = ingredientJSON["id"].intValue
+                NSLog("got recipe from web service: %d => %@", identifier, ingredientJSON["name"].stringValue)
                 
                 // try to fetch from internal storage
-                var integrient = self.getIntegrient(withIdentifier: identifier)
+                var ingredient = self.getIngredient(withIdentifier: identifier)
                 
                 // create recipe if needed
-                if integrient == nil {
-                    integrient = self.storeIntegrient(withIdentifier: identifier)
+                if ingredient == nil {
+                    ingredient = self.storeIngredient(withIdentifier: identifier)
                     
                     // update or set values from dict
-                    integrient?.name = integrientJSON["name"].stringValue
-                    integrient?.image_url = integrientJSON["image_url"].stringValue
-                    //integrient?.type = integrientJSON["type"].stringValue
+                    ingredient?.name = ingredientJSON["name"].stringValue
+                    ingredient?.image_url = ingredientJSON["image_url"].stringValue
+                    //ingredient?.type = ingredientJSON["type"].stringValue
                     
-                    NSLog("integrient created: %@", integrientJSON["name"].stringValue)
+                    NSLog("ingredient created: %@", ingredientJSON["name"].stringValue)
                 } else {
-                    NSLog("integrient already exists: %@", integrient ?? "<default>")
+                    NSLog("ingredrient already exists: %@", ingredient ?? "<default>")
                 }
             }
         })
     }
     
-    func getIntegrient(withIdentifier indentifier: Int) -> Integrient? {
+    func getIngredient(withIdentifier indentifier: Int) -> Ingredient? {
         
         let context = getContext()
         
         // try to get a recipe ...
-        let fetchRequest = NSFetchRequest<Integrient>(entityName: "Integrient")
+        let fetchRequest = NSFetchRequest<Ingredient>(entityName: "Ingredient")
         
         // ... with identifier
         fetchRequest.predicate = NSPredicate.init(format: "identifier == %d", indentifier)
@@ -238,12 +239,12 @@ extension RecipeManager: IntegrientsProtocol {
         return nil
     }
     
-    func storeIntegrient(withIdentifier identifier: Int) -> Integrient? {
+    func storeIngredient(withIdentifier identifier: Int) -> Ingredient? {
         
         let context = self.getContext()
         
-        // retrieve the Integrient
-        let entity =  NSEntityDescription.entity(forEntityName: "Integrient", in: context)
+        // retrieve the Ingredient
+        let entity =  NSEntityDescription.entity(forEntityName: "Ingredient", in: context)
         
         let recipe = NSManagedObject(entity: entity!, insertInto: context)
         
@@ -254,7 +255,7 @@ extension RecipeManager: IntegrientsProtocol {
         do {
             try context.save()
             print("saved!")
-            return recipe as? Integrient
+            return recipe as? Ingredient
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
             return nil
@@ -263,9 +264,9 @@ extension RecipeManager: IntegrientsProtocol {
         }
     }
     
-    func allIntegrients() -> [Integrient]? {
+    func allIngredients() -> [Ingredient]? {
         
-        let fetchRequest = NSFetchRequest<Integrient>(entityName: "Integrient")
+        let fetchRequest = NSFetchRequest<Ingredient>(entityName: "Ingredient")
         
         // ... with identifier
         fetchRequest.predicate = NSPredicate.init(value: true)
@@ -277,20 +278,24 @@ extension RecipeManager: IntegrientsProtocol {
             // I like to check the size of the returned results!
             print ("num of results = \(searchResults.count)")
             
-            var integrients: [Integrient]? = []
+            var ingredients: [Ingredient]? = []
             
             // You need to convert to NSManagedObject to use 'for' loops
-            for integrient in searchResults {
+            for ingredient in searchResults {
                 //get the Key Value pairs (although there may be a better way to do that...
                 //print("\(recipe.name)")
-                integrients?.append(integrient)
+                ingredients?.append(ingredient)
             }
             
-            return integrients
+            return ingredients
         } catch {
             print("Error with request: \(error)")
         }
         
+        return nil
+    }
+    
+    func getRecipes(forIngredient ingredient: Int) -> [Recipe]? {
         return nil
     }
 }

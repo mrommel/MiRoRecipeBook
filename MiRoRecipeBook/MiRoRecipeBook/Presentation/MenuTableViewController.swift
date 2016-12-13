@@ -10,7 +10,7 @@ import UIKit
 
 enum ScreenType {
     case recipes
-    case integrients
+    case ingredients
     case settings
 }
 
@@ -28,11 +28,9 @@ class MenuTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", screenType:ScreenType.recipes)) // "recipesTableViewController"
-        //menuItems.append(MenuItem(image: "ingredients-64.png", name: "Categories", identifier:""))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Integrients", screenType:ScreenType.integrients)) // "integrientsTableViewController"
-        //menuItems.append(MenuItem(image: "", name: "", identifier:""))
-        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", screenType:ScreenType.settings)) // "settingsViewController"
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes", screenType:ScreenType.recipes))
+        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Ingredients", screenType:ScreenType.ingredients))
+        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings", screenType:ScreenType.settings))
         
         self.title = "RecipeBook"
     }
@@ -41,8 +39,8 @@ class MenuTableViewController: UITableViewController {
         switch screenType {
         case .recipes:
             return AppDelegate.shared?.appDependecies?.recipesWireframe?.getRecipesInterface()
-        case .integrients:
-            return AppDelegate.shared?.appDependecies?.integrientsWireframe?.getIntegrientsInterface()
+        case .ingredients:
+            return AppDelegate.shared?.appDependecies?.ingredientsWireframe?.getIngredientsInterface()
         case .settings:
             return AppDelegate.shared?.appDependecies?.settingsWireframe?.getSettingsInterface()
         }

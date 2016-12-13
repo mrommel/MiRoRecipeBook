@@ -1,25 +1,23 @@
 //
-//  RecipesTableViewController.swift
-//  MiRo.RecipeBook
+//  IngredientRecipesDetailViewController.swift
+//  MiRoRecipeBook
 //
-//  Created by Michael Rommel on 22.11.16.
+//  Created by Michael Rommel on 13.12.16.
 //  Copyright © 2016 Mobility Media. All rights reserved.
 //
 
-import UIKit
-import MapleBacon
-
-class RecipesTableViewController: UITableViewController {
+class IngredientRecipesDetailViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
+    var ingredientIdentifier: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Recipes"
+        self.title = "IngredientRecipes"
         
-        let recipes = recipeManager.allRecipes()
+        let recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier!)
         NSLog("recipes: %d", recipes!.count)
     }
     
@@ -38,12 +36,12 @@ class RecipesTableViewController: UITableViewController {
         UIGraphicsEndImageContext();
         return newImage!
     }
-
+    
 }
 
 // MARK: UITableViewDelegate methods
 
-extension RecipesTableViewController {
+extension IngredientRecipesDetailViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -89,7 +87,7 @@ extension RecipesTableViewController {
 
 // MARK: UITableViewDataSource methods
 
-extension RecipesTableViewController {
+extension IngredientRecipesDetailViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipeManager.allRecipes()!.count
@@ -113,4 +111,3 @@ extension RecipesTableViewController {
     }
     
 }
-

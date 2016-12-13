@@ -1,5 +1,5 @@
 //
-//  Integrient+Parsing.swift
+//  Ingredient+Parsing.swift
 //  MiRoRecipeBook
 //
 //  Created by Michael Rommel on 05.12.16.
@@ -9,18 +9,18 @@
 import Foundation
 import CoreData
 
-extension Integrient {
+extension Ingredient {
     
     override public var description : String {
-        return "<Integrient \(self.name)>"
+        return "<Ingredient \(self.name)>"
     }
     
     override public var debugDescription : String {
-        return "<Integrient \(self.name)>"
+        return "<Ingredient \(self.name)>"
     }
 }
 
-extension Integrient {
+extension Ingredient {
     
     func getImageUrl() -> URL? {
         var urlString = RestApiManager.baseURL + (self.image_url)!

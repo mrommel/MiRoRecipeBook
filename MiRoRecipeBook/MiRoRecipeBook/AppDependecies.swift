@@ -16,7 +16,7 @@ class AppDependecies: NSObject {
     var appWireframe: AppWireframe? = nil
     
     var recipesWireframe: RecipesWireframe? = nil
-    var integrientsWireframe: IntegrientsWireframe? = nil
+    var ingredientsWireframe: IngredientsWireframe? = nil
     var settingsWireframe: SettingsWireframe? = nil
     
     override init() {
@@ -33,7 +33,7 @@ class AppDependecies: NSObject {
         self.rootNavigationController?.navigationBar.isHidden = false
         
         self.recipesWireframe = RecipesWireframe.init(withRootNavigationController: self.rootNavigationController)
-        self.integrientsWireframe = IntegrientsWireframe.init(withRootNavigationController: self.rootNavigationController)
+        self.ingredientsWireframe = IngredientsWireframe.init(withRootNavigationController: self.rootNavigationController)
         self.settingsWireframe = SettingsWireframe.init(withRootNavigationController: self.rootNavigationController)
         
         self.appWireframe = AppWireframe.init(withWindow:window, andNavigationController:self.rootNavigationController, appDependencies:self)

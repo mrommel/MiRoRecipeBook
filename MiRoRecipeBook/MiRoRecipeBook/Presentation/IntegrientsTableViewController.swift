@@ -1,5 +1,5 @@
 //
-//  IntegrientsTableViewController.swift
+//  IngredientsTableViewController.swift
 //  MiRo.RecipeBook
 //
 //  Created by Michael Rommel on 22.11.16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntegrientsTableViewController: UITableViewController {
+class IngredientsTableViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
     
@@ -16,16 +16,16 @@ class IntegrientsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Integrients"
+        self.title = "Ingredients"
         
-        let integrients = recipeManager.allIntegrients()
-        NSLog("recipes: %d", integrients!.count)
+        let ingredients = recipeManager.allIngredients()
+        NSLog("recipes: %d", ingredients!.count)
         
         self.tableView.contentInset = UIEdgeInsets.init(top: 60, left: 0, bottom: 0, right: 0)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeManager.allIntegrients()!.count
+        return recipeManager.allIngredients()!.count
     }
     
     func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage {
@@ -46,12 +46,12 @@ class IntegrientsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let integrient = self.getIntegrient(withIndex: indexPath.row)
+        let ingredient = self.getIngredient(withIndex: indexPath.row)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "integrientsCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = integrient.name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsCell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = ingredient.name
         
-        let imageUrl = integrient.getImageUrl()!
+        let imageUrl = ingredient.getImageUrl()!
         cell.imageView?.setImage(withUrl: imageUrl, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
             
             if error != nil {
@@ -64,23 +64,15 @@ class IntegrientsTableViewController: UITableViewController {
         return cell
     }
     
-    func getIntegrient(withIndex index: Int) -> Integrient {
+    func getIngredient(withIndex index: Int) -> Ingredient {
         
-        let integrientItems = recipeManager.allIntegrients()
+        let ingredientItems = recipeManager.allIngredients()
         
-        return integrientItems![index]
+        return ingredientItems![index]
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch (indexPath.row) {
-        case 0:
-            break;
-        default:
-            break;
-        }
-    }
-    
-    @IBAction func openMenu(_ sender: AnyObject) {
-        self.revealViewController().revealToggle(nil)
+        let ingredient = self.getIngredient(withIndex: indexPath.row)
+        AppDelegate.shared?.appDependecies?.ingredientsWireframe?.presentRecipes(forIngredientIdentifier: (ingredient.identifier?.intValue)!)
     }
 }
