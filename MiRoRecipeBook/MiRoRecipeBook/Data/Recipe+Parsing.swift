@@ -28,4 +28,18 @@ extension Recipe {
         let imageUrl = URL(string: urlString)
         return imageUrl
     }
+    
+    func getSteps() -> [RecipeStep]? {
+        
+        return RecipeManager().getRecipeSteps(withRecipeIdentifier: self.identifier as! Int)
+    }
+    
+    func hasIngredient(withIdentifier ingredientIdentifier: Int) -> Bool {
+        return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier as! Int, ingredientIdentifier: ingredientIdentifier)
+    }
+    
+    func getIngredients() -> [RecipeIngredient]? {
+        
+        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier as! Int)
+    }
 }

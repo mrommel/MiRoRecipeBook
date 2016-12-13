@@ -16,6 +16,11 @@
         <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="RecipeIngredient" representedClassName=".RecipeIngredient" syncable="YES">
+        <attribute name="ingredient_identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipe_identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="RecipeStep" representedClassName=".RecipeStep" syncable="YES">
         <attribute name="recipe_identifier" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="step" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,5 +29,6 @@
         <element name="Ingredient" positionX="-63" positionY="45" width="128" height="105"/>
         <element name="Recipe" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="RecipeStep" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="RecipeIngredient" positionX="-63" positionY="45" width="128" height="90"/>
     </elements>
 </model>

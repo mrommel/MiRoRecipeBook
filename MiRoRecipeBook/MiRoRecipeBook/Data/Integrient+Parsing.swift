@@ -28,5 +28,9 @@ extension Ingredient {
         let imageUrl = URL(string: urlString)
         return imageUrl
     }
-    
+
+    func getRecipeIngredients() -> [RecipeIngredient]? {
+        
+        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: (self.identifier?.intValue)!)
+    }
 }

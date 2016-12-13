@@ -14,8 +14,19 @@ protocol RecipesProtocol: class {
     
     func importRecipes()
     func getRecipe(withIdentifier indentifier: Int) -> Recipe?
-    func storeRecipe(withIdentifier identifier: Int) -> Recipe?
     func allRecipes() -> [Recipe]?
+}
+
+protocol RecipeStepsProtocol: class {
+    
+    func storeRecipe(withIdentifier identifier: Int) -> Recipe?
+    func getRecipeSteps(withRecipeIdentifier identifier: Int) -> [RecipeStep]?
+}
+
+protocol RecipeIngredientsProtocol: class {
+    
+    func storeRecipeIngredient(withRecipeIdentifier identifier: Int, ingredientIdentifier: Int, ingredientQuantity: String)
+    func getRecipeIngredients(withRecipeIdentifier identifier: Int) -> [RecipeIngredient]?
 }
 
 protocol IngredientsProtocol: class {
@@ -59,8 +70,16 @@ extension RecipeManager: RecipesProtocol {
                     recipe?.portions = recipeJSON["portions"].numberValue
                     
                     for stepJSON in recipeJSON["steps"].array! as [JSON] {
-                        //NSLog("step %@", stepJSON.stringValue)
-                        let _ = self.storeRecipeStep(withIdentifier: identifier, step: stepJSON.stringValue)
+                        let step = stepJSON.stringValue
+                        NSLog("step %d => %@", identifier, step)
+                        let _ = self.storeRecipeStep(withIdentifier: identifier, step: step)
+                    }
+                    
+                    for ingredientJSON in recipeJSON["integrients"].array! as [JSON] {
+                        let ingredientIdentifier = ingredientJSON.dictionary?["id"]?.intValue
+                        let ingredientQuantity = ingredientJSON.dictionary?["quantity"]?.stringValue
+                        // NSLog("ingredient %@", ingredientJSON.dictionary ?? "abc")
+                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier!, ingredientQuantity: ingredientQuantity!)
                     }
                     
                     NSLog("recipe created: %@", recipeJSON["name"].stringValue)
@@ -96,32 +115,6 @@ extension RecipeManager: RecipesProtocol {
         return nil
     }
     
-    func storeRecipeStep(withIdentifier identifier: Int, step: String) -> RecipeStep? {
-        
-        let context = self.getContext()
-        
-        // retrieve the RecipeStep
-        let entity =  NSEntityDescription.entity(forEntityName: "RecipeStep", in: context)
-        
-        let recipeStep = NSManagedObject(entity: entity!, insertInto: context)
-        
-        // set the entity values
-        recipeStep.setValue(NSNumber.init(value: identifier), forKey: "recipe_identifier")
-        recipeStep.setValue(step, forKey: "step")
-        
-        // save the object
-        do {
-            try context.save()
-            print("saved!")
-            return recipeStep as? RecipeStep
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-            return nil
-        } catch {
-            return nil
-        }
-    }
-    
     func storeRecipe(withIdentifier identifier: Int) -> Recipe? {
         
         let context = self.getContext()
@@ -145,10 +138,6 @@ extension RecipeManager: RecipesProtocol {
         } catch {
             return nil
         }
-    }
-    
-    func getRecipeSteps(withIdentifier identifier: Int) -> [RecipeStep]? {
-        return nil
     }
     
     func allRecipes() -> [Recipe]? {
@@ -180,6 +169,132 @@ extension RecipeManager: RecipesProtocol {
         }
         
         return nil
+    }
+}
+
+extension RecipeManager: RecipeStepsProtocol {
+    
+    func storeRecipeStep(withIdentifier identifier: Int, step: String) -> RecipeStep? {
+        
+        let context = self.getContext()
+        
+        // retrieve the RecipeStep
+        let entity =  NSEntityDescription.entity(forEntityName: "RecipeStep", in: context)
+        
+        let recipeStep = NSManagedObject(entity: entity!, insertInto: context)
+        
+        // set the entity values
+        recipeStep.setValue(NSNumber.init(value: identifier), forKey: "recipe_identifier")
+        recipeStep.setValue(step, forKey: "step")
+        
+        // save the object
+        do {
+            try context.save()
+            print("saved!")
+            return recipeStep as? RecipeStep
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+            return nil
+        } catch {
+            return nil
+        }
+    }
+    
+    func getRecipeSteps(withRecipeIdentifier identifier: Int) -> [RecipeStep]? {
+        
+        let context = getContext()
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeStep>(entityName: "RecipeStep")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            return searchResults
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+}
+
+extension RecipeManager: RecipeIngredientsProtocol {
+    
+    func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int, ingredientIdentifier: Int, ingredientQuantity quantity: String) {
+        
+        let context = self.getContext()
+        
+        // retrieve the RecipeStep
+        let entity =  NSEntityDescription.entity(forEntityName: "RecipeIngredient", in: context)
+        
+        let recipeIngredientStep = NSManagedObject(entity: entity!, insertInto: context)
+        
+        // set the entity values
+        recipeIngredientStep.setValue(NSNumber.init(value: recipeIdentifier), forKey: "recipe_identifier")
+        recipeIngredientStep.setValue(NSNumber.init(value: ingredientIdentifier), forKey: "ingredient_identifier")
+        recipeIngredientStep.setValue(quantity, forKey: "quantity")
+        
+        // save the object
+        do {
+            try context.save()
+            //return recipeStep as? RecipeStep
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+            //return nil
+        } catch {
+            //return nil
+        }
+    }
+    
+    func getRecipeIngredients(withRecipeIdentifier identifier: Int) -> [RecipeIngredient]? {
+        
+        let context = getContext()
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeIngredient>(entityName: "RecipeIngredient")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            return searchResults
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+    
+    func hasRecipeIngredients(withRecipeIdentifier recipeIdentifier: Int, ingredientIdentifier: Int) -> Bool {
+        let context = getContext()
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeIngredient>(entityName: "RecipeIngredient")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d AND ingredient_identifier == %d", recipeIdentifier, ingredientIdentifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            return searchResults.count > 0
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return false
     }
 }
 
@@ -296,6 +411,15 @@ extension RecipeManager: IngredientsProtocol {
     }
     
     func getRecipes(forIngredient ingredient: Int) -> [Recipe]? {
-        return nil
+        
+        var recipesOfIngredient: [Recipe]? = []
+        
+        for recipe in self.allRecipes()! {
+            if recipe.hasIngredient(withIdentifier: ingredient) {
+                recipesOfIngredient?.append(recipe)
+            }
+        }
+        
+        return recipesOfIngredient
     }
 }

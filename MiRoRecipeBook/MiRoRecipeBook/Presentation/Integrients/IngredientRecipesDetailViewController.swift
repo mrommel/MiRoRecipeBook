@@ -10,6 +10,7 @@ class IngredientRecipesDetailViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
     var ingredientIdentifier: Int?
+    var recipes: [Recipe]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,8 +18,8 @@ class IngredientRecipesDetailViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "IngredientRecipes"
         
-        let recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier!)
-        NSLog("recipes: %d", recipes!.count)
+        self.recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier!)
+        NSLog("recipes: %d", self.recipes!.count)
     }
     
     func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage {
@@ -52,9 +53,7 @@ extension IngredientRecipesDetailViewController {
     
     func getRecipe(withIndex index: Int) -> Recipe {
         
-        let recipeItems = recipeManager.allRecipes()
-        
-        return recipeItems![index]
+        return self.recipes![index]
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -90,7 +89,7 @@ extension IngredientRecipesDetailViewController {
 extension IngredientRecipesDetailViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeManager.allRecipes()!.count
+        return self.recipes!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

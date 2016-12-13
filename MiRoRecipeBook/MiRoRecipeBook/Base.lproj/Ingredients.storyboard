@@ -12,7 +12,7 @@
         <!--Ingredients Table View Controller-->
         <scene sceneID="5is-94-PL7">
             <objects>
-                <tableViewController storyboardIdentifier="IngredientsTableViewController" id="zhM-D1-Eyn" userLabel="Ingredients Table View Controller" customClass="IngredientsTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IngredientsTableViewController" id="zhM-D1-Eyn" userLabel="Ingredients Table View Controller" customClass="IngredientsTableViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eqC-jk-1dF">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
         <!--Ingredient Recipes Detail View Controller-->
         <scene sceneID="Lci-xQ-iTQ">
             <objects>
-                <tableViewController storyboardIdentifier="IngredientRecipesDetailViewController" id="XDQ-Oz-253" userLabel="Ingredient Recipes Detail View Controller" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IngredientRecipesDetailViewController" id="XDQ-Oz-253" userLabel="Ingredient Recipes Detail View Controller" customClass="IngredientRecipesDetailViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqa-gq-2tI">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
