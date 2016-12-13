@@ -37,7 +37,7 @@ protocol IngredientsProtocol: class {
     func getRecipes(forIngredient ingredient: Int) -> [Recipe]?
 }
 
-class RecipeManager: CoreDataManager {
+class RecipeManager: NSObject {
     
     fileprivate var webservice: RecipeWebService?
 }
@@ -92,7 +92,7 @@ extension RecipeManager: RecipesProtocol {
     
     func getRecipe(withIdentifier indentifier: Int) -> Recipe? {
         
-        let context = getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // try to get a recipe ...
         let fetchRequest = NSFetchRequest<Recipe>(entityName: "Recipe")
@@ -117,7 +117,7 @@ extension RecipeManager: RecipesProtocol {
     
     func storeRecipe(withIdentifier identifier: Int) -> Recipe? {
         
-        let context = self.getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // retrieve the Recipe
         let entity =  NSEntityDescription.entity(forEntityName: "Recipe", in: context)
@@ -142,6 +142,8 @@ extension RecipeManager: RecipesProtocol {
     
     func allRecipes() -> [Recipe]? {
         
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
         let fetchRequest = NSFetchRequest<Recipe>(entityName: "Recipe")
         
         // ... with identifier
@@ -149,7 +151,7 @@ extension RecipeManager: RecipesProtocol {
         
         do {
             // go get the results
-            let searchResults = try self.getContext().fetch(fetchRequest)
+            let searchResults = try context.fetch(fetchRequest)
             
             // I like to check the size of the returned results!
             print ("num of results = \(searchResults.count)")
@@ -176,7 +178,7 @@ extension RecipeManager: RecipeStepsProtocol {
     
     func storeRecipeStep(withIdentifier identifier: Int, step: String) -> RecipeStep? {
         
-        let context = self.getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // retrieve the RecipeStep
         let entity =  NSEntityDescription.entity(forEntityName: "RecipeStep", in: context)
@@ -202,7 +204,7 @@ extension RecipeManager: RecipeStepsProtocol {
     
     func getRecipeSteps(withRecipeIdentifier identifier: Int) -> [RecipeStep]? {
         
-        let context = getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // try to get a recipe ...
         let fetchRequest = NSFetchRequest<RecipeStep>(entityName: "RecipeStep")
@@ -228,7 +230,7 @@ extension RecipeManager: RecipeIngredientsProtocol {
     
     func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int, ingredientIdentifier: Int, ingredientQuantity quantity: String) {
         
-        let context = self.getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // retrieve the RecipeStep
         let entity =  NSEntityDescription.entity(forEntityName: "RecipeIngredient", in: context)
@@ -254,7 +256,7 @@ extension RecipeManager: RecipeIngredientsProtocol {
     
     func getRecipeIngredients(withRecipeIdentifier identifier: Int) -> [RecipeIngredient]? {
         
-        let context = getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // try to get a recipe ...
         let fetchRequest = NSFetchRequest<RecipeIngredient>(entityName: "RecipeIngredient")
@@ -276,7 +278,8 @@ extension RecipeManager: RecipeIngredientsProtocol {
     }
     
     func hasRecipeIngredients(withRecipeIdentifier recipeIdentifier: Int, ingredientIdentifier: Int) -> Bool {
-        let context = getContext()
+        
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // try to get a recipe ...
         let fetchRequest = NSFetchRequest<RecipeIngredient>(entityName: "RecipeIngredient")
@@ -331,7 +334,7 @@ extension RecipeManager: IngredientsProtocol {
     
     func getIngredient(withIdentifier indentifier: Int) -> Ingredient? {
         
-        let context = getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // try to get a recipe ...
         let fetchRequest = NSFetchRequest<Ingredient>(entityName: "Ingredient")
@@ -356,7 +359,7 @@ extension RecipeManager: IngredientsProtocol {
     
     func storeIngredient(withIdentifier identifier: Int) -> Ingredient? {
         
-        let context = self.getContext()
+        let context = CoreDataManager.sharedInstance().mainContext!
         
         // retrieve the Ingredient
         let entity =  NSEntityDescription.entity(forEntityName: "Ingredient", in: context)
@@ -381,6 +384,8 @@ extension RecipeManager: IngredientsProtocol {
     
     func allIngredients() -> [Ingredient]? {
         
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
         let fetchRequest = NSFetchRequest<Ingredient>(entityName: "Ingredient")
         
         // ... with identifier
@@ -390,7 +395,7 @@ extension RecipeManager: IngredientsProtocol {
         
         do {
             // go get the results
-            let searchResults = try self.getContext().fetch(fetchRequest)
+            let searchResults = try context.fetch(fetchRequest)
             
             // I like to check the size of the returned results!
             print ("num of results = \(searchResults.count)")

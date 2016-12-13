@@ -28,9 +28,9 @@ class MenuTableViewController: UITableViewController {
         
         super.viewDidLoad()
         
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Recipes".localized, screenType:ScreenType.recipes))
-        menuItems.append(MenuItem(image: "ingredients-64.png", name: "Ingredients".localized, screenType:ScreenType.ingredients))
-        menuItems.append(MenuItem(image: "settings-64.png", name: "Settings".localized, screenType:ScreenType.settings))
+        menuItems.append(MenuItem(image: "menu-recipe.png", name: "Recipes".localized, screenType:ScreenType.recipes))
+        menuItems.append(MenuItem(image: "menu-ingredients.png", name: "Ingredients".localized, screenType:ScreenType.ingredients))
+        menuItems.append(MenuItem(image: "menu-settings.png", name: "Settings".localized, screenType:ScreenType.settings))
         
         self.title = "RecipeBook".localized
     }
