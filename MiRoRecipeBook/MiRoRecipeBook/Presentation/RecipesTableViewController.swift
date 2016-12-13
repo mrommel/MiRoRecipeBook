@@ -10,8 +10,9 @@ import UIKit
 import MapleBacon
 
 class RecipeTableViewCell: UITableViewCell {
-    @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var recipeImageView: UIImageView!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var recipeDescriptionLabel: UILabel!
 }
 
 class RecipesTableViewController: UITableViewController {
@@ -27,22 +28,6 @@ class RecipesTableViewController: UITableViewController {
         
         self.recipes = recipeManager.allRecipes()
         NSLog("recipes: %d", recipes!.count)
-    }
-    
-    func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage {
-        
-        let scale = CGFloat(max(size.width/image.size.width,
-                                size.height/image.size.height))
-        let width:CGFloat  = image.size.width * scale
-        let height:CGFloat = image.size.height * scale;
-        
-        let rr:CGRect = CGRect.init(x: 0, y: 0, width: width, height: height)
-        
-        UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        image.draw(in: rr)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        return newImage!
     }
 
 }
@@ -104,14 +89,9 @@ extension RecipesTableViewController {
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
         cell.recipeTitleLabel?.text = recipe.name
-        //cell.detailTextLabel?.text = recipe.desc
+        cell.detailTextLabel?.text = recipe.desc
         
-        cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
-            
-            /*cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))
-            cell.imageView?.layer.cornerRadius = 20
-            cell.imageView?.clipsToBounds = true*/
-        })
+        cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
         
         return cell
     }
