@@ -6,8 +6,6 @@
 //  Copyright © 2016 Mobility Media. All rights reserved.
 //
 
-import Foundation
-
 import CoreData
 
 extension RecipeStep {

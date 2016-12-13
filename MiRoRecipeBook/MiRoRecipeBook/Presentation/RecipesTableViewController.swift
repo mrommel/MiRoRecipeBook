@@ -12,6 +12,7 @@ import MapleBacon
 class RecipesTableViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
+    var recipes: [Recipe]? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ class RecipesTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Recipes"
         
-        let recipes = recipeManager.allRecipes()
+        self.recipes = recipeManager.allRecipes()
         NSLog("recipes: %d", recipes!.count)
     }
     
@@ -54,9 +55,7 @@ extension RecipesTableViewController {
     
     func getRecipe(withIndex index: Int) -> Recipe {
         
-        let recipeItems = recipeManager.allRecipes()
-        
-        return recipeItems![index]
+        return self.recipes![index]
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -92,7 +91,7 @@ extension RecipesTableViewController {
 extension RecipesTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeManager.allRecipes()!.count
+        return self.recipes!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

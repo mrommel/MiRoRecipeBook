@@ -76,10 +76,10 @@ extension RecipeManager: RecipesProtocol {
                     }
                     
                     for ingredientJSON in recipeJSON["integrients"].array! as [JSON] {
-                        let ingredientIdentifier = ingredientJSON.dictionary?["id"]?.intValue
-                        let ingredientQuantity = ingredientJSON.dictionary?["quantity"]?.stringValue
-                        // NSLog("ingredient %@", ingredientJSON.dictionary ?? "abc")
-                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier!, ingredientQuantity: ingredientQuantity!)
+                        let ingredientIdentifier = ingredientJSON["id"].intValue
+                        let ingredientQuantity = ingredientJSON["quantity"].stringValue
+                        //NSLog("identifier \(identifier), ingredientIdentifier \(ingredientIdentifier), ingredientQuantity \(ingredientQuantity)")
+                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity)
                     }
                     
                     NSLog("recipe created: %@", recipeJSON["name"].stringValue)

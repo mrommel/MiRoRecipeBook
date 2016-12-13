@@ -10,8 +10,8 @@ import CoreData
 
 public class RecipeIngredient: NSManagedObject {
     
-    @NSManaged var recipeIdentifier: NSNumber?
-    @NSManaged var ingredientIdentifier: NSNumber?
+    @NSManaged var recipe_identifier: NSNumber?
+    @NSManaged var ingredient_identifier: NSNumber?
     @NSManaged var quantity: String?
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */; };
+		1A19CC911E0031E700A3DA32 /* RecipeIngredient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */; };
 		1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A45C0901DEF730E009C9C4E /* recipe-default-image.png */; };
 		1A45C0931DEF8032009C9C4E /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45C0921DEF8032009C9C4E /* Recipe.swift */; };
 		1A45C0951DEF8058009C9C4E /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A45C0941DEF8058009C9C4E /* RecipeStep.swift */; };
@@ -95,6 +96,7 @@
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
 		09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiRoRecipeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A0C10C21DE627EC00935B33 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = Presentation/SettingsTableViewController.swift; sourceTree = "<group>"; };
+		1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeIngredient+Parsing.swift"; path = "Data/RecipeIngredient+Parsing.swift"; sourceTree = "<group>"; };
 		1A45C0901DEF730E009C9C4E /* recipe-default-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "recipe-default-image.png"; path = "MiRoRecipeBook/Resources/Images/recipe-default-image.png"; sourceTree = "<group>"; };
 		1A45C0921DEF8032009C9C4E /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Data/Recipe.swift; sourceTree = "<group>"; };
 		1A45C0941DEF8058009C9C4E /* RecipeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeStep.swift; path = Data/RecipeStep.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				1A45C0941DEF8058009C9C4E /* RecipeStep.swift */,
 				1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */,
 				1A68C3251DFFF25500C025E4 /* RecipeIngredient.swift */,
+				1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */,
 				1AAF719B1DF5AFF9002F4293 /* Integrient.swift */,
 				1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */,
 			);
@@ -628,6 +631,7 @@
 				1A8B5C841DE579E200E11D14 /* ColorPalette.swift in Sources */,
 				1A8B5C6A1DE4EBD400E11D14 /* HintViewController.swift in Sources */,
 				1A5317721DEB1BB0002FF14B /* RecipeDetailViewController.swift in Sources */,
+				1A19CC911E0031E700A3DA32 /* RecipeIngredient+Parsing.swift in Sources */,
 				1A68C3161DFECC1000C025E4 /* AppWireframe.swift in Sources */,
 				1A68C3241DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift in Sources */,
 				1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */,

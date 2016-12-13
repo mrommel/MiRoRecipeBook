@@ -38,7 +38,7 @@ extension Recipe {
         return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier as! Int, ingredientIdentifier: ingredientIdentifier)
     }
     
-    func getIngredients() -> [RecipeIngredient]? {
+    func getRecipeIngredients() -> [RecipeIngredient]? {
         
         return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier as! Int)
     }

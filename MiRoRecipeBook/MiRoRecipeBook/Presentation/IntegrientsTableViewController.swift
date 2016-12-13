@@ -11,6 +11,7 @@ import UIKit
 class IngredientsTableViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
+    var ingredients: [Ingredient]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +19,14 @@ class IngredientsTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Ingredients".localized
         
-        let ingredients = recipeManager.allIngredients()
-        NSLog("recipes: %d", ingredients!.count)
+        self.ingredients = recipeManager.allIngredients()
+        NSLog("recipes: %d", self.ingredients!.count)
         
         self.tableView.contentInset = UIEdgeInsets.init(top: 60, left: 0, bottom: 0, right: 0)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeManager.allIngredients()!.count
+        return self.ingredients!.count
     }
     
     func resizeImage(image:UIImage, toTheSize size:CGSize) -> UIImage {
@@ -69,9 +70,7 @@ class IngredientsTableViewController: UITableViewController {
     
     func getIngredient(withIndex index: Int) -> Ingredient {
         
-        let ingredientItems = recipeManager.allIngredients()
-        
-        return ingredientItems![index]
+        return self.ingredients![index]
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
