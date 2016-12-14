@@ -17,6 +17,8 @@ class ColorPalette: NSObject {
     open class var themeColor: UIColor { get { return green } }
     
     open class var tintColor: UIColor { get { return UIColor.white } }
+    
+    open class var navigationBarTitleColor: UIColor { get { return UIColor.white } }
 }
 
 class FontPalette: NSObject {
