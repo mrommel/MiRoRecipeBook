@@ -50,6 +50,11 @@
     return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(entityClass) inManagedObjectContext:self.mainContext];
 }
 
+- (NSManagedObject *)createNSManagedObjectForClassName:(NSString *)entityClassName
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:self.mainContext];
+}
+
 - (void)saveContext
 {
     [self saveMainContext];

@@ -21,6 +21,8 @@ typedef void (^FetchResponseBlock)(NSArray *result, NSError *error);
 // Creation methods
 - (NSManagedObjectContext *)createWorkerContext;
 - (NSManagedObject *)createNSManagedObjectForClass:(Class)entityClass;
+- (NSManagedObject *)createNSManagedObjectForClassName:(NSString *)entityClassName;
+
 // Save methods
 - (void)saveContext;
 - (void)saveObject:(NSManagedObject *)object;

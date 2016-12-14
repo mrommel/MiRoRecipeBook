@@ -23,6 +23,10 @@ extension Recipe {
 extension Recipe {
     
     func getImageUrl() -> URL? {
+        if self.image_url == nil {
+            return nil
+        }
+        
         var urlString = RestApiManager.baseURL + (self.image_url)!
         urlString = urlString.replacingOccurrences(of: "//", with: "/")
         let imageUrl = URL(string: urlString)
@@ -31,15 +35,15 @@ extension Recipe {
     
     func getSteps() -> [RecipeStep]? {
         
-        return RecipeManager().getRecipeSteps(withRecipeIdentifier: self.identifier as! Int)
+        return RecipeManager().getRecipeSteps(withRecipeIdentifier: self.identifier)
     }
     
-    func hasIngredient(withIdentifier ingredientIdentifier: Int) -> Bool {
-        return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier as! Int, ingredientIdentifier: ingredientIdentifier)
+    func hasIngredient(withIdentifier ingredientIdentifier: Int32) -> Bool {
+        return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier, ingredientIdentifier: ingredientIdentifier)
     }
     
     func getRecipeIngredients() -> [RecipeIngredient]? {
         
-        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier as! Int)
+        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier)
     }
 }

@@ -75,6 +75,6 @@ class IngredientsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ingredient = self.getIngredient(withIndex: indexPath.row)
-        AppDelegate.shared?.appDependecies?.ingredientsWireframe?.presentRecipes(forIngredientIdentifier: (ingredient.identifier?.intValue)!)
+        AppDelegate.shared?.appDependecies?.ingredientsWireframe?.presentRecipes(forIngredientIdentifier: ingredient.identifier)
     }
 }

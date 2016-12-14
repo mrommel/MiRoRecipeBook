@@ -15,7 +15,7 @@ class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-    static let baseURL = "http://localhost:8000/"
+    static let baseURL = "http://192.168.178.20:8000/"
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {
         let request = NSMutableURLRequest(url: NSURL(string: path)! as URL)

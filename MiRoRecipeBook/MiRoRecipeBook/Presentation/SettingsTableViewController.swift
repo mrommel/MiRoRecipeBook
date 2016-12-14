@@ -19,6 +19,7 @@ class SettingsTableViewController: UITableViewController {
         self.title = "Settings"
         
         recipes.append("Sync")
+        //recipes.append("Reset")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,11 +65,20 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 0:
-            let recipeManager = RecipeManager()
-            recipeManager.importRecipes()
-            recipeManager.importIngredients()
+            DispatchQueue.global(qos: .background).async {
+                print("This is run on the background queue")
+                let recipeManager = RecipeManager()
+                recipeManager.importRecipes()
+                recipeManager.importIngredients()
+                
+                DispatchQueue.main.async {
+                    print("This is run on the main queue, after the previous code in outer block")
+                    self.tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
+            break;
+        case 1:
             
-            self.tableView.deselectRow(at: indexPath, animated: true)
             break;
         default:
             break;

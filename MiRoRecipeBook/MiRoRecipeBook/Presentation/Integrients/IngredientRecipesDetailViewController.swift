@@ -9,7 +9,7 @@
 class IngredientRecipesDetailViewController: UITableViewController {
     
     let recipeManager = RecipeManager()
-    var ingredientIdentifier: Int?
+    var ingredientIdentifier: Int32?
     var recipes: [Recipe]?
     
     override func viewDidLoad() {

@@ -22,7 +22,7 @@ class IngredientsWireframe: CommonWireframe {
         return ingredientsTableViewController
     }
  
-    func presentRecipes(forIngredientIdentifier ingredientIdentifier: Int) {
+    func presentRecipes(forIngredientIdentifier ingredientIdentifier: Int32) {
         let ingredientRecipesDetailViewController = IngredientRecipesDetailViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
         ingredientRecipesDetailViewController.ingredientIdentifier = ingredientIdentifier
         self.rootNavigationController?.pushViewController(ingredientRecipesDetailViewController, animated: true)

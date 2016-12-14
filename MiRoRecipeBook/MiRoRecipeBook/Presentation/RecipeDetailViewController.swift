@@ -30,8 +30,19 @@ class RecipeDetailViewController: UIViewController {
             NSLog("recipe: %@", recipe ?? "<default>")
             self.title = recipe?.name
             self.titleLabel?.text = recipe?.name
-            self.descLabel?.text = (recipe!.teaser)! + " " + (recipe!.desc)!;
-            self.imageLabel?.setImage(withUrl: recipe!.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
+            
+            var subText = ""
+            if let teaser = recipe?.teaser {
+                subText = teaser
+            }
+            if let desc = recipe?.desc {
+                subText += desc
+            }
+            
+            self.descLabel?.text = subText
+            if recipe?.getImageUrl() != nil {
+                self.imageLabel?.setImage(withUrl: (recipe?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"))
+            }
             
             self.recipeIngredients = recipe?.getRecipeIngredients()
             self.ingredientTableView.delegate = self
@@ -100,20 +111,16 @@ extension RecipeDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeTableViewCell
         
         let recipeIngredient = self.getRecipeIngredient(withIndex: indexPath.row)
-        let ingredient = recipeManager.getIngredient(withIdentifier: recipeIngredient.ingredient_identifier as! Int)
-        cell.textLabel?.text = ingredient?.name
-        cell.detailTextLabel?.text = recipeIngredient.quantity
+        let ingredient = recipeManager.getIngredient(withIdentifier: recipeIngredient.ingredient_identifier)
+        cell.recipeTitleLabel?.text = ingredient?.name
+        cell.recipeDescriptionLabel?.text = recipeIngredient.quantity
         
-        //cell.imageView?.frame
-        cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false, completion: { imageInstance, error in
-            
-            cell.imageView?.image = self.resizeImage(image: imageInstance!.image!, toTheSize: CGSize.init(width: 40, height: 40))
-            cell.imageView?.layer.cornerRadius = 20
-            cell.imageView?.clipsToBounds = true
-        })
+        if ingredient?.getImageUrl() != nil {
+            cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+        }
         
         return cell
     }

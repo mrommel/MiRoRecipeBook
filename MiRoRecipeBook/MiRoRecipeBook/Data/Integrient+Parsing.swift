@@ -23,6 +23,11 @@ extension Ingredient {
 extension Ingredient {
     
     func getImageUrl() -> URL? {
+        
+        if self.image_url == nil {
+            return nil
+        }
+        
         var urlString = RestApiManager.baseURL + (self.image_url)!
         urlString = urlString.replacingOccurrences(of: "//", with: "/")
         let imageUrl = URL(string: urlString)
@@ -31,6 +36,6 @@ extension Ingredient {
 
     func getRecipeIngredients() -> [RecipeIngredient]? {
         
-        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: (self.identifier?.intValue)!)
+        return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier)
     }
 }
