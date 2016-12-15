@@ -17,6 +17,10 @@
 "portions" = "portions";
 "duration" = "duration";
 
+// ingredients
+"IngredientRecipes.of" = "Recipes with";
+"recipes" = "recipes";
+
 // hint
 "hint.title" = "Hint";
 "hint.message" = "Please open the menu and explore what you can do with this app.";

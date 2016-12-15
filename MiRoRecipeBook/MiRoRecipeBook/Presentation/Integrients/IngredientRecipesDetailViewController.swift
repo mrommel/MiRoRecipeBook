@@ -16,7 +16,8 @@ class IngredientRecipesDetailViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "IngredientRecipes"
+        let ingredient = recipeManager.getIngredient(withIdentifier: ingredientIdentifier!)
+        self.title = "IngredientRecipes.of".localized + " " + (ingredient?.name)!
         
         self.recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier!)
         NSLog("recipes: %d", self.recipes!.count)
