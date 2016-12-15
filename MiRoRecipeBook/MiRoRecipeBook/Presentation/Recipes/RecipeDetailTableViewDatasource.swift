@@ -63,6 +63,7 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
             cell.recipeTitleLabel?.text = step
             cell.recipeDescriptionLabel?.text = ""
             
+            cell.imageView?.image = UIImage.init(named: "number\(indexPath.row).png")
             /*if ingredient?.getImageUrl() != nil {
              cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
              }*/
