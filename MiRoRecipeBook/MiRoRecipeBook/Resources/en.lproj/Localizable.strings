@@ -13,6 +13,10 @@
 "Ingredients" = "Ingredients";
 "Settings" = "Settings";
 
+// recipe
+"portions" = "portions";
+"duration" = "duration";
+
 // hint
 "hint.title" = "Hint";
 "hint.message" = "Please open the menu and explore what you can do with this app.";

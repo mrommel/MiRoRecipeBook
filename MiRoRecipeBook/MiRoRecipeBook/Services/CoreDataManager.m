@@ -1,6 +1,6 @@
 //
-//  ReceiptManager.m
 //  SmartReceipt
+//  CoreDataManager.m
 //
 //  Created by Michael Rommel on 19.06.15.
 //  Copyright (c) 2015 Michael Rommel. All rights reserved.
@@ -24,16 +24,36 @@
 
 @implementation CoreDataManager
 
+static CoreDataManager *shared = nil;
+static CoreDataManager *sharedTests = nil;
+static dispatch_once_t onceToken;
+
+#pragma mark - Singleton
+
 + (CoreDataManager *)sharedInstance
 {
-    static CoreDataManager *shared = nil;
-    static dispatch_once_t onceToken;
+    if (sharedTests) {
+        return sharedTests;
+    }
     dispatch_once(&onceToken, ^{
         shared = [[self alloc] init];
         [shared createManagedObjectContexts];
     });
     
     return shared;
+}
+
+- (instancetype)initWithInMemoryStorage
+{
+    if (sharedTests) {
+        return sharedTests;
+    }
+    if (self = [super init]) {
+        [self createInMemoryManagedObjectContexts];
+        sharedTests = self;
+    }
+    
+    return self;
 }
 
 #pragma mark - Public methods
@@ -47,12 +67,18 @@
 
 - (NSManagedObject *)createNSManagedObjectForClass:(Class)entityClass
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(entityClass) inManagedObjectContext:self.mainContext];
+    NSString *className = [[NSStringFromClass([entityClass class]) componentsSeparatedByString:@"."] lastObject];
+    return [self createNSManagedObjectForClassName:className inContext:self.mainContext];
 }
 
 - (NSManagedObject *)createNSManagedObjectForClassName:(NSString *)entityClassName
 {
-    return [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:self.mainContext];
+    return [self createNSManagedObjectForClassName:entityClassName inContext:self.mainContext];
+}
+
+- (NSManagedObject *)createNSManagedObjectForClassName:(NSString *)entityClassName inContext:(NSManagedObjectContext *)context
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:entityClassName inManagedObjectContext:context];
 }
 
 - (void)saveContext
@@ -67,26 +93,9 @@
     }
 }
 
-- (void)saveContext:(NSManagedObjectContext *)context
-{
-    [context performBlock:^{
-        if ([context hasChanges]) {
-            if ([context save:NULL]) {// save worker context
-                if (context == self.mainContext) {
-                    [self.privateWriterContext performBlock:^{
-                        [self.privateWriterContext save:NULL];// write to disk
-                    }];
-                } else {
-                    [self saveMainContext];
-                }
-            }
-        }
-    }];
-}
-
 - (void)deleteObject:(id)object
 {
-    NSManagedObjectContext *context = ((NSManagedObject *)object).managedObjectContext;
+    NSManagedObjectContext *context = ((NSManagedObject *) object).managedObjectContext;
     [context performBlockAndWait:^{
         [context deleteObject:object];
         [self saveContext:context];
@@ -98,7 +107,7 @@
     if ([objects count] == 0) {
         return;
     }
-    NSManagedObjectContext *context = ((NSManagedObject *)objects[0]).managedObjectContext;
+    NSManagedObjectContext *context = ((NSManagedObject *) objects[0]).managedObjectContext;
     [context performBlockAndWait:^{
         for (NSManagedObject *obj in objects) {
             [context deleteObject:obj];
@@ -107,18 +116,44 @@
     }];
 }
 
-- (NSArray *)dataWithFetchRequest:(NSFetchRequest *)request error:(NSError **)error
+- (NSUInteger)countWithClassName:(NSString *)className andPredicate:(NSPredicate *)predicate
 {
-    __block NSArray	*results = nil;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:className];
+    fetchRequest.predicate = predicate;
+    return [self.mainContext countForFetchRequest:fetchRequest error:nil];
+}
+
+- (NSManagedObject *)fetchWithClassName:(NSString *)className andPredicate:(NSPredicate *)predicate
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:className];
+    fetchRequest.predicate = predicate;
+    NSArray *objects = [self dataWithFetchRequest:fetchRequest error:NULL];
+    
+    return [objects firstObject];
+}
+
+- (NSManagedObject *)fetchWithClassName:(NSString *)className andPredicate:(NSPredicate *)predicate context:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:className];
+    fetchRequest.predicate = predicate;
+    NSArray *objects = [context executeFetchRequest:fetchRequest error:nil];
+    
+    return [objects firstObject];
+}
+
+- (NSArray<NSManagedObject *> *)dataWithFetchRequest:(NSFetchRequest *)request error:(NSError **)error
+{
+    __block NSArray *results = nil;
     [self.mainContext performBlockAndWait:^{
         results = [self.mainContext executeFetchRequest:request error:error];
     }];
+    
     return results;
 }
 
 - (void)dataWithFetchRequest:(NSFetchRequest *)request completionBlock:(FetchResponseBlock)block
 {
-    __block NSArray	*results = nil;
+    __block NSArray *results = nil;
     __block NSError *errorObj = nil;
     [self.mainContext performBlock:^{
         results = [self.mainContext executeFetchRequest:request error:&errorObj];
@@ -158,16 +193,6 @@
     return _managedObjectModel;
 }
 
--(NSString *)documentsDirectory {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    return documentsDirectory;
-}
-
--(NSString *)dataStorePath {
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"ReceiptStore.sqlite"];
-}
-
 /*
  * Returns the persistent store coordinator for the application.
  * If the coordinator doesn't already exist, it is created and the application's store added to it.
@@ -177,15 +202,25 @@
     if (_persistentStoreCoordinator) {
         return _persistentStoreCoordinator;
     }
-    NSURL *storeURL = [NSURL fileURLWithPath:[self dataStorePath]];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MiRoRecipeBook.sqlite"];
     
-    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @YES, NSInferMappingModelAutomaticallyOption: @YES};
+    // Set up the store (pre-populated default store)
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    // If the expected store doesn't exist, copy the default store, if any.
+    if (![fileManager fileExistsAtPath:[storeURL path]]) {
+        NSURL *defaultStoreURL = [[NSBundle mainBundle] URLForResource:@"MiRoRecipeBook" withExtension:@"sqlite"];
+        if (defaultStoreURL) {
+            [fileManager copyItemAtURL:defaultStoreURL toURL:storeURL error:NULL];
+        }
+    }
+    
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption : @YES, NSInferMappingModelAutomaticallyOption : @YES};
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     
     NSError *error;
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         // TODO: Handle the error appropriately
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        NSLog(@"%@", [NSString stringWithFormat:@"Unresolved error %@, %@", error, [error userInfo]]);
         //abort();
     }
     
@@ -203,27 +238,73 @@
 - (void)createManagedObjectContexts
 {
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator) {
-        // Create the background writer NSManagedObjectContext with concurrency type NSPrivateQueueConcurrenyType
-        self.privateWriterContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-        [self.privateWriterContext setPersistentStoreCoordinator:coordinator];
-        // Create the main thread NSManagedObjectContext with the concurrency type to NSMainQueueConcurrencyType
-        self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        [self.mainContext setParentContext:self.privateWriterContext];
-    }
+    [self setCoordinator:coordinator];
+}
+
+- (void)createInMemoryManagedObjectContexts
+{
+    NSManagedObjectModel *mom = [NSManagedObjectModel mergedModelFromBundles:@[[NSBundle mainBundle]]];
+    NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
+    [coordinator addPersistentStoreWithType:NSInMemoryStoreType configuration:nil URL:nil options:nil error:nil];
+    [self setCoordinator:coordinator];
+}
+
+- (void)setCoordinator:(NSPersistentStoreCoordinator *)coordinator
+{
+    // Create the background writer NSManagedObjectContext with concurrency type NSPrivateQueueConcurrenyType
+    self.privateWriterContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    self.privateWriterContext.persistentStoreCoordinator = coordinator;
+    // Create the main thread NSManagedObjectContext with the concurrency type to NSMainQueueConcurrencyType
+    self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.mainContext.parentContext = self.privateWriterContext;
 }
 
 - (void)saveMainContext
 {
-    [self.mainContext performBlock:^{
-        if ([self.mainContext hasChanges]) {
-            if ([self.mainContext save:NULL]) {// save main thread context
-                [self.privateWriterContext performBlock:^{
-                    [self.privateWriterContext save:NULL];// write to disk
-                }];
+    [self saveContext:self.mainContext];
+}
+
+- (void)saveContext:(NSManagedObjectContext *)context
+{
+    [context performBlockAndWait:^{
+        if ([context hasChanges]) {
+            if ([context save:NULL]) {
+                if (context == self.mainContext) {
+                    [self saveToDisk];
+                } else {
+                    [self saveMainContext];
+                }
             }
         }
     }];
+}
+
+- (void)saveToDisk
+{
+    [self.privateWriterContext performBlock:^{
+        [self.privateWriterContext save:NULL];
+    }];
+}
+
+- (NSArray<NSManagedObjectID *> *)idsOfObjects:(NSArray<NSManagedObject *> *)objects
+{
+    NSMutableArray<NSManagedObjectID *> *ids = [@[] mutableCopy];
+    for (NSManagedObject *object in objects) {
+        [ids addObject:object.objectID];
+    }
+    
+    return ids;
+}
+
+- (NSArray<NSManagedObject *> *)objectsOfIds:(NSArray<NSManagedObjectID *> *)ids
+{
+    NSMutableArray<NSManagedObject *> *objects = [@[] mutableCopy];
+    for (NSManagedObjectID *objectId in ids) {
+        NSManagedObject *object = [self.mainContext objectWithID:objectId];
+        [objects addObject:object];
+    }
+    
+    return objects;
 }
 
 @end

@@ -69,8 +69,6 @@ extension RecipeManager: RecipesProtocol {
                     recipe?.time = recipeJSON["time"].int32Value
                     recipe?.portions = recipeJSON["portions"].int32Value
                     
-                    CoreDataManager.sharedInstance().save(recipe)
-                    
                     for stepJSON in recipeJSON["steps"].array! as [JSON] {
                         let step = stepJSON.stringValue
                         //NSLog("step %d => %@", identifier, step)
@@ -89,6 +87,8 @@ extension RecipeManager: RecipesProtocol {
                     NSLog("recipe already exists: %@", recipe ?? "<default>")
                 }
             }
+            
+            CoreDataManager.sharedInstance().saveContext()
         })
     }
     
@@ -122,15 +122,14 @@ extension RecipeManager: RecipesProtocol {
         //let context = CoreDataManager.sharedInstance().mainContext!
         
         // retrieve the Recipe
-        let recipe = CoreDataManager.sharedInstance().createNSManagedObject(forClassName: Recipe.nameOfClass)
+        let recipe = CoreDataManager.sharedInstance().createNSManagedObject(for: Recipe.self) as? Recipe
         
         // set the entity values
-        recipe?.setValue(NSNumber.init(value: identifier), forKey: "identifier")
+        recipe?.identifier = identifier
         
         // save the object
-        CoreDataManager.sharedInstance().save(recipe)
-        print("recipe \(recipe) saved!")
-        return recipe as? Recipe
+        print("recipe \(recipe) created!")
+        return recipe
     }
     
     func allRecipes() -> [Recipe]? {
@@ -171,21 +170,16 @@ extension RecipeManager: RecipeStepsProtocol {
     
     func storeRecipeStep(withIdentifier identifier: Int32, step: String) -> RecipeStep? {
         
-        let context = CoreDataManager.sharedInstance().mainContext!
-        
         // retrieve the RecipeStep
-        let entity =  NSEntityDescription.entity(forEntityName: "RecipeStep", in: context)
-        
-        let recipeStep = NSManagedObject(entity: entity!, insertInto: context)
+        let recipeStep = CoreDataManager.sharedInstance().createNSManagedObject(for: RecipeStep.self) as? RecipeStep
         
         // set the entity values
-        recipeStep.setValue(NSNumber.init(value: identifier), forKey: "recipe_identifier")
-        recipeStep.setValue(step, forKey: "step")
+        recipeStep?.recipe_identifier = identifier
+        recipeStep?.step = step
         
         // save the object
-        CoreDataManager.sharedInstance().save(recipeStep)
-        print("recipeStep saved!")
-        return recipeStep as? RecipeStep
+        print("recipeStep created!")
+        return recipeStep
     }
     
     func getRecipeSteps(withRecipeIdentifier identifier: Int32) -> [RecipeStep]? {
@@ -295,14 +289,12 @@ extension RecipeManager: IngredientsProtocol {
                 
                 // create recipe if needed
                 if ingredient == nil {
-                    ingredient = self.storeIngredient(withIdentifier: identifier)
+                    let name = ingredientJSON["name"].stringValue
+                    let imageUrl = ingredientJSON["image_url"].stringValue
                     
-                    // update or set values from dict
-                    ingredient?.name = ingredientJSON["name"].stringValue
-                    ingredient?.image_url = ingredientJSON["image_url"].stringValue
-                    //ingredient?.type = ingredientJSON["type"].stringValue
+                    ingredient = self.storeIngredient(withIdentifier: identifier, name: name, imageUrl: imageUrl)
                     
-                    NSLog("ingredient created: %@", ingredientJSON["name"].stringValue)
+                    NSLog("ingredient created: %@", name)
                 } else {
                     NSLog("ingredrient already exists: %@", ingredient ?? "<default>")
                 }
@@ -335,22 +327,22 @@ extension RecipeManager: IngredientsProtocol {
         return nil
     }
     
-    func storeIngredient(withIdentifier identifier: Int32) -> Ingredient? {
+    func storeIngredient(withIdentifier identifier: Int32, name: String, imageUrl: String) -> Ingredient? {
         
-        let context = CoreDataManager.sharedInstance().mainContext!
+        let tempContext = CoreDataManager.sharedInstance().createWorkerContext()
         
         // retrieve the Ingredient
-        let entity =  NSEntityDescription.entity(forEntityName: "Ingredient", in: context)
-        
-        let ingredient = NSManagedObject(entity: entity!, insertInto: context)
+        let ingredient = CoreDataManager.sharedInstance().createNSManagedObject(forClassName: Ingredient.nameOfClass, in: tempContext) as? Ingredient
         
         // set the entity values
-        ingredient.setValue(NSNumber.init(value: identifier), forKey: "identifier")
+        ingredient?.identifier = identifier
+        ingredient?.name = name
+        ingredient?.image_url = imageUrl
         
         // save the object
-        CoreDataManager.sharedInstance().save(ingredient)
+        CoreDataManager.sharedInstance().save(tempContext)
         print("saved ingredient!")
-        return ingredient as? Ingredient
+        return ingredient
     }
     
     func allIngredients() -> [Ingredient]? {

@@ -13,6 +13,10 @@
 "Ingredients" = "Zutaten";
 "Settings" = "Einstellungen";
 
+// recipe
+"portions" = "Portionen";
+"duration" = "Zubereitungsdauer";
+
 // hint
 "hint.title" = "Hinweis";
 "hint.message" = "Bitte öffne das Menü und entdecke was du alles mit der App machen kannst.";

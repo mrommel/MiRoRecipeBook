@@ -89,7 +89,15 @@ extension RecipesTableViewController {
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
         cell.recipeTitleLabel?.text = recipe.name
-        cell.detailTextLabel?.text = recipe.desc
+        
+        var subText = ""
+        if let teaser = recipe.teaser {
+            subText = teaser
+        }
+        if let desc = recipe.desc {
+            subText += desc
+        }
+        cell.recipeDescriptionLabel?.text = subText
         
         if recipe.getImageUrl() != nil {
             cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
