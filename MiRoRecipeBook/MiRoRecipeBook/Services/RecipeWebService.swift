@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 typealias ServiceResponse = (JSON, NSError?) -> Void
+typealias ErrorResponse = (NSError?) -> Void
 
 class RestApiManager: NSObject {
     
@@ -28,6 +29,8 @@ class RestApiManager: NSObject {
             if error == nil {
                 let json:JSON = JSON(data: data!)
                 onCompletion(json, error as NSError?)
+            } else {
+                onCompletion(nil, error as NSError?)
             }
         })
         task.resume()
@@ -36,35 +39,48 @@ class RestApiManager: NSObject {
 
 class RecipeWebService: RestApiManager {
     
-    func getAllRecipeJSONs(onCompletion: @escaping ([JSON]?) -> Void) {
+    func getAllRecipeJSONs(onCompletion: @escaping ([JSON]?) -> Void, onError errorBlock: ErrorResponse?) {
         let route = RestApiManager.baseURL + "recipes/"
         makeHTTPGetRequest(path: route, onCompletion: { json, err in
             
-            var recipeJSONs: [JSON] = []
-            
-            if let results = json.array {
-                for entry in results {
-                    recipeJSONs.append(entry)
+            if err != nil {
+                guard errorBlock != nil else {
+                    return
                 }
+                errorBlock!(err)
+            } else {
+                var recipeJSONs: [JSON] = []
+                
+                if let results = json.array {
+                    for entry in results {
+                        recipeJSONs.append(entry)
+                    }
+                }
+                
+                onCompletion(recipeJSONs as [JSON]?)
             }
-            
-            onCompletion(recipeJSONs as [JSON]?)
         })
     }
     
-    func getAllIngredientJSONs(onCompletion: @escaping ([JSON]?) -> Void) {
+    func getAllIngredientJSONs(onCompletion: @escaping ([JSON]?) -> Void, onError errorBlock: ErrorResponse?) {
         let route = RestApiManager.baseURL + "ingredients/"
         makeHTTPGetRequest(path: route, onCompletion: { json, err in
-            
-            var ingredientJSONs: [JSON] = []
-            
-            if let results = json.array {
-                for entry in results {
-                    ingredientJSONs.append(entry)
+            if err != nil {
+                guard errorBlock != nil else {
+                    return
                 }
+                errorBlock!(err)
+            } else {
+                var ingredientJSONs: [JSON] = []
+                
+                if let results = json.array {
+                    for entry in results {
+                        ingredientJSONs.append(entry)
+                    }
+                }
+                
+                onCompletion(ingredientJSONs as [JSON]?)
             }
-            
-            onCompletion(ingredientJSONs as [JSON]?)
         })
     }
 

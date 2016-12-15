@@ -8,6 +8,7 @@ def shared_pods
   pod "HockeySDK", "~> 3.8.6"
   pod "SwiftyJSON"
   pod "MapleBacon"
+  #pod "SwiftSpinner"
 end
 
 target "MiRoRecipeBook" do

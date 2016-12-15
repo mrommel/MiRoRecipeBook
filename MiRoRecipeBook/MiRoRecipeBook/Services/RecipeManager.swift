@@ -10,9 +10,15 @@ import CoreData
 import Foundation
 import SwiftyJSON
 
+protocol DataImportProtocol: class {
+    
+    func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
+    func importRecipes(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
+    func importIngredients(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
+}
+
 protocol RecipesProtocol: class {
     
-    func importRecipes()
     func getRecipe(withIdentifier indentifier: Int32) -> Recipe?
     func allRecipes() -> [Recipe]?
 }
@@ -31,7 +37,6 @@ protocol RecipeIngredientsProtocol: class {
 
 protocol IngredientsProtocol: class {
     
-    func importIngredients()
     func getIngredient(withIdentifier indentifier: Int32) -> Ingredient?
     func allIngredients() -> [Ingredient]?
     func getRecipes(forIngredient ingredient: Int32) -> [Recipe]?
@@ -42,9 +47,21 @@ class RecipeManager: NSObject {
     fileprivate var webservice: RecipeWebService?
 }
 
-extension RecipeManager: RecipesProtocol {
+extension RecipeManager: DataImportProtocol {
     
-    func importRecipes() {
+    func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
+        self.importIngredients(successBlock: {
+            self.importRecipes(successBlock: {
+                successBlock?()
+            }, onError: { (error) in
+                errorBlock?(error)
+            })
+        }, onError: { (error) in
+            errorBlock?(error)
+        })
+    }
+    
+    func importRecipes(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
         
         let webservice = RecipeWebService()
         webservice.getAllRecipeJSONs(onCompletion: { recipeJSONs in
@@ -78,7 +95,7 @@ extension RecipeManager: RecipesProtocol {
                     for ingredientJSON in recipeJSON["integrients"].array! as [JSON] {
                         let ingredientIdentifier = ingredientJSON["id"].int32Value
                         let ingredientQuantity = ingredientJSON["quantity"].stringValue
-
+                        
                         self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity)
                     }
                     
@@ -89,8 +106,48 @@ extension RecipeManager: RecipesProtocol {
             }
             
             CoreDataManager.sharedInstance().saveContext()
+            
+            successBlock?()
+        }, onError: { err in
+            errorBlock?(err)
         })
     }
+    
+    func importIngredients(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
+        
+        let webservice = RecipeWebService()
+        webservice.getAllIngredientJSONs(onCompletion: { ingredientJSONs in
+            
+            for ingredientJSON in ingredientJSONs! as [JSON] {
+                let identifier = ingredientJSON["id"].int32Value
+                NSLog("got recipe from web service: %d => %@", identifier, ingredientJSON["name"].stringValue)
+                
+                // try to fetch from internal storage
+                var ingredient = self.getIngredient(withIdentifier: identifier)
+                
+                // create recipe if needed
+                if ingredient == nil {
+                    let name = ingredientJSON["name"].stringValue
+                    let imageUrl = ingredientJSON["image_url"].stringValue
+                    
+                    ingredient = self.storeIngredient(withIdentifier: identifier, name: name, imageUrl: imageUrl)
+                    
+                    NSLog("ingredient created: %@", name)
+                } else {
+                    NSLog("ingredrient already exists: %@", ingredient ?? "<default>")
+                }
+            }
+            
+            CoreDataManager.sharedInstance().saveContext()
+            
+            successBlock?()
+        }, onError: { err in
+            errorBlock?(err)
+        })
+    }
+}
+
+extension RecipeManager: RecipesProtocol {
     
     func getRecipe(withIdentifier indentifier: Int32) -> Recipe? {
         
@@ -274,33 +331,6 @@ extension RecipeManager: RecipeIngredientsProtocol {
 }
 
 extension RecipeManager: IngredientsProtocol {
-    
-    func importIngredients() {
-        
-        let webservice = RecipeWebService()
-        webservice.getAllIngredientJSONs(onCompletion: { ingredientJSONs in
-            
-            for ingredientJSON in ingredientJSONs! as [JSON] {
-                let identifier = ingredientJSON["id"].int32Value
-                NSLog("got recipe from web service: %d => %@", identifier, ingredientJSON["name"].stringValue)
-                
-                // try to fetch from internal storage
-                var ingredient = self.getIngredient(withIdentifier: identifier)
-                
-                // create recipe if needed
-                if ingredient == nil {
-                    let name = ingredientJSON["name"].stringValue
-                    let imageUrl = ingredientJSON["image_url"].stringValue
-                    
-                    ingredient = self.storeIngredient(withIdentifier: identifier, name: name, imageUrl: imageUrl)
-                    
-                    NSLog("ingredient created: %@", name)
-                } else {
-                    NSLog("ingredrient already exists: %@", ingredient ?? "<default>")
-                }
-            }
-        })
-    }
     
     func getIngredient(withIdentifier indentifier: Int32) -> Ingredient? {
         

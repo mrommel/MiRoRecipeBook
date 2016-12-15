@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SwiftSpinner
 
 class SettingsTableViewController: UITableViewController {
     
@@ -66,23 +67,48 @@ class SettingsTableViewController: UITableViewController {
         switch (indexPath.row) {
         case 0:
             DispatchQueue.global(qos: .background).async {
-                print("This is run on the background queue")
+                //SwiftSpinner.show("Connecting to server ...")
+                //SwiftSpinner.show(delay: 2, "... restarting the Internet")
                 let recipeManager = RecipeManager()
-                recipeManager.importRecipes()
-                recipeManager.importIngredients()
-                
-                DispatchQueue.main.async {
-                    print("This is run on the main queue, after the previous code in outer block")
-                    self.tableView.deselectRow(at: indexPath, animated: true)
-                }
+                recipeManager.importData(successBlock: { 
+                    DispatchQueue.main.async {
+                        //SwiftSpinner.hide()
+                        self.tableView.deselectRow(at: indexPath, animated: true)
+                        self.showSyncAlertSuccess()
+                    }
+                }, onError: { (error) in
+                    DispatchQueue.main.async {
+                        //SwiftSpinner.hide()
+                        self.tableView.deselectRow(at: indexPath, animated: true)
+                        self.showSyncAlert(forError: error!)
+                    }
+                })
             }
-            break;
-        case 1:
-            
             break;
         default:
             break;
         }
+    }
+    
+    func showSyncAlertSuccess() {
+        let alert = UIAlertController(title: "Success".localized, message: "You can use the data now", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showSyncAlert(forError error: NSError) {
+        
+        var errorMsg = ""
+        switch error.code {
+        case -1004:
+            errorMsg = "please start server".localized
+        default:
+            errorMsg = "generic error".localized + ": \(error.code)"
+        }
+        
+        let alert = UIAlertController(title: "Error".localized, message: errorMsg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func openMenu(_ sender: AnyObject) {
