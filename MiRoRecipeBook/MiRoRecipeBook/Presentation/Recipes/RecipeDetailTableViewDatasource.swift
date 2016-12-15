@@ -8,17 +8,19 @@
 
 import Foundation
 
-class IngredientsAndStepsTableViewDataSource: NSObject, UITableViewDataSource {
+class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
     
     let recipeManager = RecipeManager()
+    var recipe: Recipe?
     var steps: [RecipeStep]?
     var ingredients: [RecipeIngredient]?
     
-    init(forSteps steps: [RecipeStep]?, ingredients: [RecipeIngredient]?) {
+    init(forRecipe recipe: Recipe?) {
         super.init()
         
-        self.steps = steps
-        self.ingredients = ingredients
+        self.recipe = recipe
+        self.steps = recipe?.getSteps()
+        self.ingredients = recipe?.getRecipeIngredients()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,14 +28,6 @@ class IngredientsAndStepsTableViewDataSource: NSObject, UITableViewDataSource {
             return self.ingredients!.count
         } else {
             return self.steps!.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "ingredients".localized
-        } else {
-            return "steps".localized
         }
     }
     

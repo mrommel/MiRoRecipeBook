@@ -8,6 +8,16 @@
 
 import Foundation
 
+class RecipeDetailHeaderView: UITableViewCell {
+    
+    @IBOutlet weak public var titleLabel: UILabel!
+    @IBOutlet weak public var descLabel: UILabel!
+    @IBOutlet weak public var durationLabel: UILabel!
+    @IBOutlet weak public var portionsLabel: UILabel!
+    
+    @IBOutlet weak public var sectionLabel: UILabel!
+}
+
 class IngredientsAndStepsTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -22,6 +32,43 @@ class IngredientsAndStepsTableViewDelegate: NSObject, UITableViewDelegate {
         return footerView
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+    {
+        // This is where you would change section header content
+        let headerView = tableView.dequeueReusableCell(withIdentifier: "header") as? RecipeDetailHeaderView
+        
+        if section == 1 {
+            headerView?.titleLabel?.isHidden = true
+            headerView?.descLabel?.isHidden = true
+            headerView?.portionsLabel?.isHidden = true
+            headerView?.durationLabel?.isHidden = true
+            headerView?.sectionLabel?.text = "steps".localized
+        } else {
+        
+            let ds = tableView.dataSource as! RecipeDetailTableViewDatasource?
+            let recipe = ds?.recipe
+            
+            headerView?.titleLabel?.text = recipe?.name
+            
+            var subText = ""
+            if let teaser = recipe?.teaser {
+                subText = teaser
+            }
+            if let desc = recipe?.desc {
+                subText += desc
+            }
+            
+            headerView?.descLabel?.text = subText
+            
+            headerView?.portionsLabel?.text = "portions".localized + ": \((recipe?.portions)!)"
+            headerView?.durationLabel?.text = "duration".localized + ": \((recipe?.time)!) " + "min".localized
+            
+            headerView?.sectionLabel?.text = "ingredients".localized
+        }
+        
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
@@ -31,6 +78,10 @@ class IngredientsAndStepsTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30.0
+        if section == 0 {
+            return 120
+        }
+        
+        return 40.0
     }
 }

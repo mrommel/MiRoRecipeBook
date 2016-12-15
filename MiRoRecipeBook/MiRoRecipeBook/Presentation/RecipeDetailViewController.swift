@@ -17,11 +17,11 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak private var stackView: UIStackView!
     
     @IBOutlet weak private var imageLabel: UIImageView!
-    @IBOutlet weak private var titleLabel: UILabel!
-    @IBOutlet weak private var descLabel: UILabel!
-    @IBOutlet weak private var durationLabel: UILabel!
-    @IBOutlet weak private var portionsLabel: UILabel!
-    @IBOutlet weak private var ingredientTableView: UITableView!
+    
+    var ingredientTableView: UITableView!
+    
+    var stepsTableViewDelegate: IngredientsAndStepsTableViewDelegate?
+    var recipeDetailTableViewDatasource: RecipeDetailTableViewDatasource?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,29 +29,18 @@ class RecipeDetailViewController: UIViewController {
         if recipe != nil {
             NSLog("recipe: %@", recipe ?? "<default>")
             self.title = recipe?.name
-            self.titleLabel?.text = recipe?.name
             
-            var subText = ""
-            if let teaser = recipe?.teaser {
-                subText = teaser
-            }
-            if let desc = recipe?.desc {
-                subText += desc
-            }
-            
-            self.descLabel?.text = subText
             if recipe?.getImageUrl() != nil {
                 self.imageLabel?.setImage(withUrl: (recipe?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"))
             }
-            
-            self.portionsLabel?.text = "portions".localized + ": \((self.recipe?.portions)!)"
-            self.durationLabel?.text = "duration".localized + ": \((self.recipe?.time)!) " + "min".localized
  
             self.ingredientTableView.allowsSelection = false
-            let stepsTableViewDelegate = IngredientsAndStepsTableViewDelegate.init()
+            
+            self.stepsTableViewDelegate = IngredientsAndStepsTableViewDelegate.init()
             self.ingredientTableView.delegate = stepsTableViewDelegate
-            let stepsTableViewDatasource = IngredientsAndStepsTableViewDataSource.init(forSteps: recipe?.getSteps(), ingredients: recipe?.getRecipeIngredients())
-            self.ingredientTableView.dataSource = stepsTableViewDatasource
+            
+            self.recipeDetailTableViewDatasource = RecipeDetailTableViewDatasource.init(forRecipe: recipe)
+            self.ingredientTableView.dataSource = recipeDetailTableViewDatasource
         }
     }
 
