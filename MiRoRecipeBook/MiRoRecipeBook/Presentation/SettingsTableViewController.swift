@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SwiftSpinner
+import SwiftSpinner
 
 class SettingsTableViewController: UITableViewController {
     
@@ -20,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
         self.title = "Settings"
         
         recipes.append("Sync")
-        //recipes.append("Reset")
+        recipes.append("Reset")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,21 +66,32 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.row) {
         case 0:
+            SwiftSpinner.show("Connecting to server ...")
+            SwiftSpinner.show(delay: 2, title: "... restarting the Internet")
             DispatchQueue.global(qos: .background).async {
-                //SwiftSpinner.show("Connecting to server ...")
-                //SwiftSpinner.show(delay: 2, "... restarting the Internet")
                 let recipeManager = RecipeManager()
                 recipeManager.importData(successBlock: { 
                     DispatchQueue.main.async {
-                        //SwiftSpinner.hide()
+                        SwiftSpinner.hide()
                         self.tableView.deselectRow(at: indexPath, animated: true)
                         self.showSyncAlertSuccess()
                     }
                 }, onError: { (error) in
                     DispatchQueue.main.async {
-                        //SwiftSpinner.hide()
+                        SwiftSpinner.hide()
                         self.tableView.deselectRow(at: indexPath, animated: true)
                         self.showSyncAlert(forError: error!)
+                    }
+                })
+            }
+            break;
+        case 1:
+            DispatchQueue.global(qos: .background).async {
+                let recipeManager = RecipeManager()
+                recipeManager.clearData(successBlock: {
+                    DispatchQueue.main.async {
+                        SwiftSpinner.hide()
+                        self.tableView.deselectRow(at: indexPath, animated: true)
                     }
                 })
             }

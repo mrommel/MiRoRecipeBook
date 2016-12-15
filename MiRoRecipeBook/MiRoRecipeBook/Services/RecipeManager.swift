@@ -15,6 +15,8 @@ protocol DataImportProtocol: class {
     func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
     func importRecipes(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
     func importIngredients(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
+    
+    func clearData(successBlock: (() -> Void)?)
 }
 
 protocol RecipesProtocol: class {
@@ -48,6 +50,29 @@ class RecipeManager: NSObject {
 }
 
 extension RecipeManager: DataImportProtocol {
+    
+    func clearData(successBlock: (() -> Void)?) {
+        for recipe in self.allRecipes()! {
+            
+            // delete steps of recipe
+            for step in recipe.getSteps()! {
+                CoreDataManager.sharedInstance().delete(step)
+            }
+            
+            // delete recipe ingredients
+            for recipeIngredient in recipe.getRecipeIngredients()! {
+                CoreDataManager.sharedInstance().delete(recipeIngredient)
+            }
+            
+            CoreDataManager.sharedInstance().delete(recipe)
+        }
+        
+        for ingredient in self.allIngredients()! {
+            CoreDataManager.sharedInstance().delete(ingredient)
+        }
+        
+        successBlock?()
+    }
     
     func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
         self.importIngredients(successBlock: {
