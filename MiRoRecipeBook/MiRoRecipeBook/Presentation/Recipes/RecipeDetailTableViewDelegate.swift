@@ -18,7 +18,7 @@ class RecipeDetailHeaderView: UITableViewCell {
     @IBOutlet weak public var sectionLabel: UILabel!
 }
 
-class IngredientsAndStepsTableViewDelegate: NSObject, UITableViewDelegate {
+class RecipeDetailTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

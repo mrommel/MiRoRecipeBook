@@ -16,6 +16,8 @@
 // recipe
 "portions" = "Portionen";
 "duration" = "Zubereitungsdauer";
+"ingredients" = "Zutaten";
+"steps" = "Schritte";
 
 // ingredients
 "IngredientRecipes.of" = "Rezepte mit";

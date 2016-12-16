@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import MapleBacon
 
 class SettingsTableViewController: UITableViewController {
     
@@ -90,7 +91,11 @@ class SettingsTableViewController: UITableViewController {
             }
             break;
         case 1:
+            SwiftSpinner.show("reseting ...")
             DispatchQueue.global(qos: .background).async {
+                
+                MapleBaconStorage.sharedStorage.clearStorage()
+                
                 let recipeManager = RecipeManager()
                 recipeManager.clearData(successBlock: {
                     DispatchQueue.main.async {
