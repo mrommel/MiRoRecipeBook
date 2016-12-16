@@ -15,6 +15,7 @@ protocol DataImportProtocol: class {
     func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
     func importRecipes(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
     func importIngredients(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
+    func importCategories(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?)
     
     func clearData(successBlock: (() -> Void)?)
 }
@@ -44,6 +45,16 @@ protocol IngredientsProtocol: class {
     func getRecipes(forIngredient ingredient: Int32) -> [Recipe]?
 }
 
+protocol CategoriesProtocol: class {
+    
+    func getCategory(withIdentifier indentifier: Int32) -> Category?
+    func storeCategory(withIdentifier identifier: Int32, name: String, path: String, parent: Int32, recipes: Int32) -> Category?
+    func allCategories() -> [Category]?
+    
+    func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32)
+    func getCategories(withRecipeIdentifier identifier: Int32) -> [Category]?
+}
+
 class RecipeManager: NSObject {
     
     fileprivate var webservice: RecipeWebService?
@@ -71,13 +82,21 @@ extension RecipeManager: DataImportProtocol {
             CoreDataManager.sharedInstance().delete(ingredient)
         }
         
+        for category in self.allCategories()! {
+            CoreDataManager.sharedInstance().delete(category)
+        }
+        
         successBlock?()
     }
     
     func importData(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
         self.importIngredients(successBlock: {
             self.importRecipes(successBlock: {
-                successBlock?()
+                self.importCategories(successBlock: {
+                    successBlock?()
+                }, onError: { (error) in
+                    errorBlock?(error)
+                })
             }, onError: { (error) in
                 errorBlock?(error)
             })
@@ -111,6 +130,12 @@ extension RecipeManager: DataImportProtocol {
                     recipe?.time = recipeJSON["time"].int32Value
                     recipe?.portions = recipeJSON["portions"].int32Value
                     
+                    let countriesJson = recipeJSON["countries"]
+                    let country = countriesJson["country"]
+                    
+                    recipe?.country = country["name"].stringValue
+                    recipe?.flag_url = country["flag"].stringValue
+                    
                     for stepJSON in recipeJSON["steps"].array! as [JSON] {
                         let step = stepJSON.stringValue
                         //NSLog("step %d => %@", identifier, step)
@@ -122,6 +147,12 @@ extension RecipeManager: DataImportProtocol {
                         let ingredientQuantity = ingredientJSON["quantity"].stringValue
                         
                         self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity)
+                    }
+                    
+                    for categoryJSON in recipeJSON["categories"].array! as [JSON] {
+                        let categoryIdentifier = categoryJSON["id"].int32Value
+                        NSLog("create category link \(identifier) \(categoryIdentifier)")
+                        self.storeRecipeCategory(withRecipeIdentifier: identifier, categoryIdentifier: categoryIdentifier)
                     }
                     
                     NSLog("recipe created: %@", recipeJSON["name"].stringValue)
@@ -160,6 +191,41 @@ extension RecipeManager: DataImportProtocol {
                     NSLog("ingredient created: %@", name)
                 } else {
                     NSLog("ingredrient already exists: %@", ingredient ?? "<default>")
+                }
+            }
+            
+            CoreDataManager.sharedInstance().saveContext()
+            
+            successBlock?()
+        }, onError: { err in
+            errorBlock?(err)
+        })
+    }
+    
+    func importCategories(successBlock: (() -> Void)?, onError errorBlock: ErrorResponse?) {
+        
+        let webservice = RecipeWebService()
+        webservice.getAllCategoryJSONs(onCompletion: { categoryJSONs in
+            
+            for categoryJSON in categoryJSONs! as [JSON] {
+                let identifier = categoryJSON["id"].int32Value
+                NSLog("got category from web service: %d => %@", identifier, categoryJSON["name"].stringValue)
+                
+                // try to fetch from internal storage
+                var category = self.getCategory(withIdentifier: identifier)
+                
+                // create recipe if needed
+                if category == nil {
+                    let name = categoryJSON["name"].stringValue
+                    let parent = categoryJSON["parent_id"].int32Value
+                    let path = categoryJSON["path"].stringValue
+                    let recipies = categoryJSON["number_of_receipts"].int32Value
+                    
+                    category = self.storeCategory(withIdentifier: identifier, name: name, path: path, parent: parent, recipes: recipies)
+                    
+                    NSLog("category created: %@", name)
+                } else {
+                    NSLog("category already exists: %@", category ?? "<default>")
                 }
             }
             
@@ -447,4 +513,133 @@ extension RecipeManager: IngredientsProtocol {
         
         return recipesOfIngredient
     }
+}
+
+extension RecipeManager: CategoriesProtocol {
+    
+    func getCategory(withIdentifier indentifier: Int32) -> Category? {
+        
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "identifier == %d", indentifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            if searchResults.count == 1 {
+                return searchResults[0]
+            }
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+    
+    func storeCategory(withIdentifier identifier: Int32, name: String, path: String, parent: Int32, recipes: Int32) -> Category? {
+        
+        let tempContext = CoreDataManager.sharedInstance().createWorkerContext()
+        
+        // retrieve the Ingredient
+        let category = CoreDataManager.sharedInstance().createNSManagedObject(forClassName: Category.nameOfClass, in: tempContext) as? Category
+        
+        // set the entity values
+        category?.identifier = identifier
+        category?.name = name
+        category?.parent = parent
+        category?.path = path
+        category?.recipes = recipes
+        
+        // save the object
+        CoreDataManager.sharedInstance().save(tempContext)
+        print("saved category!")
+        return category
+    }
+
+    func allCategories() -> [Category]? {
+        
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(value: true)
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true, selector: #selector(NSString.localizedStandardCompare(_:)))
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        do {
+            // go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            // I like to check the size of the returned results!
+            print ("num of results = \(searchResults.count)")
+            
+            var categories: [Category]? = []
+            
+            // You need to convert to NSManagedObject to use 'for' loops
+            for category in searchResults {
+                //get the Key Value pairs (although there may be a better way to do that...
+                //print("\(recipe.name)")
+                categories?.append(category)
+            }
+            
+            return categories
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+    
+    func getCategories(withRecipeIdentifier identifier: Int32) -> [Category]? {
+    
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeCategory>(entityName: "RecipeCategory")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            var categories: [Category]? = []
+            
+            for recipeCategory in searchResults {
+                categories?.append(self.getCategory(withIdentifier: recipeCategory.category_identifier)!)
+            }
+            
+            return categories
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+    
+    func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32) {
+     
+        let tempContext = CoreDataManager.sharedInstance().createWorkerContext()
+        
+        // retrieve the Ingredient
+        let recipeCategory = CoreDataManager.sharedInstance().createNSManagedObject(forClassName: RecipeCategory.nameOfClass, in: tempContext) as? RecipeCategory
+        
+        // set the entity values
+        recipeCategory?.recipe_identifier = identifier
+        recipeCategory?.category_identifier = categoryIdentifier
+        
+        // save the object
+        CoreDataManager.sharedInstance().save(tempContext)
+        print("saved recipeCategory!")
+        return
+    }
+
 }

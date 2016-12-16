@@ -24,5 +24,7 @@ extension Recipe {
     @NSManaged public var portions: Int32
     @NSManaged public var teaser: String?
     @NSManaged public var time: Int32
-
+    @NSManaged public var country: String?
+    @NSManaged public var flag_url: String?
+    
 }

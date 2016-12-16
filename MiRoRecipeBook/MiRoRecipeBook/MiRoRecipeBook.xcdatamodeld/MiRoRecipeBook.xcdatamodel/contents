@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parent" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipes" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="Ingredient" representedClassName=".Ingredient" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,13 +15,19 @@
     </entity>
     <entity name="Recipe" representedClassName=".Recipe" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="flag_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="portions" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="RecipeCategory" representedClassName=".RecipeCategory" syncable="YES">
+        <attribute name="category_identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="recipe_identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="RecipeIngredient" representedClassName=".RecipeIngredient" syncable="YES">
         <attribute name="ingredient_identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -27,8 +40,10 @@
     </entity>
     <elements>
         <element name="Ingredient" positionX="-63" positionY="45" width="128" height="105"/>
-        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Recipe" positionX="-63" positionY="-18" width="128" height="195"/>
         <element name="RecipeIngredient" positionX="-63" positionY="45" width="128" height="90"/>
         <element name="RecipeStep" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="Category" positionX="-63" positionY="45" width="128" height="120"/>
+        <element name="RecipeCategory" positionX="-54" positionY="63" width="128" height="75"/>
     </elements>
 </model>

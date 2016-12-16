@@ -93,6 +93,10 @@
 		1A94ED8D1E03E76600572ABE /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED8C1E03E76600572ABE /* photo-frame.png */; };
 		1A94ED901E03EA7000572ABE /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED8E1E03EA7000572ABE /* download.png */; };
 		1A94ED911E03EA7000572ABE /* reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED8F1E03EA7000572ABE /* reset.png */; };
+		1A94ED981E04261000572ABE /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94ED961E04261000572ABE /* Category+CoreDataClass.swift */; };
+		1A94ED991E04261000572ABE /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94ED971E04261000572ABE /* Category+CoreDataProperties.swift */; };
+		1A94ED9C1E04281700572ABE /* RecipeCategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94ED9A1E04281700572ABE /* RecipeCategory+CoreDataClass.swift */; };
+		1A94ED9D1E04281700572ABE /* RecipeCategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94ED9B1E04281700572ABE /* RecipeCategory+CoreDataProperties.swift */; };
 		1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */; };
 		1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */; };
 		1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */; };
@@ -202,6 +206,10 @@
 		1A94ED8C1E03E76600572ABE /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		1A94ED8E1E03EA7000572ABE /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		1A94ED8F1E03EA7000572ABE /* reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reset.png; sourceTree = "<group>"; };
+		1A94ED961E04261000572ABE /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A94ED971E04261000572ABE /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1A94ED9A1E04281700572ABE /* RecipeCategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecipeCategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1A94ED9B1E04281700572ABE /* RecipeCategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RecipeCategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeWebService.swift; path = Services/RecipeWebService.swift; sourceTree = "<group>"; };
 		1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeStep+Parsing.swift"; path = "Data/RecipeStep+Parsing.swift"; sourceTree = "<group>"; };
 		1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Integrient+Parsing.swift"; path = "Data/Integrient+Parsing.swift"; sourceTree = "<group>"; };
@@ -247,6 +255,10 @@
 		1A0C10CB1DE6EA7900935B33 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				1A94ED9A1E04281700572ABE /* RecipeCategory+CoreDataClass.swift */,
+				1A94ED9B1E04281700572ABE /* RecipeCategory+CoreDataProperties.swift */,
+				1A94ED961E04261000572ABE /* Category+CoreDataClass.swift */,
+				1A94ED971E04261000572ABE /* Category+CoreDataProperties.swift */,
 				1A94ED5F1E01B1ED00572ABE /* Recipe+CoreDataClass.swift */,
 				1A94ED601E01B1ED00572ABE /* Recipe+CoreDataProperties.swift */,
 				1A94ED611E01B1ED00572ABE /* RecipeIngredient+CoreDataClass.swift */,
@@ -713,6 +725,7 @@
 				1A68C3201DFF437F00C025E4 /* IntegrientsWireframe.swift in Sources */,
 				1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */,
 				1A8B5C2C1DE4E87200E11D14 /* AppDelegate.swift in Sources */,
+				1A94ED991E04261000572ABE /* Category+CoreDataProperties.swift in Sources */,
 				1A8B5C8A1DE5F11700E11D14 /* IntegrientsTableViewController.swift in Sources */,
 				1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */,
 				1A94ED681E01B1ED00572ABE /* Recipe+CoreDataProperties.swift in Sources */,
@@ -722,6 +735,7 @@
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */,
 				1A94ED6D1E01B1ED00572ABE /* Ingredient+CoreDataClass.swift in Sources */,
+				1A94ED981E04261000572ABE /* Category+CoreDataClass.swift in Sources */,
 				1A8B5C701DE4EBD400E11D14 /* RecipesTableViewController.swift in Sources */,
 				1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */,
 				1A94ED701E028C1200572ABE /* IngredientsAndStepsTableViewDelegate.swift in Sources */,
@@ -738,12 +752,14 @@
 				1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */,
 				1A0C10C31DE627EC00935B33 /* SettingsTableViewController.swift in Sources */,
 				1A68C3121DFEC40F00C025E4 /* UIViewController+Storyboard.swift in Sources */,
+				1A94ED9C1E04281700572ABE /* RecipeCategory+CoreDataClass.swift in Sources */,
 				1A94ED6E1E01B1ED00572ABE /* Ingredient+CoreDataProperties.swift in Sources */,
 				1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */,
 				1A19CC9E1E00A0F600A3DA32 /* CoreDataManager.m in Sources */,
 				1A94ED691E01B1ED00572ABE /* RecipeIngredient+CoreDataClass.swift in Sources */,
 				1A94ED6C1E01B1ED00572ABE /* RecipeStep+CoreDataProperties.swift in Sources */,
 				1A68C3101DFE0A9300C025E4 /* AppDependecies.swift in Sources */,
+				1A94ED9D1E04281700572ABE /* RecipeCategory+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

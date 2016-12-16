@@ -16,7 +16,8 @@ class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-    static let baseURL = "http://192.168.178.20:8000/"
+    //static let baseURL = "http://192.168.178.20:8000/"
+    static let baseURL = "http://localhost:8000/"
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {
         let request = NSMutableURLRequest(url: NSURL(string: path)! as URL)
@@ -80,6 +81,28 @@ class RecipeWebService: RestApiManager {
                 }
                 
                 onCompletion(ingredientJSONs as [JSON]?)
+            }
+        })
+    }
+    
+    func getAllCategoryJSONs(onCompletion: @escaping ([JSON]?) -> Void, onError errorBlock: ErrorResponse?) {
+        let route = RestApiManager.baseURL + "categories/"
+        makeHTTPGetRequest(path: route, onCompletion: { json, err in
+            if err != nil {
+                guard errorBlock != nil else {
+                    return
+                }
+                errorBlock!(err)
+            } else {
+                var categoryJSONs: [JSON] = []
+                
+                if let results = json.array {
+                    for entry in results {
+                        categoryJSONs.append(entry)
+                    }
+                }
+                
+                onCompletion(categoryJSONs as [JSON]?)
             }
         })
     }

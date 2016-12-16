@@ -33,6 +33,17 @@ extension Recipe {
         return imageUrl
     }
     
+    func getFlagUrl() -> URL? {
+        if self.flag_url == nil {
+            return nil
+        }
+        
+        var urlString = RestApiManager.baseURL + (self.flag_url)!
+        urlString = urlString.replacingOccurrences(of: "//", with: "/")
+        let imageUrl = URL(string: urlString)
+        return imageUrl
+    }
+    
     func getSteps() -> [RecipeStep]? {
         
         return RecipeManager().getRecipeSteps(withRecipeIdentifier: self.identifier)
