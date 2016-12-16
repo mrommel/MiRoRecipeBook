@@ -11,7 +11,7 @@ import SwiftSpinner
 
 class SettingsTableViewController: UITableViewController {
     
-    var recipes: [String] = []
+    var menuItems: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,19 +19,23 @@ class SettingsTableViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "Settings"
         
-        recipes.append("Sync")
-        recipes.append("Reset")
+        self.menuItems.append("Sync")
+        self.menuItems.append("Reset")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipes.count
+        return self.menuItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as UITableViewCell
-        cell.imageView?.image = UIImage.init(named: "sync-64.png")
-        cell.textLabel?.text = recipes[indexPath.row]
-        // Configure the cell...
+        
+        if indexPath.row == 0 {
+            cell.imageView?.image = UIImage.init(named: "download.png")
+        } else {
+            cell.imageView?.image = UIImage.init(named: "reset.png")
+        }
+        cell.textLabel?.text = self.menuItems[indexPath.row]
         
         return cell
     }
