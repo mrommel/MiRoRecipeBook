@@ -24,7 +24,7 @@ class RecipesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "Recipes"
+        self.title = "Recipes".localized
         
         self.recipes = recipeManager.allRecipes()
         NSLog("recipes: %d", recipes!.count)

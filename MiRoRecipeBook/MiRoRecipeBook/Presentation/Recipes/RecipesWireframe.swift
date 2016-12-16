@@ -16,8 +16,9 @@ class RecipesWireframe: CommonWireframe {
         super.init(withRootNavigationController: navigationController)
     }
     
-    func getRecipesInterface() -> RecipesTableViewController {
-        let recipesTableViewController = RecipesTableViewController.instantiate(fromStoryboard: kRecipesStoryboardName)
+    func getRecipesInterface() -> RecipeCollectionViewController {
+        //let recipesTableViewController = RecipesTableViewController.instantiate(fromStoryboard: kRecipesStoryboardName)
+        let recipesTableViewController = RecipeCollectionViewController.instantiate(fromStoryboard: kRecipesStoryboardName)
         
         return recipesTableViewController
     }

@@ -89,6 +89,8 @@
 		1A94ED871E0333D100572ABE /* number2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED7D1E0333D100572ABE /* number2.png */; };
 		1A94ED881E0333D100572ABE /* number1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED7E1E0333D100572ABE /* number1.png */; };
 		1A94ED891E0333D100572ABE /* number0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED7F1E0333D100572ABE /* number0.png */; };
+		1A94ED8B1E03D6F700572ABE /* RecipeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94ED8A1E03D6F700572ABE /* RecipeCollectionViewController.swift */; };
+		1A94ED8D1E03E76600572ABE /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A94ED8C1E03E76600572ABE /* photo-frame.png */; };
 		1AAC50F01DEC5AFC00EFEC1B /* RecipeWebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */; };
 		1AAC50F21DEDA29400EFEC1B /* RecipeStep+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */; };
 		1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */; };
@@ -194,6 +196,8 @@
 		1A94ED7D1E0333D100572ABE /* number2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number2.png; sourceTree = "<group>"; };
 		1A94ED7E1E0333D100572ABE /* number1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number1.png; sourceTree = "<group>"; };
 		1A94ED7F1E0333D100572ABE /* number0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number0.png; sourceTree = "<group>"; };
+		1A94ED8A1E03D6F700572ABE /* RecipeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeCollectionViewController.swift; path = Presentation/Recipes/RecipeCollectionViewController.swift; sourceTree = "<group>"; };
+		1A94ED8C1E03E76600572ABE /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
 		1AAC50EF1DEC5AFC00EFEC1B /* RecipeWebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeWebService.swift; path = Services/RecipeWebService.swift; sourceTree = "<group>"; };
 		1AAC50F11DEDA29400EFEC1B /* RecipeStep+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeStep+Parsing.swift"; path = "Data/RecipeStep+Parsing.swift"; sourceTree = "<group>"; };
 		1AAF719D1DF5C113002F4293 /* Integrient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Integrient+Parsing.swift"; path = "Data/Integrient+Parsing.swift"; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 			children = (
 				1A68C31B1DFF395300C025E4 /* RecipesWireframe.swift */,
 				1A8B5C691DE4EBD400E11D14 /* RecipesTableViewController.swift */,
+				1A94ED8A1E03D6F700572ABE /* RecipeCollectionViewController.swift */,
 				1A5317711DEB1BB0002FF14B /* RecipeDetailViewController.swift */,
 				1A94ED6F1E028C1200572ABE /* IngredientsAndStepsTableViewDelegate.swift */,
 				1A94ED711E028C5700572ABE /* RecipeDetailTableViewDatasource.swift */,
@@ -419,6 +424,7 @@
 				1A68C3051DFDFFA400C025E4 /* settings-64.png */,
 				1A45C0901DEF730E009C9C4E /* recipe-default-image.png */,
 				1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */,
+				1A94ED8C1E03E76600572ABE /* photo-frame.png */,
 				1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */,
 				1A19CC961E004E9900A3DA32 /* menu-ingredients.png */,
 				1A19CC971E004E9900A3DA32 /* menu-recipe.png */,
@@ -592,6 +598,7 @@
 				1A94ED831E0333D100572ABE /* number6.png in Resources */,
 				1A94ED801E0333D100572ABE /* number9.png in Resources */,
 				1A94ED841E0333D100572ABE /* number5.png in Resources */,
+				1A94ED8D1E03E76600572ABE /* photo-frame.png in Resources */,
 				1A68C3221DFF470800C025E4 /* recipe_background.jpg in Resources */,
 				1A94ED851E0333D100572ABE /* number4.png in Resources */,
 				1A68C31E1DFF397800C025E4 /* Recipes.storyboard in Resources */,
@@ -693,6 +700,7 @@
 			files = (
 				1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */,
 				1A68C31C1DFF395300C025E4 /* RecipesWireframe.swift in Sources */,
+				1A94ED8B1E03D6F700572ABE /* RecipeCollectionViewController.swift in Sources */,
 				1A68C30C1DFE08F600C025E4 /* SettingsWireframe.swift in Sources */,
 				1A68C3201DFF437F00C025E4 /* IntegrientsWireframe.swift in Sources */,
 				1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */,
