@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="1024" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WGF-KB-2vj" id="3dn-fy-BaP">
-                                    <rect key="frame" x="0.0" y="0.0" width="830" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="830" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3jn-Ss-6qL" userLabel="Vertical">
@@ -94,7 +94,7 @@
         <scene sceneID="kVS-FF-Uha">
             <objects>
                 <collectionViewController storyboardIdentifier="RecipeCollectionViewController" id="igP-B4-5ta" customClass="RecipeCollectionViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Zu8-ec-5Hn">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Zu8-ec-5Hn">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88224452730000003" green="0.88233524559999998" blue="0.88632929329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -198,11 +198,11 @@
                                                 <rect key="frame" x="0.0" y="300" width="300" height="388"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryCell" rowHeight="44" id="Y33-Mc-Tju" customClass="CategoryTableViewCell" customModule="MiRoRecipeBook" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="categoryCell" rowHeight="44" id="Y33-Mc-Tju" customClass="CategoryTableViewCell" customModule="MiRoRecipeBook" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="300" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y33-Mc-Tju" id="7Nd-P3-puL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvT-gu-4rs">
@@ -237,7 +237,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="694" height="80"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kt3-zU-QCR" id="1yx-7b-dhS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="694" height="79"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="694" height="79.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dhh-Qv-YnL" userLabel="Vertical">
@@ -254,9 +254,15 @@
                                                                             <rect key="frame" x="70" y="0.0" width="510" height="60"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="510" translatesAutoresizingMaskIntoConstraints="NO" id="JCJ-j5-lTk">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="510" height="60"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="510" height="38"/>
                                                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                                                                     <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLy-iA-lsd">
+                                                                                    <rect key="frame" x="0.0" y="43" width="510" height="17"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                             </subviews>
@@ -283,15 +289,16 @@
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
+                                                            <outlet property="recipeDescriptionLabel" destination="yLy-iA-lsd" id="Zqk-3h-8Q3"/>
                                                             <outlet property="recipeImageView" destination="JHl-w2-8FZ" id="WYV-9g-VEh"/>
                                                             <outlet property="recipeTitleLabel" destination="JCJ-j5-lTk" id="IuR-ch-RGF"/>
                                                         </connections>
                                                     </tableViewCell>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" id="E4h-mx-ToX" customClass="RecipeDetailHeaderView" customModule="MiRoRecipeBook" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" id="E4h-mx-ToX" customClass="RecipeDetailHeaderView" customModule="MiRoRecipeBook" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="108" width="694" height="80"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E4h-mx-ToX" id="VGD-mn-QTk">
-                                                            <rect key="frame" x="0.0" y="0.0" width="694" height="79"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="694" height="79.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Qw4-sH-GP3">

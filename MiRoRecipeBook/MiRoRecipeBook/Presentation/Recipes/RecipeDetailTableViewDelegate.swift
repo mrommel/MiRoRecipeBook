@@ -70,7 +70,12 @@ class RecipeDetailTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        
+        if indexPath.section == 0 {
+            return 60
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

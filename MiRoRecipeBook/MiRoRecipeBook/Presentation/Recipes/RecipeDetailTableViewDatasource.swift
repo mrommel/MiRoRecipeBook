@@ -61,7 +61,7 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
             let step = self.getRecipeStep(withIndex: indexPath.row)
             
             cell.recipeTitleLabel?.text = step
-            cell.recipeDescriptionLabel?.text = ""
+            cell.recipeDescriptionLabel?.isHidden = true
             
             cell.imageView?.image = UIImage.init(named: "number\(indexPath.row).png")
             /*if ingredient?.getImageUrl() != nil {

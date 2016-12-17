@@ -46,6 +46,8 @@ class RecipeDetailViewController: UIViewController {
             }
  
             self.ingredientTableView.allowsSelection = false
+            self.ingredientTableView.estimatedRowHeight = 400.0
+            self.ingredientTableView.rowHeight = UITableViewAutomaticDimension
             
             self.recipeDetailTableViewDelegate = RecipeDetailTableViewDelegate.init()
             self.ingredientTableView.delegate = self.recipeDetailTableViewDelegate
