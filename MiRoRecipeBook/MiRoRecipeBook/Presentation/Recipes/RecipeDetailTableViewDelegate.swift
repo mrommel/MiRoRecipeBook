@@ -49,19 +49,13 @@ class RecipeDetailTableViewDelegate: NSObject, UITableViewDelegate {
             let recipe = ds?.recipe
             
             headerView?.titleLabel?.text = recipe?.name
-            
-            var subText = ""
-            if let teaser = recipe?.teaser {
-                subText = teaser
-            }
-            if let desc = recipe?.desc {
-                subText += desc
-            }
-            
-            headerView?.descLabel?.text = subText
-            
+            headerView?.titleLabel?.isHidden = false
+            headerView?.descLabel?.text = recipe?.desc
+            headerView?.descLabel?.isHidden = false
             headerView?.portionsLabel?.text = "portions".localized + ": \((recipe?.portions)!)"
+            headerView?.portionsLabel?.isHidden = false
             headerView?.durationLabel?.text = "duration".localized + ": \((recipe?.time)!) " + "min".localized
+            headerView?.durationLabel?.isHidden = false
             
             headerView?.sectionLabel?.text = "ingredients".localized
         }
@@ -84,7 +78,7 @@ class RecipeDetailTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return 120
+            return 160
         }
         
         return 40.0

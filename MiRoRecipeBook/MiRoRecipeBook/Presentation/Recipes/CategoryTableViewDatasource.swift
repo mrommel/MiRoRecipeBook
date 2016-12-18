@@ -18,7 +18,7 @@ class CategoryTableViewDatasource: NSObject, UITableViewDataSource {
         super.init()
         
         self.recipe = recipe
-        self.categories = recipeManager.getCategories(withRecipeIdentifier: (self.recipe!.identifier))
+        self.categories = recipe?.getCategories()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

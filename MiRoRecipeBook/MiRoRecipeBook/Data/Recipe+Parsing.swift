@@ -45,7 +45,6 @@ extension Recipe {
     }
     
     func getSteps() -> [RecipeStep]? {
-        
         return RecipeManager().getRecipeSteps(withRecipeIdentifier: self.identifier)
     }
     
@@ -53,8 +52,15 @@ extension Recipe {
         return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier, ingredientIdentifier: ingredientIdentifier)
     }
     
-    func getRecipeIngredients() -> [RecipeIngredient]? {
-        
+    func getRecipeIngredients() -> [RecipeIngredient]? {        
         return RecipeManager().getRecipeIngredients(withRecipeIdentifier: self.identifier)
+    }
+    
+    func getCategories() -> [Category]? {
+        return RecipeManager().getCategories(forIdentifier: self.identifier)
+    }
+    
+    func getRecipeCategories() -> [RecipeCategory]? {
+        return RecipeManager().getRecipeCategories(forIdentifier: self.identifier)
     }
 }

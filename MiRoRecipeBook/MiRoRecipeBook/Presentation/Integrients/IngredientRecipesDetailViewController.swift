@@ -82,7 +82,7 @@ extension IngredientRecipesDetailViewController {
         
         let recipe = self.getRecipe(withIndex: indexPath.row)
         cell.recipeTitleLabel?.text = recipe.name
-        cell.recipeDescriptionLabel?.text = recipe.desc
+        cell.recipeDescriptionLabel?.text = recipe.teaser
         
         cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
         

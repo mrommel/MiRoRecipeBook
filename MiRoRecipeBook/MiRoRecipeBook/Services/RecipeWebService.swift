@@ -16,8 +16,11 @@ class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-    //static let baseURL = "http://192.168.178.20:8000/"
+#if TARGET_IPHONE_SIMULATOR
     static let baseURL = "http://localhost:8000/"
+#else
+    static let baseURL = "http://192.168.178.20:8000/"
+#endif
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {
         let request = NSMutableURLRequest(url: NSURL(string: path)! as URL)

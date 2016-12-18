@@ -52,7 +52,8 @@ protocol CategoriesProtocol: class {
     func allCategories() -> [Category]?
     
     func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32)
-    func getCategories(withRecipeIdentifier identifier: Int32) -> [Category]?
+    func getCategories(forIdentifier identifier: Int32) -> [Category]?
+    func getRecipeCategories(forIdentifier identifier: Int32) -> [RecipeCategory]?
 }
 
 class RecipeManager: NSObject {
@@ -73,6 +74,11 @@ extension RecipeManager: DataImportProtocol {
             // delete recipe ingredients
             for recipeIngredient in recipe.getRecipeIngredients()! {
                 CoreDataManager.sharedInstance().delete(recipeIngredient)
+            }
+            
+            // delete recipe categories
+            for recipeCategory in recipe.getRecipeCategories()! {
+                CoreDataManager.sharedInstance().delete(recipeCategory)
             }
             
             CoreDataManager.sharedInstance().delete(recipe)
@@ -597,7 +603,7 @@ extension RecipeManager: CategoriesProtocol {
         return nil
     }
     
-    func getCategories(withRecipeIdentifier identifier: Int32) -> [Category]? {
+    func getCategories(forIdentifier identifier: Int32) -> [Category]? {
     
         let context = CoreDataManager.sharedInstance().mainContext!
         
@@ -624,6 +630,30 @@ extension RecipeManager: CategoriesProtocol {
         
         return nil
     }
+
+    func getRecipeCategories(forIdentifier identifier: Int32) -> [RecipeCategory]? {
+        
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeCategory>(entityName: "RecipeCategory")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            return searchResults as [RecipeCategory]?
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return nil
+    }
+
     
     func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32) {
      
