@@ -31,7 +31,7 @@ class MenuTableViewController: UITableViewController {
         
         menuItems.append(MenuItem(image: "menu-recipe.png", name: "Recipes".localized, screenType:ScreenType.recipes))
         menuItems.append(MenuItem(image: "menu-ingredients.png", name: "Ingredients".localized, screenType:ScreenType.ingredients))
-        menuItems.append(MenuItem(image: "menu-ingredients.png", name: "Categories".localized, screenType:ScreenType.categories))
+        menuItems.append(MenuItem(image: "menu-category.png", name: "Categories".localized, screenType:ScreenType.categories))
         menuItems.append(MenuItem(image: "menu-settings.png", name: "Settings".localized, screenType:ScreenType.settings))
         
         self.title = "RecipeBook".localized
