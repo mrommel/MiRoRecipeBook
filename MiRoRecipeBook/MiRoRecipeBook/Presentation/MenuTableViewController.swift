@@ -11,6 +11,7 @@ import UIKit
 enum ScreenType {
     case recipes
     case ingredients
+    case categories
     case settings
 }
 
@@ -30,6 +31,7 @@ class MenuTableViewController: UITableViewController {
         
         menuItems.append(MenuItem(image: "menu-recipe.png", name: "Recipes".localized, screenType:ScreenType.recipes))
         menuItems.append(MenuItem(image: "menu-ingredients.png", name: "Ingredients".localized, screenType:ScreenType.ingredients))
+        menuItems.append(MenuItem(image: "menu-ingredients.png", name: "Categories".localized, screenType:ScreenType.categories))
         menuItems.append(MenuItem(image: "menu-settings.png", name: "Settings".localized, screenType:ScreenType.settings))
         
         self.title = "RecipeBook".localized
@@ -41,6 +43,8 @@ class MenuTableViewController: UITableViewController {
             return AppDelegate.shared?.appDependecies?.recipesWireframe?.getRecipesInterface()
         case .ingredients:
             return AppDelegate.shared?.appDependecies?.ingredientsWireframe?.getIngredientsInterface()
+        case .categories:
+            return AppDelegate.shared?.appDependecies?.categoriesWireframe?.getCategoriesInterface()
         case .settings:
             return AppDelegate.shared?.appDependecies?.settingsWireframe?.getSettingsInterface()
         }

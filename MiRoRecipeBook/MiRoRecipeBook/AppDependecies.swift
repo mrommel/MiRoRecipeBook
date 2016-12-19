@@ -17,6 +17,7 @@ class AppDependecies: NSObject {
     
     var recipesWireframe: RecipesWireframe? = nil
     var ingredientsWireframe: IngredientsWireframe? = nil
+    var categoriesWireframe: CategoriesWireframe? = nil
     var settingsWireframe: SettingsWireframe? = nil
     
     override init() {
@@ -35,6 +36,7 @@ class AppDependecies: NSObject {
         self.recipesWireframe = RecipesWireframe.init(withRootNavigationController: self.rootNavigationController)
         self.ingredientsWireframe = IngredientsWireframe.init(withRootNavigationController: self.rootNavigationController)
         self.settingsWireframe = SettingsWireframe.init(withRootNavigationController: self.rootNavigationController)
+        self.categoriesWireframe = CategoriesWireframe.init(withRootNavigationController: self.rootNavigationController)
         
         self.appWireframe = AppWireframe.init(withWindow:window, andNavigationController:self.rootNavigationController, appDependencies:self)
         self.appWireframe?.presentRootViewController()
