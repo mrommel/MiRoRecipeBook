@@ -154,7 +154,6 @@
 		1A8B5C331DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiRoRecipeBook.xcdatamodel; sourceTree = "<group>"; };
 		1A8B5C351DE4E87200E11D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A8B5C381DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1A8B5C3A1DE4E87200E11D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A8B5C3F1DE4E87200E11D14 /* MiRoRecipeBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiRoRecipeBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C431DE4E87200E11D14 /* MiRoRecipeBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiRoRecipeBookTests.swift; sourceTree = "<group>"; };
 		1A8B5C451DE4E87200E11D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,6 +220,9 @@
 		1ABF9ADE1E08266E00E6DC6A /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-frame.png"; path = "MiRoRecipeBook/Resources/Images/photo-frame.png"; sourceTree = "<group>"; };
 		1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Ingredients.storyboard; path = Presentation/Integrients/Ingredients.storyboard; sourceTree = "<group>"; };
 		1ABF9AE41E08288F00E6DC6A /* menu-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-category.png"; path = "MiRoRecipeBook/Resources/Images/menu-category.png"; sourceTree = "<group>"; };
+		1ABF9AE61E088C3000E6DC6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
+		1ABF9AE81E088C3500E6DC6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		1ABF9AE91E088C4000E6DC6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,7 +367,7 @@
 				1A68C3271E000DF700C025E4 /* Utils */,
 				1A8B5C351DE4E87200E11D14 /* Assets.xcassets */,
 				1A8B5C371DE4E87200E11D14 /* LaunchScreen.storyboard */,
-				1A8B5C3A1DE4E87200E11D14 /* Info.plist */,
+				1ABF9AE71E088C3000E6DC6A /* Info.plist */,
 				1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */,
 			);
 			path = MiRoRecipeBook;
@@ -845,6 +847,16 @@
 				1A8B5C381DE4E87200E11D14 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1ABF9AE71E088C3000E6DC6A /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ABF9AE61E088C3000E6DC6A /* de */,
+				1ABF9AE81E088C3500E6DC6A /* Base */,
+				1ABF9AE91E088C4000E6DC6A /* en */,
+			);
+			name = Info.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

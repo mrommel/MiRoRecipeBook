@@ -25,8 +25,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-zc-8Vw" userLabel="Vertical">
-                                            <rect key="frame" x="10" y="10" width="1024" height="61"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-zc-8Vw" userLabel="Vertical">
+                                            <rect key="frame" x="10" y="10" width="1024" height="60.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="10" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-bC-aTy" customClass="UIRoundedImageView" customModule="MiRoRecipeBook" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="60.5"/>
@@ -35,7 +35,7 @@
                                                         <constraint firstAttribute="height" constant="60" id="YoP-og-MQO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-so-fBa">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-so-fBa" userLabel="Texts">
                                                     <rect key="frame" x="70" y="0.0" width="810" height="60.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="510" translatesAutoresizingMaskIntoConstraints="NO" id="ITu-gC-9Up">
@@ -64,9 +64,6 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ex0-so-fBa" firstAttribute="leading" secondItem="bsU-bC-aTy" secondAttribute="trailing" constant="10" id="jOE-WD-OLJ"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
