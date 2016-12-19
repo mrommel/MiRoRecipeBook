@@ -18,34 +18,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="60" id="T3c-w7-DON" customClass="RecipeTableViewCell" customModule="MiRoRecipeBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="80" id="T3c-w7-DON" customClass="RecipeTableViewCell" customModule="MiRoRecipeBook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T3c-w7-DON" id="9hN-gb-lPu">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-zc-8Vw" userLabel="Vertical">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="60"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L3C-zc-8Vw" userLabel="Vertical">
+                                            <rect key="frame" x="10" y="10" width="1024" height="61"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="10" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-bC-aTy" customClass="UIRoundedImageView" customModule="MiRoRecipeBook" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="10" translatesAutoresizingMaskIntoConstraints="NO" id="bsU-bC-aTy" customClass="UIRoundedImageView" customModule="MiRoRecipeBook" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="USg-ab-AO9"/>
                                                         <constraint firstAttribute="height" constant="60" id="YoP-og-MQO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-so-fBa">
-                                                    <rect key="frame" x="70" y="0.0" width="810" height="60"/>
+                                                    <rect key="frame" x="70" y="0.0" width="810" height="60.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="510" translatesAutoresizingMaskIntoConstraints="NO" id="ITu-gC-9Up">
-                                                            <rect key="frame" x="0.0" y="0.0" width="810" height="38"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="510" translatesAutoresizingMaskIntoConstraints="NO" id="ITu-gC-9Up">
+                                                            <rect key="frame" x="0.0" y="0.0" width="810" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="kpT-cb-SVF"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-FW-1Iy">
-                                                            <rect key="frame" x="0.0" y="43" width="810" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-FW-1Iy">
+                                                            <rect key="frame" x="0.0" y="35" width="810" height="25.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
@@ -57,7 +60,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jOm-ci-G4J">
-                                                    <rect key="frame" x="890" y="0.0" width="134" height="60"/>
+                                                    <rect key="frame" x="890" y="0.0" width="134" height="60.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -67,10 +70,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="L3C-zc-8Vw" secondAttribute="trailing" id="H5W-bK-aYa"/>
-                                        <constraint firstItem="L3C-zc-8Vw" firstAttribute="top" secondItem="9hN-gb-lPu" secondAttribute="top" id="b3l-NE-JlG"/>
-                                        <constraint firstItem="L3C-zc-8Vw" firstAttribute="leading" secondItem="9hN-gb-lPu" secondAttribute="leading" id="lrQ-d4-6bY"/>
-                                        <constraint firstAttribute="bottom" secondItem="L3C-zc-8Vw" secondAttribute="bottom" id="t3J-2q-kiQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="L3C-zc-8Vw" secondAttribute="trailing" constant="-10" id="H5W-bK-aYa"/>
+                                        <constraint firstItem="L3C-zc-8Vw" firstAttribute="top" secondItem="9hN-gb-lPu" secondAttribute="top" constant="10" id="b3l-NE-JlG"/>
+                                        <constraint firstItem="L3C-zc-8Vw" firstAttribute="leading" secondItem="9hN-gb-lPu" secondAttribute="leading" constant="10" id="lrQ-d4-6bY"/>
+                                        <constraint firstAttribute="bottom" secondItem="L3C-zc-8Vw" secondAttribute="bottom" constant="8" id="t3J-2q-kiQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

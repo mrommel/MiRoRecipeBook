@@ -13,11 +13,13 @@ class CategoryGroup: NSObject {
     var cagetoryId: Int32
     var categoryName: String
     var children: [CategoryGroup] = []
+    var item: Category?
     
-    init(withId identifier: Int32, andName name: String) {
+    init(withId identifier: Int32, andName name: String, andCategory category: Category?) {
        
         self.cagetoryId = identifier
         self.categoryName = name
+        self.item = category
     }
 }
 
@@ -38,19 +40,16 @@ class CategoryGroupManager: NSObject {
         // find root categories
         for category in categories! {
             if category.parent == Category.kNoCategory {
-                categoryGroups?.append(CategoryGroup.init(withId: category.identifier, andName: category.name!))
-                NSLog("added: \(category.name!)")
+                categoryGroups?.append(CategoryGroup.init(withId: category.identifier, andName: category.name!, andCategory: category))
             }
         }
         
         // add the categories that belong to them
         for category in categories! {
             if category.parent != Category.kNoCategory {
-                //self.categoryGroups?.append(CategoryGroup.init(withId: category.identifier, andName: category.name!))
-                //NSLog("added: \(category.name!)")
                 for categoryGroup in categoryGroups! {
                     if categoryGroup.cagetoryId == category.parent {
-                        categoryGroup.children.append(CategoryGroup.init(withId: category.identifier, andName: category.name!))
+                        categoryGroup.children.append(CategoryGroup.init(withId: category.identifier, andName: category.name!, andCategory: category))
                     }
                 }
             }
@@ -142,9 +141,14 @@ extension CategoriesTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! RecipeTableViewCell
         
         let categoryGroup = self.getCategoryGroup(forSection: indexPath.section, andRow: indexPath.row)
+        let category = categoryGroup.item! as Category
+        let categoryUrl = category.getImageUrl()
         
-        cell.recipeTitleLabel?.text = categoryGroup.categoryName
-        cell.recipeDescriptionLabel?.text = "test"
+        cell.recipeTitleLabel?.text = category.name
+        cell.recipeDescriptionLabel?.text = "\(category.recipes) " + "recipes".localized
+        if categoryUrl != nil {
+            cell.recipeImageView?.setImage(withUrl: categoryUrl!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+        }
         
         return cell
     }

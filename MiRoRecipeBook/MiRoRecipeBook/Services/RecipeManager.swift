@@ -226,7 +226,7 @@ extension RecipeManager: DataImportProtocol {
                     let parent = categoryJSON["parent_id"].int32Value
                     let path = categoryJSON["path"].stringValue
                     let recipies = categoryJSON["number_of_receipts"].int32Value
-                    let image = categoryJSON["path"].stringValue
+                    let image = categoryJSON["image_url"].stringValue
                     
                     category = self.storeCategory(withIdentifier: identifier, name: name, image: image, path: path, parent: parent, recipes: recipies)
                     
