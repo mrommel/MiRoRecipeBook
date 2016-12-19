@@ -21,5 +21,5 @@ extension Category {
     @NSManaged public var path: String?
     @NSManaged public var parent: Int32
     @NSManaged public var recipes: Int32
-
+    @NSManaged public var image_url: String?
 }

@@ -14,4 +14,15 @@ extension Category {
         return -1
     }
     
+    func getImageUrl() -> URL? {
+        
+        if self.image_url == nil {
+            return nil
+        }
+        
+        var urlString = RestApiManager.baseURL + (self.image_url)!
+        urlString = urlString.replacingOccurrences(of: "//", with: "/")
+        let imageUrl = URL(string: urlString)
+        return imageUrl
+    }
 }

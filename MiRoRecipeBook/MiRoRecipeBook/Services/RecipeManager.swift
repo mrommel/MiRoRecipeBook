@@ -48,7 +48,7 @@ protocol IngredientsProtocol: class {
 protocol CategoriesProtocol: class {
     
     func getCategory(withIdentifier indentifier: Int32) -> Category?
-    func storeCategory(withIdentifier identifier: Int32, name: String, path: String, parent: Int32, recipes: Int32) -> Category?
+    func storeCategory(withIdentifier identifier: Int32, name: String, image: String, path: String, parent: Int32, recipes: Int32) -> Category?
     func allCategories() -> [Category]?
     
     func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32)
@@ -226,8 +226,9 @@ extension RecipeManager: DataImportProtocol {
                     let parent = categoryJSON["parent_id"].int32Value
                     let path = categoryJSON["path"].stringValue
                     let recipies = categoryJSON["number_of_receipts"].int32Value
+                    let image = categoryJSON["path"].stringValue
                     
-                    category = self.storeCategory(withIdentifier: identifier, name: name, path: path, parent: parent, recipes: recipies)
+                    category = self.storeCategory(withIdentifier: identifier, name: name, image: image, path: path, parent: parent, recipes: recipies)
                     
                     NSLog("category created: %@", name)
                 } else {
@@ -548,7 +549,7 @@ extension RecipeManager: CategoriesProtocol {
         return nil
     }
     
-    func storeCategory(withIdentifier identifier: Int32, name: String, path: String, parent: Int32, recipes: Int32) -> Category? {
+    func storeCategory(withIdentifier identifier: Int32, name: String, image: String, path: String, parent: Int32, recipes: Int32) -> Category? {
         
         let tempContext = CoreDataManager.sharedInstance().createWorkerContext()
         
@@ -561,6 +562,7 @@ extension RecipeManager: CategoriesProtocol {
         category?.parent = parent
         category?.path = path
         category?.recipes = recipes
+        category?.image_url = image
         
         // save the object
         CoreDataManager.sharedInstance().save(tempContext)
