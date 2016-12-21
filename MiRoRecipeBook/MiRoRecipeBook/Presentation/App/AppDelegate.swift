@@ -3,7 +3,7 @@
 //  com.bosch.ebike.mobile-app
 //
 //  Created by Michael Rommel on 22.11.16.
-//  Copyright © 2016 Mobility Media. All rights reserved.
+//  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
 import UIKit

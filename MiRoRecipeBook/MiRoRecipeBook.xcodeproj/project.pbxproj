@@ -583,7 +583,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Mobility Media";
+				ORGANIZATIONNAME = "MiRo Soft";
 				TargetAttributes = {
 					1A8B5C271DE4E87200E11D14 = {
 						CreatedOnToolsVersion = 8.1;

@@ -3,7 +3,7 @@
 //  MiRoRecipeBook
 //
 //  Created by Michael Rommel on 23.11.16.
-//  Copyright © 2016 Mobility Media. All rights reserved.
+//  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
 import Foundation
