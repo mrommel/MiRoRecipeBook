@@ -34,7 +34,7 @@ protocol RecipeStepsProtocol: class {
 
 protocol RecipeIngredientsProtocol: class {
     
-    func storeRecipeIngredient(withRecipeIdentifier identifier: Int32, ingredientIdentifier: Int32, ingredientQuantity: String)
+    func storeRecipeIngredient(withRecipeIdentifier identifier: Int32, ingredientIdentifier: Int32, ingredientQuantity: Float, ingredientType type: String)
     func getRecipeIngredients(withRecipeIdentifier identifier: Int32) -> [RecipeIngredient]?
 }
 
@@ -150,9 +150,10 @@ extension RecipeManager: DataImportProtocol {
                     
                     for ingredientJSON in recipeJSON["integrients"].array! as [JSON] {
                         let ingredientIdentifier = ingredientJSON["id"].int32Value
-                        let ingredientQuantity = ingredientJSON["quantity"].stringValue
+                        let ingredientQuantity = ingredientJSON["quantity"].floatValue
+                        let ingredientType = ingredientJSON["type"].stringValue
                         
-                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity)
+                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity, ingredientType: ingredientType)
                     }
                     
                     for categoryJSON in recipeJSON["categories"].array! as [JSON] {
@@ -363,7 +364,7 @@ extension RecipeManager: RecipeStepsProtocol {
 
 extension RecipeManager: RecipeIngredientsProtocol {
     
-    func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32, ingredientQuantity quantity: String) {
+    func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32, ingredientQuantity quantity: Float, ingredientType type: String) {
         
         let context = CoreDataManager.sharedInstance().mainContext!
         
@@ -376,6 +377,7 @@ extension RecipeManager: RecipeIngredientsProtocol {
         recipeIngredientStep.setValue(NSNumber.init(value: recipeIdentifier), forKey: "recipe_identifier")
         recipeIngredientStep.setValue(NSNumber.init(value: ingredientIdentifier), forKey: "ingredient_identifier")
         recipeIngredientStep.setValue(quantity, forKey: "quantity")
+        recipeIngredientStep.setValue(type, forKey: "type")
         
         // save the object
         CoreDataManager.sharedInstance().save(recipeIngredientStep)

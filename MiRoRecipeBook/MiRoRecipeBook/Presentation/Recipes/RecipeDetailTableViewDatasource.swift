@@ -14,13 +14,15 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
     var recipe: Recipe?
     var steps: [RecipeStep]?
     var ingredients: [RecipeIngredient]?
+    var scale: Float = 1.0
     
-    init(forRecipe recipe: Recipe?) {
+    init(forRecipe recipe: Recipe?, scale: Float) {
         super.init()
         
         self.recipe = recipe
         self.steps = recipe?.getSteps()
         self.ingredients = recipe?.getRecipeIngredients()
+        self.scale = scale
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +45,13 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
         return self.steps![index].step!
     }
     
+    func format(_ recipeIngredient: RecipeIngredient?) -> String {
+        let amount: Float? = recipeIngredient?.quantity
+        let type: String? = recipeIngredient?.type
+        let quantity = Quantity.init(withQuantity: amount!, andType: type!)
+        return quantity.format(withScale: self.scale)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as! RecipeTableViewCell
         
@@ -52,7 +61,7 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
             let recipeIngredient = self.getRecipeIngredient(withIndex: indexPath.row)
             let ingredient = recipeManager.getIngredient(withIdentifier: recipeIngredient.ingredient_identifier)
             cell.recipeTitleLabel?.text = ingredient?.name
-            cell.recipeDescriptionLabel?.text = recipeIngredient.quantity
+            cell.recipeDescriptionLabel?.text = self.format(recipeIngredient)
             
             if ingredient?.getImageUrl() != nil {
                 cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)

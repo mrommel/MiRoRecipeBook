@@ -52,7 +52,7 @@ class RecipeDetailViewController: UIViewController {
             self.recipeDetailTableViewDelegate = RecipeDetailTableViewDelegate.init()
             self.ingredientTableView.delegate = self.recipeDetailTableViewDelegate
             
-            self.recipeDetailTableViewDatasource = RecipeDetailTableViewDatasource.init(forRecipe: recipe)
+            self.recipeDetailTableViewDatasource = RecipeDetailTableViewDatasource.init(forRecipe: recipe, scale: 1)
             self.ingredientTableView.dataSource = recipeDetailTableViewDatasource
             
             self.categoryTableViewDatasource = CategoryTableViewDatasource.init(forRecipe: recipe)
@@ -60,7 +60,58 @@ class RecipeDetailViewController: UIViewController {
             
             self.categoryTableViewDelegate = CategoryTableViewDelegate.init()
             self.categoryTableView.delegate = self.categoryTableViewDelegate
+            
         }
     }
 
+    @IBAction func composeTapped(sender: UIBarButtonItem) {
+        
+        // 1
+        let optionMenu = UIAlertController(title: nil, message: "Recalculate the ingredients", preferredStyle: .actionSheet)
+        
+        // 2
+        let halfAction = UIAlertAction(title: "½x", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            NSLog("½x")
+            
+            self.recipeDetailTableViewDatasource?.scale = 0.5
+            self.ingredientTableView.reloadData()
+        })
+        
+        let normalAction = UIAlertAction(title: "1x", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            NSLog("1x")
+            
+            self.recipeDetailTableViewDatasource?.scale = 1.0
+            self.ingredientTableView.reloadData()
+        })
+        let doubleAction = UIAlertAction(title: "2x", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            NSLog("2x")
+            
+            self.recipeDetailTableViewDatasource?.scale = 2.0
+            self.ingredientTableView.reloadData()
+        })
+        
+        //
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (action: UIAlertAction!) -> Void in
+            NSLog("Cancelled")
+        })
+        
+        
+        // 4
+        optionMenu.addAction(halfAction)
+        optionMenu.addAction(normalAction)
+        optionMenu.addAction(doubleAction)
+        optionMenu.addAction(cancelAction)
+        
+        if let popoverPresentationController = optionMenu.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = CGRect.init(x: self.view.bounds.size.width / 2.0, y: self.view.bounds.size.height / 2.0, width: 1.0, height: 1.0)
+        }
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+    }
 }

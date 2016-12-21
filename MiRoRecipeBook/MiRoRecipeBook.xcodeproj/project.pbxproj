@@ -101,6 +101,7 @@
 		1ABF9ADF1E08266E00E6DC6A /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9ADE1E08266E00E6DC6A /* photo-frame.png */; };
 		1ABF9AE11E0826C300E6DC6A /* Ingredients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */; };
 		1ABF9AE51E08288F00E6DC6A /* menu-category.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AE41E08288F00E6DC6A /* menu-category.png */; };
+		1AC7DB331E0AD31400D0D759 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7DB321E0AD31400D0D759 /* Quantity.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +224,7 @@
 		1ABF9AE41E08288F00E6DC6A /* menu-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-category.png"; path = "MiRoRecipeBook/Resources/Images/menu-category.png"; sourceTree = "<group>"; };
 		1ABF9AE61E088C3000E6DC6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
 		1ABF9AE91E088C4000E6DC6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		1AC7DB321E0AD31400D0D759 /* Quantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Quantity.swift; path = Utils/Quantity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				1A68C3281E000E0B00C025E4 /* Localizable.swift */,
+				1AC7DB321E0AD31400D0D759 /* Quantity.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				1ABF9AB91E08258C00E6DC6A /* AppDelegate.swift in Sources */,
 				1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */,
 				1ABF9ABA1E08258C00E6DC6A /* AppDependecies.swift in Sources */,
+				1AC7DB331E0AD31400D0D759 /* Quantity.swift in Sources */,
 				1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */,
 				1A68C30E1DFE093800C025E4 /* CommonWireframe.swift in Sources */,
 				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,

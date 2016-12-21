@@ -16,9 +16,11 @@ class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-#if TARGET_IPHONE_SIMULATOR
+#if (arch(i386) || arch(x86_64)) && os(iOS)
+    // simulator
     static let baseURL = "http://localhost:8000/"
 #else
+    // device
     static let baseURL = "http://192.168.178.20:8000/"
 #endif
     
