@@ -17,6 +17,7 @@
 		1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A45C0901DEF730E009C9C4E /* recipe-default-image.png */; };
 		1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */; };
 		1A5317781DEB3D1A002FF14B /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317771DEB3D19002FF14B /* RecipeManager.swift */; };
+		1A65E3D31E0A6CD800D48A14 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AE71E088C3000E6DC6A /* Info.plist */; };
 		1A68C3061DFDFFA400C025E4 /* settings-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C3051DFDFFA400C025E4 /* settings-64.png */; };
 		1A68C3081DFE000100C025E4 /* sync-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C3071DFE000100C025E4 /* sync-64.png */; };
 		1A68C30C1DFE08F600C025E4 /* SettingsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C30B1DFE08F600C025E4 /* SettingsWireframe.swift */; };
@@ -221,7 +222,6 @@
 		1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Ingredients.storyboard; path = Presentation/Integrients/Ingredients.storyboard; sourceTree = "<group>"; };
 		1ABF9AE41E08288F00E6DC6A /* menu-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-category.png"; path = "MiRoRecipeBook/Resources/Images/menu-category.png"; sourceTree = "<group>"; };
 		1ABF9AE61E088C3000E6DC6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
-		1ABF9AE81E088C3500E6DC6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		1ABF9AE91E088C4000E6DC6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -653,6 +653,7 @@
 				1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
 				1ABF9AC91E08265A00E6DC6A /* reset.png in Resources */,
 				1A19CC9A1E004E9900A3DA32 /* menu-recipe.png in Resources */,
+				1A65E3D31E0A6CD800D48A14 /* Info.plist in Resources */,
 				1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */,
 				1A68C3061DFDFFA400C025E4 /* settings-64.png in Resources */,
 				1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */,
@@ -853,7 +854,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1ABF9AE61E088C3000E6DC6A /* de */,
-				1ABF9AE81E088C3500E6DC6A /* Base */,
 				1ABF9AE91E088C4000E6DC6A /* en */,
 			);
 			name = Info.plist;
