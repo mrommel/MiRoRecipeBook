@@ -26,26 +26,26 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="txr-qx-bCa" userLabel="Vertical">
-                                            <rect key="frame" x="10" y="10" width="931" height="61"/>
+                                            <rect key="frame" x="10" y="10" width="770" height="61"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="10" translatesAutoresizingMaskIntoConstraints="NO" id="iak-ng-miT" customClass="UIRoundedImageView" customModule="MiRoRecipeBook" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="E2J-93-Q9H"/>
                                                         <constraint firstAttribute="height" constant="60" id="tSX-nd-CHY"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hld-TV-OCw">
-                                                    <rect key="frame" x="70" y="0.0" width="550" height="60.5"/>
+                                                    <rect key="frame" x="70" y="0.0" width="550" height="61"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epr-pa-G8W">
-                                                            <rect key="frame" x="0.0" y="0.0" width="550" height="34.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="550" height="35"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or5-se-aII">
-                                                            <rect key="frame" x="0.0" y="39.5" width="550" height="21"/>
+                                                            <rect key="frame" x="0.0" y="40" width="550" height="21"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                                             <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                             <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="pzl-So-VAx">
-                                                    <rect key="frame" x="630" y="0.0" width="301" height="60.5"/>
+                                                    <rect key="frame" x="630" y="0.0" width="140" height="61"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="-299" y="1338"/>
         </scene>
-        <!--Ingredient Recipes Detail View Controller-->
+        <!--Recipes List ViewController-->
         <scene sceneID="Lci-xQ-iTQ">
             <objects>
-                <tableViewController storyboardIdentifier="IngredientRecipesDetailViewController" id="XDQ-Oz-253" userLabel="Ingredient Recipes Detail View Controller" customClass="IngredientRecipesDetailViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RecipesListViewController" id="XDQ-Oz-253" userLabel="Recipes List ViewController" customClass="RecipesListViewController" customModule="MiRoRecipeBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cqa-gq-2tI">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

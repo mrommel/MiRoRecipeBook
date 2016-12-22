@@ -10,6 +10,7 @@ import Foundation
 
 class IngredientsWireframe: CommonWireframe {
     
+    fileprivate let recipeManager = RecipeManager()
     fileprivate let kIngredientsStoryboardName = "Ingredients"
     
     override init(withRootNavigationController navigationController: UINavigationController?) {
@@ -23,8 +24,11 @@ class IngredientsWireframe: CommonWireframe {
     }
  
     func presentRecipes(forIngredientIdentifier ingredientIdentifier: Int32) {
-        let ingredientRecipesDetailViewController = IngredientRecipesDetailViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
-        ingredientRecipesDetailViewController.ingredientIdentifier = ingredientIdentifier
-        self.rootNavigationController?.pushViewController(ingredientRecipesDetailViewController, animated: true)
+        let ingredient = recipeManager.getIngredient(withIdentifier: ingredientIdentifier)
+        
+        let recipesListViewController = RecipesListViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
+        recipesListViewController.recipeListTitle = "IngredientRecipes.of".localized + " " + (ingredient?.name)!
+        recipesListViewController.recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier)
+        self.rootNavigationController?.pushViewController(recipesListViewController, animated: true)
     }
 }

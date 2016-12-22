@@ -29,7 +29,7 @@
 		1A68C31E1DFF397800C025E4 /* Recipes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C31D1DFF397800C025E4 /* Recipes.storyboard */; };
 		1A68C3201DFF437F00C025E4 /* IntegrientsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C31F1DFF437F00C025E4 /* IntegrientsWireframe.swift */; };
 		1A68C3221DFF470800C025E4 /* recipe_background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C3211DFF470800C025E4 /* recipe_background.jpg */; };
-		1A68C3241DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3231DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift */; };
+		1A68C3241DFFE47900C025E4 /* RecipesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3231DFFE47900C025E4 /* RecipesListViewController.swift */; };
 		1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A68C3281E000E0B00C025E4 /* Localizable.swift */; };
 		1A68C32C1E000E9100C025E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A68C32E1E000E9100C025E4 /* Localizable.strings */; };
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
@@ -148,7 +148,7 @@
 		1A68C31D1DFF397800C025E4 /* Recipes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Recipes.storyboard; path = Presentation/Recipes/Recipes.storyboard; sourceTree = "<group>"; };
 		1A68C31F1DFF437F00C025E4 /* IntegrientsWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntegrientsWireframe.swift; path = Presentation/Integrients/IntegrientsWireframe.swift; sourceTree = "<group>"; };
 		1A68C3211DFF470800C025E4 /* recipe_background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = recipe_background.jpg; path = MiRoRecipeBook/Resources/Images/recipe_background.jpg; sourceTree = "<group>"; };
-		1A68C3231DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IngredientRecipesDetailViewController.swift; path = Presentation/Integrients/IngredientRecipesDetailViewController.swift; sourceTree = "<group>"; };
+		1A68C3231DFFE47900C025E4 /* RecipesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipesListViewController.swift; path = Presentation/Integrients/RecipesListViewController.swift; sourceTree = "<group>"; };
 		1A68C3281E000E0B00C025E4 /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localizable.swift; path = Utils/Localizable.swift; sourceTree = "<group>"; };
 		1A68C32D1E000E9100C025E4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A68C32F1E000EE700C025E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -478,7 +478,7 @@
 			children = (
 				1A68C31F1DFF437F00C025E4 /* IntegrientsWireframe.swift */,
 				1ABF9AC21E08263300E6DC6A /* IntegrientsTableViewController.swift */,
-				1A68C3231DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift */,
+				1A68C3231DFFE47900C025E4 /* RecipesListViewController.swift */,
 				1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */,
 			);
 			name = Integrients;
@@ -787,7 +787,7 @@
 				1ABF9ABD1E08258C00E6DC6A /* MenuTableViewController.swift in Sources */,
 				1A94ED721E028C5700572ABE /* RecipeDetailTableViewDatasource.swift in Sources */,
 				1A19CC911E0031E700A3DA32 /* RecipeIngredient+Parsing.swift in Sources */,
-				1A68C3241DFFE47900C025E4 /* IngredientRecipesDetailViewController.swift in Sources */,
+				1A68C3241DFFE47900C025E4 /* RecipesListViewController.swift in Sources */,
 				1AAF719E1DF5C113002F4293 /* Integrient+Parsing.swift in Sources */,
 				1ABF9ABC1E08258C00E6DC6A /* HintViewController.swift in Sources */,
 				1A94EDA31E04808C00572ABE /* CategoryTableViewCell.swift in Sources */,

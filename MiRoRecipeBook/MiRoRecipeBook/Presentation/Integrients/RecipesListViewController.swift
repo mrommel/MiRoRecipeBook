@@ -1,25 +1,22 @@
 //
-//  IngredientRecipesDetailViewController.swift
+//  RecipesListViewController.swift
 //  MiRoRecipeBook
 //
 //  Created by Michael Rommel on 13.12.16.
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
-class IngredientRecipesDetailViewController: UITableViewController {
+class RecipesListViewController: UITableViewController {
     
-    let recipeManager = RecipeManager()
-    var ingredientIdentifier: Int32?
-    var recipes: [Recipe]?
+    var recipes: [Recipe]? // 
+    var recipeListTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        let ingredient = recipeManager.getIngredient(withIdentifier: ingredientIdentifier!)
-        self.title = "IngredientRecipes.of".localized + " " + (ingredient?.name)!
+        self.title = self.recipeListTitle
         
-        self.recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier!)
         NSLog("recipes: %d", self.recipes!.count)
     }
     
@@ -27,7 +24,7 @@ class IngredientRecipesDetailViewController: UITableViewController {
 
 // MARK: UITableViewDelegate methods
 
-extension IngredientRecipesDetailViewController {
+extension RecipesListViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -71,7 +68,7 @@ extension IngredientRecipesDetailViewController {
 
 // MARK: UITableViewDataSource methods
 
-extension IngredientRecipesDetailViewController {
+extension RecipesListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.recipes!.count
