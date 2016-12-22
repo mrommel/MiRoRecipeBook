@@ -18,6 +18,8 @@
 "duration" = "Zubereitungsdauer";
 "ingredients" = "Zutaten";
 "steps" = "Schritte";
+"Recalculate the ingredients" = "Neuberechnen der Zutaten";
+"Cancel" = "Abbrechen";
 
 // ingredients
 "IngredientRecipes.of" = "Rezepte mit";

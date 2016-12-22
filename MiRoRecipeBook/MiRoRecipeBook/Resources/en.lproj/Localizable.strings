@@ -18,6 +18,8 @@
 "duration" = "duration";
 "ingredients" = "ingredients";
 "steps" = "steps";
+"Recalculate the ingredients" = "Recalculate the ingredients";
+"Cancel" = "Cancel";
 
 // ingredients
 "IngredientRecipes.of" = "Recipes with";

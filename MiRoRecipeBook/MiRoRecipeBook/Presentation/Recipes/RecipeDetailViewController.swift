@@ -67,7 +67,7 @@ class RecipeDetailViewController: UIViewController {
     @IBAction func composeTapped(sender: UIBarButtonItem) {
         
         // 1
-        let optionMenu = UIAlertController(title: nil, message: "Recalculate the ingredients", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "Recalculate the ingredients".localized, preferredStyle: .actionSheet)
         
         // 2
         let halfAction = UIAlertAction(title: "½x", style: .default, handler: {
@@ -92,9 +92,16 @@ class RecipeDetailViewController: UIViewController {
             self.recipeDetailTableViewDatasource?.scale = 2.0
             self.ingredientTableView.reloadData()
         })
+        let tripleAction = UIAlertAction(title: "3x", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            NSLog("3x")
+            
+            self.recipeDetailTableViewDatasource?.scale = 3.0
+            self.ingredientTableView.reloadData()
+        })
         
         //
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel, handler: {
             (action: UIAlertAction!) -> Void in
             NSLog("Cancelled")
         })
@@ -104,6 +111,7 @@ class RecipeDetailViewController: UIViewController {
         optionMenu.addAction(halfAction)
         optionMenu.addAction(normalAction)
         optionMenu.addAction(doubleAction)
+        optionMenu.addAction(tripleAction)
         optionMenu.addAction(cancelAction)
         
         if let popoverPresentationController = optionMenu.popoverPresentationController {
