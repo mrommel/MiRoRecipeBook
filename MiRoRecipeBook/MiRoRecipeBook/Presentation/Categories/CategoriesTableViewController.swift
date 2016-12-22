@@ -92,9 +92,10 @@ extension CategoriesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
-        //let recipe = self.getCategory(withIndex: indexPath.row)
-        // AppDelegate.shared?.appDependecies?.recipesWireframe?.presentDetail(forRecipe:recipe)
+        let indexPath: IndexPath = self.tableView.indexPathForSelectedRow!
+        let categoryGroup = self.getCategoryGroup(forSection: indexPath.section, andRow: indexPath.row)
+
+        AppDelegate.shared?.appDependecies?.categoriesWireframe?.presentRecipes(forCategoryIdentifier: categoryGroup.cagetoryId)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

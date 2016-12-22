@@ -49,7 +49,7 @@ extension Recipe {
     }
     
     func hasIngredient(withIdentifier ingredientIdentifier: Int32) -> Bool {
-        return RecipeManager().hasRecipeIngredients(withRecipeIdentifier: self.identifier, ingredientIdentifier: ingredientIdentifier)
+        return RecipeManager().hasRecipeIngredient(withRecipeIdentifier: self.identifier, ingredientIdentifier: ingredientIdentifier)
     }
     
     func getRecipeIngredients() -> [RecipeIngredient]? {        
@@ -62,5 +62,9 @@ extension Recipe {
     
     func getRecipeCategories() -> [RecipeCategory]? {
         return RecipeManager().getRecipeCategories(forIdentifier: self.identifier)
+    }
+    
+    func hasCategory(withIdentifier categoryIdentifier: Int32) -> Bool {
+        return RecipeManager().hasRecipeCategory(withRecipeIdentifier: self.identifier, categoryIdentifier: categoryIdentifier)
     }
 }

@@ -36,6 +36,7 @@ protocol RecipeIngredientsProtocol: class {
     
     func storeRecipeIngredient(withRecipeIdentifier identifier: Int32, ingredientIdentifier: Int32, ingredientQuantity: Float, ingredientType type: String)
     func getRecipeIngredients(withRecipeIdentifier identifier: Int32) -> [RecipeIngredient]?
+    func hasRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32) -> Bool
 }
 
 protocol IngredientsProtocol: class {
@@ -54,6 +55,9 @@ protocol CategoriesProtocol: class {
     func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32)
     func getCategories(forIdentifier identifier: Int32) -> [Category]?
     func getRecipeCategories(forIdentifier identifier: Int32) -> [RecipeCategory]?
+    func getRecipes(forCategoryIdentifier categoryIdentifier: Int32) -> [Recipe]?
+    
+    func hasRecipeCategory(withRecipeIdentifier recipeIdentifier: Int32, categoryIdentifier: Int32) -> Bool
 }
 
 class RecipeManager: NSObject {
@@ -406,7 +410,7 @@ extension RecipeManager: RecipeIngredientsProtocol {
         return nil
     }
     
-    func hasRecipeIngredients(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32) -> Bool {
+    func hasRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32) -> Bool {
         
         let context = CoreDataManager.sharedInstance().mainContext!
         
@@ -657,7 +661,19 @@ extension RecipeManager: CategoriesProtocol {
         
         return nil
     }
-
+    
+    func getRecipes(forCategoryIdentifier categoryIdentifier: Int32) -> [Recipe]? {
+        
+        var recipesOfIngredient: [Recipe]? = []
+        
+        for recipe in self.allRecipes()! {
+            if recipe.hasCategory(withIdentifier: categoryIdentifier) {
+                recipesOfIngredient?.append(recipe)
+            }
+        }
+        
+        return recipesOfIngredient
+    }
     
     func storeRecipeCategory(withRecipeIdentifier identifier: Int32, categoryIdentifier: Int32) {
      
@@ -676,4 +692,26 @@ extension RecipeManager: CategoriesProtocol {
         return
     }
 
+    func hasRecipeCategory(withRecipeIdentifier recipeIdentifier: Int32, categoryIdentifier: Int32) -> Bool {
+        
+        let context = CoreDataManager.sharedInstance().mainContext!
+        
+        // try to get a recipe ...
+        let fetchRequest = NSFetchRequest<RecipeCategory>(entityName: "RecipeCategory")
+        
+        // ... with identifier
+        fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d AND category_identifier == %d", recipeIdentifier, categoryIdentifier)
+        
+        do {
+            //go get the results
+            let searchResults = try context.fetch(fetchRequest)
+            
+            return searchResults.count > 0
+            
+        } catch {
+            print("Error with request: \(error)")
+        }
+        
+        return false
+    }
 }

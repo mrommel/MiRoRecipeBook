@@ -25,6 +25,9 @@
 "IngredientRecipes.of" = "Rezepte mit";
 "recipes" = "Rezepte";
 
+// categories
+"CategoryRecipes.of" = "Rezepte für";
+
 // hint
 "hint.title" = "Hinweis";
 "hint.message" = "Bitte öffne das Menü und entdecke was du alles mit der App machen kannst.";

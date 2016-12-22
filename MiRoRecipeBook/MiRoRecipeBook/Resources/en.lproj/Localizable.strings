@@ -25,6 +25,9 @@
 "IngredientRecipes.of" = "Recipes with";
 "recipes" = "recipes";
 
+// categories
+"CategoryRecipes.of" = "Recipes with";
+
 // hint
 "hint.title" = "Hint";
 "hint.message" = "Please open the menu and explore what you can do with this app.";
