@@ -38,6 +38,7 @@ enum QuantityType: String {
     case can = "D"
     case glas = "X"
     case some = "W"
+    case cup = "R"
 }
 
 extension QuantityType {
@@ -59,6 +60,7 @@ extension QuantityType {
         case "D": self = .can
         case "X": self = .glas
         case "W": self = .some
+        case "R": self = .cup
         default: self = .none
         }
     }
@@ -142,6 +144,12 @@ class Quantity: NSObject {
                 return "1 Glas"
             } else {
                 return "\(value.format(f: noFractionDigitFloatFormat)) Gläser"
+            }
+        case .cup:
+            if value == 1.0 {
+                return "1 Tasse"
+            } else {
+                return "\(value.format(f: noFractionDigitFloatFormat)) Tassen"
             }
         case .some:
             return " "
