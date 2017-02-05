@@ -20,4 +20,5 @@ extension RecipeIngredient {
     @NSManaged public var quantity: Float
     @NSManaged public var recipe_identifier: Int32
     @NSManaged public var type: String?
+    @NSManaged public var order: Int32
 }

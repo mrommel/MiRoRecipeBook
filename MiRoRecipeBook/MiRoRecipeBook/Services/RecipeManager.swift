@@ -34,7 +34,7 @@ protocol RecipeStepsProtocol: class {
 
 protocol RecipeIngredientsProtocol: class {
     
-    func storeRecipeIngredient(withRecipeIdentifier identifier: Int32, ingredientIdentifier: Int32, ingredientQuantity: Float, ingredientType type: String)
+    func storeRecipeIngredient(withRecipeIdentifier identifier: Int32, ingredientIdentifier: Int32, ingredientQuantity: Float, ingredientType type: String, order: Int32)
     func getRecipeIngredients(withRecipeIdentifier identifier: Int32) -> [RecipeIngredient]?
     func hasRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32) -> Bool
 }
@@ -152,12 +152,14 @@ extension RecipeManager: DataImportProtocol {
                         let _ = self.storeRecipeStep(withIdentifier: identifier, step: step)
                     }
                     
+                    var order: Int32 = 0
                     for ingredientJSON in recipeJSON["integrients"].array! as [JSON] {
                         let ingredientIdentifier = ingredientJSON["id"].int32Value
                         let ingredientQuantity = ingredientJSON["quantity"].floatValue
                         let ingredientType = ingredientJSON["type"].stringValue
                         
-                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity, ingredientType: ingredientType)
+                        self.storeRecipeIngredient(withRecipeIdentifier: identifier, ingredientIdentifier: ingredientIdentifier, ingredientQuantity: ingredientQuantity, ingredientType: ingredientType, order: order)
+                        order += 1
                     }
                     
                     for categoryJSON in recipeJSON["categories"].array! as [JSON] {
@@ -368,7 +370,7 @@ extension RecipeManager: RecipeStepsProtocol {
 
 extension RecipeManager: RecipeIngredientsProtocol {
     
-    func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32, ingredientQuantity quantity: Float, ingredientType type: String) {
+    func storeRecipeIngredient(withRecipeIdentifier recipeIdentifier: Int32, ingredientIdentifier: Int32, ingredientQuantity quantity: Float, ingredientType type: String, order: Int32) {
         
         let context = CoreDataManager.sharedInstance().mainContext!
         
@@ -382,6 +384,7 @@ extension RecipeManager: RecipeIngredientsProtocol {
         recipeIngredientStep.setValue(NSNumber.init(value: ingredientIdentifier), forKey: "ingredient_identifier")
         recipeIngredientStep.setValue(quantity, forKey: "quantity")
         recipeIngredientStep.setValue(type, forKey: "type")
+        recipeIngredientStep.setValue(order, forKey: "order")
         
         // save the object
         CoreDataManager.sharedInstance().save(recipeIngredientStep)
@@ -396,6 +399,9 @@ extension RecipeManager: RecipeIngredientsProtocol {
         
         // ... with identifier
         fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        let sortDescriptor = NSSortDescriptor(key: "order", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             //go get the results
