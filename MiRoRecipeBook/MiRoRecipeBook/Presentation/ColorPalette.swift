@@ -38,7 +38,7 @@ class FontPalette: NSObject {
     
     class func navBarTitleFont() -> UIKit.UIFont {
         if #available(iOS 8.2, *) {
-            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFontWeightMedium)
+            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFont.Weight.medium)
         } else {
             return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault)
         }
@@ -46,7 +46,7 @@ class FontPalette: NSObject {
     
     class func navBarButtonFont() -> UIKit.UIFont {
         if #available(iOS 8.2, *) {
-            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFont.Weight.regular)
         } else {
             return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault)
         }
@@ -54,7 +54,7 @@ class FontPalette: NSObject {
     
     class func subtitleFont() -> UIKit.UIFont {
         if #available(iOS 8.2, *) {
-            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFontWeightRegular)
+            return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault, weight: UIFont.Weight.regular)
         } else {
             return UIFont.systemFont(ofSize: FontPaletteSize.FontSizeDefault)
         }

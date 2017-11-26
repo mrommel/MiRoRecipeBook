@@ -1,4 +1,4 @@
-source "https://github.com/CocoaPods/Old-Specs"
+#source "https://github.com/CocoaPods/Old-Specs"
 platform :ios, "8.0"
 project 'MiRoRecipeBook/MiRoRecipeBook.xcodeproj'
 use_frameworks!

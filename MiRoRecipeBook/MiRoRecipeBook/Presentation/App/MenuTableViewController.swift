@@ -70,7 +70,7 @@ extension MenuTableViewController {
         self.revealViewController().pushFrontViewController(navigationController, animated: true)
     }
     
-    func openMenu(_ sender: AnyObject) {
+    @objc func openMenu(_ sender: AnyObject) {
         self.revealViewController().revealToggle(nil)
     }
     

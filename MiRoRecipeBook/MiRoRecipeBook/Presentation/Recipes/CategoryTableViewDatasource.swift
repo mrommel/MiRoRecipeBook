@@ -37,7 +37,7 @@ class CategoryTableViewDatasource: NSObject, UITableViewDataSource {
         
         let title = self.getRecipeCategory(withIndex: indexPath.row).name
         cell.textLabel?.text = title
-        NSLog("title: \(title)")
+        NSLog("title: \(String(describing: title))")
         
         return cell
     }

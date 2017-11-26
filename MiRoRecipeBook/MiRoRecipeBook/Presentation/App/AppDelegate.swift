@@ -65,15 +65,15 @@ private extension AppDelegate {
         UINavigationBar.appearance().tintColor = ColorPalette.tintColor
         
         UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName : FontPalette.navBarTitleFont(),
-            NSForegroundColorAttributeName : ColorPalette.navigationBarTitleColor
+            NSAttributedStringKey.font : FontPalette.navBarTitleFont(),
+            NSAttributedStringKey.foregroundColor : ColorPalette.navigationBarTitleColor
         ]
     }
     
     func styleBarButtons() {
         let barButtonTextAttributes = [
-            NSFontAttributeName : FontPalette.navBarButtonFont(),
-            NSForegroundColorAttributeName : ColorPalette.tintColor
+            NSAttributedStringKey.font : FontPalette.navBarButtonFont(),
+            NSAttributedStringKey.foregroundColor : ColorPalette.tintColor
         ]
         UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTextAttributes, for: .normal)
     }

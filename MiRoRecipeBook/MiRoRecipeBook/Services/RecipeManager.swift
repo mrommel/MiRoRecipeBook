@@ -290,7 +290,7 @@ extension RecipeManager: RecipesProtocol {
         recipe?.identifier = identifier
         
         // save the object
-        print("recipe \(recipe) created!")
+        //print("recipe \(recipe) created!")
         return recipe
     }
     
