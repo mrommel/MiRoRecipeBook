@@ -41,8 +41,8 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
         return self.ingredients![index]
     }
     
-    func getRecipeStep(withIndex index: Int) -> String {
-        return self.steps![index].step!
+    func getRecipeStepText(withIndex index: Int) -> String {
+        return self.steps![index].text!
     }
     
     func format(_ recipeIngredient: RecipeIngredient?) -> String {
@@ -62,14 +62,15 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
             let ingredient = recipeManager.getIngredient(withIdentifier: recipeIngredient.ingredient_identifier)
             cell.recipeTitleLabel?.text = ingredient?.name
             cell.recipeDescriptionLabel?.text = self.format(recipeIngredient)
+            cell.recipeDescriptionLabel?.isHidden = false
             
             if ingredient?.getImageUrl() != nil {
                 cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
             }
         } else {
-            let step = self.getRecipeStep(withIndex: indexPath.row)
+            let text = self.getRecipeStepText(withIndex: indexPath.row)
             
-            cell.recipeTitleLabel?.text = step
+            cell.recipeTitleLabel?.text = text
             cell.recipeDescriptionLabel?.isHidden = true
             
             cell.imageView?.image = UIImage.init(named: "number\(indexPath.row).png")

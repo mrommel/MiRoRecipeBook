@@ -17,6 +17,7 @@ extension RecipeStep {
     }
 
     @NSManaged public var recipe_identifier: Int32
-    @NSManaged public var step: String?
+    @NSManaged public var index: Int32
+    @NSManaged public var text: String?
 
 }

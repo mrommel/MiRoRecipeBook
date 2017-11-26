@@ -93,7 +93,6 @@
                                     <navigationItem title="Hint" id="vy1-um-o2F">
                                         <barButtonItem key="leftBarButtonItem" image="menu-alt-24.png" width="60" id="hNR-AS-Ip5">
                                             <inset key="imageInsets" minX="10" minY="0.0" maxX="-10" maxY="0.0"/>
-                                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="openMenu:" destination="Ly7-eW-Fdj" id="mcP-0f-wvf"/>
                                             </connections>

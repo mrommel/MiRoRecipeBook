@@ -11,11 +11,11 @@ import CoreData
 extension RecipeStep {
     
     override public var description : String {
-        return "<RecipeStep \(self.step)>"
+        return "<RecipeStep \(self.index)>"
     }
     
     override public var debugDescription : String {
-        return "<RecipeStep \(self.step)>"
+        return "<RecipeStep \(self.index)>"
     }
 
 }

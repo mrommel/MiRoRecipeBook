@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B48" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image_url" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,8 +38,9 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="RecipeStep" representedClassName=".RecipeStep" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="recipe_identifier" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="step" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Category" positionX="-63" positionY="45" width="128" height="135"/>
@@ -47,6 +48,6 @@
         <element name="Recipe" positionX="-63" positionY="-18" width="128" height="195"/>
         <element name="RecipeCategory" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="RecipeIngredient" positionX="-63" positionY="45" width="128" height="120"/>
-        <element name="RecipeStep" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="RecipeStep" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>

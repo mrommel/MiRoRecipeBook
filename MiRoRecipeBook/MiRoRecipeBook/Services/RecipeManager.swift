@@ -147,9 +147,12 @@ extension RecipeManager: DataImportProtocol {
                     recipe?.flag_url = country["flag"].stringValue
                     
                     for stepJSON in recipeJSON["steps"].array! as [JSON] {
-                        let step = stepJSON.stringValue
-                        //NSLog("step %d => %@", identifier, step)
-                        let _ = self.storeRecipeStep(withIdentifier: identifier, step: step)
+                        print("step \(identifier) => \(stepJSON)")
+                        let innerJSON = stepJSON["step"].dictionaryValue
+                        let index = innerJSON["index"]?.int32Value
+                        let text = innerJSON["text"]?.stringValue
+                        
+                        let _ = self.storeRecipeStep(withIdentifier: identifier, index: index!, text: text!)
                     }
                     
                     var order: Int32 = 0
@@ -330,14 +333,15 @@ extension RecipeManager: RecipesProtocol {
 
 extension RecipeManager: RecipeStepsProtocol {
     
-    func storeRecipeStep(withIdentifier identifier: Int32, step: String) -> RecipeStep? {
+    func storeRecipeStep(withIdentifier identifier: Int32, index: Int32, text: String) -> RecipeStep? {
         
         // retrieve the RecipeStep
         let recipeStep = CoreDataManager.sharedInstance().createNSManagedObject(for: RecipeStep.self) as? RecipeStep
         
         // set the entity values
         recipeStep?.recipe_identifier = identifier
-        recipeStep?.step = step
+        recipeStep?.index = index
+        recipeStep?.text = text
         
         // save the object
         print("recipeStep created!")
@@ -353,6 +357,9 @@ extension RecipeManager: RecipeStepsProtocol {
         
         // ... with identifier
         fetchRequest.predicate = NSPredicate.init(format: "recipe_identifier == %d", identifier)
+        
+        let sortDescriptor = NSSortDescriptor(key: "index", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             //go get the results
