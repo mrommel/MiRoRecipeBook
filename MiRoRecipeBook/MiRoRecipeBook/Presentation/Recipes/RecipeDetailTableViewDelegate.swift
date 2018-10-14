@@ -68,7 +68,7 @@ class RecipeDetailTableViewDelegate: NSObject, UITableViewDelegate {
         if indexPath.section == 0 {
             return 60
         } else {
-            return UITableViewAutomaticDimension
+            return UITableView.automaticDimension
         }
     }
     

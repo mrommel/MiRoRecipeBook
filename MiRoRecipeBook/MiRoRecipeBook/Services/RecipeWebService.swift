@@ -9,14 +9,20 @@
 import Foundation
 import SwiftyJSON
 
-typealias ServiceResponse = (JSON, NSError?) -> Void
-typealias ErrorResponse = (NSError?) -> Void
+typealias ServiceResponse = (JSON?, Error?) -> Void
+typealias ErrorResponse = (Error?) -> Void
+
+enum RestApiManagerError: Error {
+	case unknownError
+	case noContentError
+	case serverDown
+}
 
 class RestApiManager: NSObject {
     
     static let sharedInstance = RestApiManager()
     
-#if (arch(i386) || arch(x86_64)) && os(iOS)
+#if targetEnvironment(simulator)
     // simulator
     static let baseURL = "http://localhost:8000/"
 #else
@@ -31,12 +37,31 @@ class RestApiManager: NSObject {
         session.configuration.httpAdditionalHeaders?["Accept"] = "application/json; indent=4"
         
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            
-            if error == nil {
-                let json:JSON = JSON(data: data!)
-                onCompletion(json, error as NSError?)
+
+			guard let httpResponse = response as? HTTPURLResponse else {
+				onCompletion(nil, RestApiManagerError.unknownError)
+				return
+			}
+
+			guard error == nil else {
+				onCompletion(nil, RestApiManagerError.unknownError)
+				return
+			}
+
+			if httpResponse.statusCode == 404 {
+				onCompletion(nil, RestApiManagerError.serverDown)
+				return
+			}
+
+			if httpResponse.statusCode == 200 {
+				do {
+                	let json: JSON = try JSON(data: data!)
+					onCompletion(json, nil)
+				} catch {
+					onCompletion(nil, RestApiManagerError.noContentError)
+				}
             } else {
-                onCompletion(nil, error as NSError?)
+                onCompletion(nil, RestApiManagerError.unknownError)
             }
         })
         task.resume()
@@ -46,6 +71,7 @@ class RestApiManager: NSObject {
 class RecipeWebService: RestApiManager {
     
     func getAllRecipeJSONs(onCompletion: @escaping ([JSON]?) -> Void, onError errorBlock: ErrorResponse?) {
+		
         let route = RestApiManager.baseURL + "recipes/"
         makeHTTPGetRequest(path: route, onCompletion: { json, err in
             
@@ -57,7 +83,7 @@ class RecipeWebService: RestApiManager {
             } else {
                 var recipeJSONs: [JSON] = []
                 
-                if let results = json.array {
+				if let results = json?.array {
                     for entry in results {
                         recipeJSONs.append(entry)
                     }
@@ -79,7 +105,7 @@ class RecipeWebService: RestApiManager {
             } else {
                 var ingredientJSONs: [JSON] = []
                 
-                if let results = json.array {
+				if let results = json?.array {
                     for entry in results {
                         ingredientJSONs.append(entry)
                     }
@@ -101,7 +127,7 @@ class RecipeWebService: RestApiManager {
             } else {
                 var categoryJSONs: [JSON] = []
                 
-                if let results = json.array {
+				if let results = json?.array {
                     for entry in results {
                         categoryJSONs.append(entry)
                     }

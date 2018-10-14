@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var appDependecies: AppDependecies?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
         AppDelegate.shared = self
@@ -65,15 +65,15 @@ private extension AppDelegate {
         UINavigationBar.appearance().tintColor = ColorPalette.tintColor
         
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.font : FontPalette.navBarTitleFont(),
-            NSAttributedStringKey.foregroundColor : ColorPalette.navigationBarTitleColor
+            NSAttributedString.Key.font : FontPalette.navBarTitleFont(),
+            NSAttributedString.Key.foregroundColor : ColorPalette.navigationBarTitleColor
         ]
     }
     
     func styleBarButtons() {
         let barButtonTextAttributes = [
-            NSAttributedStringKey.font : FontPalette.navBarButtonFont(),
-            NSAttributedStringKey.foregroundColor : ColorPalette.tintColor
+            NSAttributedString.Key.font : FontPalette.navBarButtonFont(),
+            NSAttributedString.Key.foregroundColor : ColorPalette.tintColor
         ]
         UIBarButtonItem.appearance().setTitleTextAttributes(barButtonTextAttributes, for: .normal)
     }

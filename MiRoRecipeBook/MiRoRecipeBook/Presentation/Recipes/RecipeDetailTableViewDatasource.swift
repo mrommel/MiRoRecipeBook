@@ -65,7 +65,7 @@ class RecipeDetailTableViewDatasource: NSObject, UITableViewDataSource {
             cell.recipeDescriptionLabel?.isHidden = false
             
             if ingredient?.getImageUrl() != nil {
-                cell.imageView?.setImage(withUrl: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+				cell.imageView?.setImage(with: (ingredient?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"))
             }
         } else {
             let text = self.getRecipeStepText(withIndex: indexPath.row)

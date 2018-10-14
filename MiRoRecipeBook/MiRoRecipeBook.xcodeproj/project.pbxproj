@@ -35,20 +35,10 @@
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
 		1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C351DE4E87200E11D14 /* Assets.xcassets */; };
 		1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C371DE4E87200E11D14 /* LaunchScreen.storyboard */; };
-		1A8B5C441DE4E87200E11D14 /* MiRoRecipeBookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C431DE4E87200E11D14 /* MiRoRecipeBookTests.swift */; };
-		1A8B5C4F1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C4E1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift */; };
 		1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
-		1A8B5C641DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
-		1A8B5C651DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
 		1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */; };
-		1A8B5C791DE4EC2F00E11D14 /* menu-alt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */; };
-		1A8B5C7A1DE4EC2F00E11D14 /* menu-alt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */; };
 		1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */; };
-		1A8B5C7C1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */; };
-		1A8B5C7D1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */; };
 		1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
-		1A8B5C7F1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
-		1A8B5C801DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C841DE579E200E11D14 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C831DE579E200E11D14 /* ColorPalette.swift */; };
 		1A8B5C861DE5EE1100E11D14 /* ingredients-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */; };
 		1A8B5C881DE5EF2300E11D14 /* ingredients-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */; };
@@ -105,23 +95,6 @@
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1A8B5C401DE4E87200E11D14 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1A8B5C201DE4E87200E11D14 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A8B5C271DE4E87200E11D14;
-			remoteInfo = MiRoRecipeBook;
-		};
-		1A8B5C4B1DE4E87200E11D14 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1A8B5C201DE4E87200E11D14 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A8B5C271DE4E87200E11D14;
-			remoteInfo = MiRoRecipeBook;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		0120B57678DA6E78ECEA1273 /* Pods-MiRoRecipeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.debug.xcconfig"; sourceTree = "<group>"; };
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,10 +129,8 @@
 		1A8B5C331DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiRoRecipeBook.xcdatamodel; sourceTree = "<group>"; };
 		1A8B5C351DE4E87200E11D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A8B5C381DE4E87200E11D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1A8B5C3F1DE4E87200E11D14 /* MiRoRecipeBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiRoRecipeBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C431DE4E87200E11D14 /* MiRoRecipeBookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiRoRecipeBookTests.swift; sourceTree = "<group>"; };
 		1A8B5C451DE4E87200E11D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1A8B5C4A1DE4E87200E11D14 /* MiRoRecipeBookUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiRoRecipeBookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8B5C4E1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiRoRecipeBookUITests.swift; sourceTree = "<group>"; };
 		1A8B5C501DE4E87200E11D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A8B5C5E1DE4E9FE00E11D14 /* MiRoRecipeBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBook-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -233,20 +204,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A8B5C3C1DE4E87200E11D14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A8B5C471DE4E87200E11D14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,8 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */,
-				1A8B5C3F1DE4E87200E11D14 /* MiRoRecipeBookTests.xctest */,
-				1A8B5C4A1DE4E87200E11D14 /* MiRoRecipeBookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -542,42 +497,6 @@
 			productReference = 1A8B5C281DE4E87200E11D14 /* MiRoRecipeBook.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1A8B5C3E1DE4E87200E11D14 /* MiRoRecipeBookTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A8B5C561DE4E87200E11D14 /* Build configuration list for PBXNativeTarget "MiRoRecipeBookTests" */;
-			buildPhases = (
-				1A8B5C3B1DE4E87200E11D14 /* Sources */,
-				1A8B5C3C1DE4E87200E11D14 /* Frameworks */,
-				1A8B5C3D1DE4E87200E11D14 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1A8B5C411DE4E87200E11D14 /* PBXTargetDependency */,
-			);
-			name = MiRoRecipeBookTests;
-			productName = MiRoRecipeBookTests;
-			productReference = 1A8B5C3F1DE4E87200E11D14 /* MiRoRecipeBookTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		1A8B5C491DE4E87200E11D14 /* MiRoRecipeBookUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A8B5C591DE4E87200E11D14 /* Build configuration list for PBXNativeTarget "MiRoRecipeBookUITests" */;
-			buildPhases = (
-				1A8B5C461DE4E87200E11D14 /* Sources */,
-				1A8B5C471DE4E87200E11D14 /* Frameworks */,
-				1A8B5C481DE4E87200E11D14 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1A8B5C4C1DE4E87200E11D14 /* PBXTargetDependency */,
-			);
-			name = MiRoRecipeBookUITests;
-			productName = MiRoRecipeBookUITests;
-			productReference = 1A8B5C4A1DE4E87200E11D14 /* MiRoRecipeBookUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -585,28 +504,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "MiRo Soft";
 				TargetAttributes = {
 					1A8B5C271DE4E87200E11D14 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 5BL95TH4B9;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
-					};
-					1A8B5C3E1DE4E87200E11D14 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 45U4U6SXCJ;
-						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 1A8B5C271DE4E87200E11D14;
-					};
-					1A8B5C491DE4E87200E11D14 = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 45U4U6SXCJ;
-						LastSwiftMigration = 0810;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 1A8B5C271DE4E87200E11D14;
 					};
 				};
 			};
@@ -625,8 +530,6 @@
 			projectRoot = "";
 			targets = (
 				1A8B5C271DE4E87200E11D14 /* MiRoRecipeBook */,
-				1A8B5C3E1DE4E87200E11D14 /* MiRoRecipeBookTests */,
-				1A8B5C491DE4E87200E11D14 /* MiRoRecipeBookUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -675,26 +578,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A8B5C3D1DE4E87200E11D14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A8B5C791DE4EC2F00E11D14 /* menu-alt-24.png in Resources */,
-				1A8B5C7F1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */,
-				1A8B5C7C1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A8B5C481DE4E87200E11D14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A8B5C7A1DE4EC2F00E11D14 /* menu-alt-24.png in Resources */,
-				1A8B5C801DE4EC2F00E11D14 /* menu-alt-512.png in Resources */,
-				1A8B5C7D1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -705,11 +588,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/HockeySDK/HockeySDKResources.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/HockeySDK/HockeySDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HockeySDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -742,12 +625,14 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MapleBacon/MapleBacon.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapleBacon.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -815,38 +700,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A8B5C3B1DE4E87200E11D14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A8B5C441DE4E87200E11D14 /* MiRoRecipeBookTests.swift in Sources */,
-				1A8B5C641DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A8B5C461DE4E87200E11D14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1A8B5C4F1DE4E87200E11D14 /* MiRoRecipeBookUITests.swift in Sources */,
-				1A8B5C651DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1A8B5C411DE4E87200E11D14 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1A8B5C271DE4E87200E11D14 /* MiRoRecipeBook */;
-			targetProxy = 1A8B5C401DE4E87200E11D14 /* PBXContainerItemProxy */;
-		};
-		1A8B5C4C1DE4E87200E11D14 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1A8B5C271DE4E87200E11D14 /* MiRoRecipeBook */;
-			targetProxy = 1A8B5C4B1DE4E87200E11D14 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1A68C32E1E000E9100C025E4 /* Localizable.strings */ = {
@@ -893,6 +747,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -900,6 +755,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -951,6 +807,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -958,6 +815,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -992,7 +850,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0120B57678DA6E78ECEA1273 /* Pods-MiRoRecipeBook.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5BL95TH4B9;
@@ -1003,7 +861,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBook-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1012,7 +870,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5BL95TH4B9;
@@ -1022,76 +880,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBook-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		1A8B5C571DE4E87200E11D14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45U4U6SXCJ;
-				INFOPLIST_FILE = MiRoRecipeBookTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MoMe.MiRoRecipeBookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBookTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiRoRecipeBook.app/MiRoRecipeBook";
-			};
-			name = Debug;
-		};
-		1A8B5C581DE4E87200E11D14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45U4U6SXCJ;
-				INFOPLIST_FILE = MiRoRecipeBookTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MoMe.MiRoRecipeBookTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBookTests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MiRoRecipeBook.app/MiRoRecipeBook";
-			};
-			name = Release;
-		};
-		1A8B5C5A1DE4E87200E11D14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45U4U6SXCJ;
-				INFOPLIST_FILE = MiRoRecipeBookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MoMe.MiRoRecipeBookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBookUITests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = MiRoRecipeBook;
-			};
-			name = Debug;
-		};
-		1A8B5C5B1DE4E87200E11D14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 45U4U6SXCJ;
-				INFOPLIST_FILE = MiRoRecipeBookUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = MoMe.MiRoRecipeBookUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MiRoRecipeBookUITests-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = MiRoRecipeBook;
 			};
 			name = Release;
 		};
@@ -1112,24 +902,6 @@
 			buildConfigurations = (
 				1A8B5C541DE4E87200E11D14 /* Debug */,
 				1A8B5C551DE4E87200E11D14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1A8B5C561DE4E87200E11D14 /* Build configuration list for PBXNativeTarget "MiRoRecipeBookTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A8B5C571DE4E87200E11D14 /* Debug */,
-				1A8B5C581DE4E87200E11D14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1A8B5C591DE4E87200E11D14 /* Build configuration list for PBXNativeTarget "MiRoRecipeBookUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A8B5C5A1DE4E87200E11D14 /* Debug */,
-				1A8B5C5B1DE4E87200E11D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

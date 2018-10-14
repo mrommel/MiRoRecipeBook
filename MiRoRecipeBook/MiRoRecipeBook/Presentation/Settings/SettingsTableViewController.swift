@@ -93,8 +93,8 @@ class SettingsTableViewController: UITableViewController {
         case 1:
             SwiftSpinner.show("reseting ...")
             DispatchQueue.global(qos: .background).async {
-                
-                MapleBaconStorage.sharedStorage.clearStorage()
+
+				Cache.default.clearMemory()
                 
                 let recipeManager = RecipeManager()
                 recipeManager.clearData(successBlock: {
@@ -116,14 +116,14 @@ class SettingsTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showSyncAlert(forError error: NSError) {
+    func showSyncAlert(forError error: Error) {
         
         var errorMsg = ""
-        switch error.code {
-        case -1004:
-            errorMsg = "please start server".localized
+		switch error {
+		case RestApiManagerError.serverDown:
+			errorMsg = "server not started yet".localized
         default:
-            errorMsg = "generic error".localized + ": \(error.code)"
+			errorMsg = "generic error".localized + ": \(error._code)"
         }
         
         let alert = UIAlertController(title: "Error".localized, message: errorMsg, preferredStyle: .alert)

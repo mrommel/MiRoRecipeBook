@@ -12,11 +12,11 @@ import CoreData
 extension Recipe {
     
     override public var description : String {
-        return "<Recipe \(self.name)>"
+		return "<Recipe \(String(describing: self.name))>"
     }
     
     override public var debugDescription : String {
-        return "<Recipe \(self.name)>"
+		return "<Recipe \(String(describing: self.name))>"
     }
 }
 

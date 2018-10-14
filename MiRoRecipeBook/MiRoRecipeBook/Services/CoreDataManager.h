@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 typedef void (^FetchResponseBlock)(NSArray *result, NSError *error);
-typedef void (^SaveCompleteBlock)();
+typedef void (^SaveCompleteBlock)(void);
 
 @interface CoreDataManager : NSObject
 

@@ -37,17 +37,17 @@ class RecipeDetailViewController: UIViewController {
             self.title = recipe?.name
             
             if recipe?.getImageUrl() != nil {
-                self.imageLabel?.setImage(withUrl: (recipe?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"))
+				self.imageLabel?.setImage(with: (recipe?.getImageUrl())!, placeholder: UIImage(named: "recipe-default-image.png"))
             }
             
             self.countryLabel?.text = recipe?.country
             if recipe?.getFlagUrl() != nil {
-                self.flagLabel?.setImage(withUrl: (recipe?.getFlagUrl())!)
+				self.flagLabel?.setImage(with: (recipe?.getFlagUrl())!)
             }
  
             self.ingredientTableView.allowsSelection = false
             self.ingredientTableView.estimatedRowHeight = 400.0
-            self.ingredientTableView.rowHeight = UITableViewAutomaticDimension
+            self.ingredientTableView.rowHeight = UITableView.automaticDimension
             
             self.recipeDetailTableViewDelegate = RecipeDetailTableViewDelegate.init()
             self.ingredientTableView.delegate = self.recipeDetailTableViewDelegate

@@ -81,7 +81,7 @@ extension RecipesListViewController {
         cell.recipeTitleLabel?.text = recipe.name
         cell.recipeDescriptionLabel?.text = recipe.teaser
         
-        cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+		cell.recipeImageView?.setImage(with: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
         
         return cell
     }

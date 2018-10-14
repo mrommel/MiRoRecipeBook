@@ -100,7 +100,7 @@ extension RecipesTableViewController {
         cell.recipeDescriptionLabel?.text = subText
         
         if recipe.getImageUrl() != nil {
-            cell.recipeImageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+			cell.recipeImageView?.setImage(with: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
         }
             
         return cell

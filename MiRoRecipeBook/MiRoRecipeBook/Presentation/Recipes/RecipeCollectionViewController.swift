@@ -40,7 +40,7 @@ class RecipeCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         let recipe = self.getRecipe(withIndex: indexPath.row)
         
         if recipe.getImageUrl() != nil {
-            cell.imageView?.setImage(withUrl: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+			cell.imageView?.setImage(with: recipe.getImageUrl()!, placeholder: UIImage(named: "recipe-default-image.png"))
         }
         cell.caption.text = recipe.name!
         

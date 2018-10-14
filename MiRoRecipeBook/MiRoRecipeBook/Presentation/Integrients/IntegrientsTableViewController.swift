@@ -38,7 +38,7 @@ class IngredientsTableViewController: UITableViewController {
         cell.recipeDescriptionLabel?.text = "\(recipes!.count) " + "recipes".localized
         
         let imageUrl = ingredient.getImageUrl()!
-        cell.recipeImageView?.setImage(withUrl: imageUrl, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+		cell.recipeImageView?.setImage(with: imageUrl, placeholder: UIImage(named: "recipe-default-image.png"))
         
         return cell
     }

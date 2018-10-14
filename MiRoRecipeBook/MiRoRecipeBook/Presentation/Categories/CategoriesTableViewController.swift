@@ -148,7 +148,7 @@ extension CategoriesTableViewController {
         cell.recipeTitleLabel?.text = category.name
         cell.recipeDescriptionLabel?.text = "\(category.recipes) " + "recipes".localized
         if categoryUrl != nil {
-            cell.recipeImageView?.setImage(withUrl: categoryUrl!, placeholder: UIImage(named: "recipe-default-image.png"), crossFadePlaceholder: false, cacheScaled: false)
+			cell.recipeImageView?.setImage(with: categoryUrl!, placeholder: UIImage(named: "recipe-default-image.png"))
         }
         
         return cell
