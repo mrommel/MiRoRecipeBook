@@ -24,10 +24,10 @@ class RestApiManager: NSObject {
     
 #if targetEnvironment(simulator)
     // simulator
-    static let baseURL = "http://localhost:8000/"
+    static let baseURL = "http://localhost:8023/"
 #else
     // device
-    static let baseURL = "http://192.168.52.24:8000/"
+    static let baseURL = "http://192.168.52.24:8023/"
 #endif
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {
