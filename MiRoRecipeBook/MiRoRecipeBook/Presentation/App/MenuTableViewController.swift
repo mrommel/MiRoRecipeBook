@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 enum ScreenType {
     case recipes
@@ -24,6 +25,8 @@ struct MenuItem {
 class MenuTableViewController: UITableViewController {
 
     var menuItems: [MenuItem] = []
+
+	var appWireframe: AppWireframe?
     
     override func viewDidLoad() {
         
@@ -56,8 +59,20 @@ class MenuTableViewController: UITableViewController {
 extension MenuTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let targetViewController = self.createViewController(forScreenType: menuItems[indexPath.row].screenType)
+
+		let targetViewController = self.createViewController(forScreenType: menuItems[indexPath.row].screenType)
+
+		let menuButton = UIButton(type: .custom)
+		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+		menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+		targetViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+
+		let targetNavigationController = UINavigationController(rootViewController: targetViewController!)
+
+		self.appWireframe?.showDetail(navigationController: targetNavigationController)
+
+        /*let targetViewController = self.createViewController(forScreenType: menuItems[indexPath.row].screenType)
         let navigationController = AppDelegate.shared?.appDependecies?.rootNavigationController
 
         let menuButton = UIButton(type: .custom)
@@ -67,11 +82,19 @@ extension MenuTableViewController {
         targetViewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
         
         navigationController?.viewControllers = [targetViewController!]
-        self.revealViewController().pushFrontViewController(navigationController, animated: true)
+        //self.revealViewController().pushFrontViewController(navigationController, animated: true)
+		//self.appWireframe?.rootNavigationController?.present(navigationController!, animated: true)
+
+		self.appWireframe?.hideMenu()
+
+		if let navController = self.appWireframe?.rootNavigationController {
+			//navController.pushViewController(targetViewController!, animated: true)
+		}*/
     }
     
     @objc func openMenu(_ sender: AnyObject) {
-        self.revealViewController().revealToggle(nil)
+		//self.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+		self.appWireframe?.showMenu()
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

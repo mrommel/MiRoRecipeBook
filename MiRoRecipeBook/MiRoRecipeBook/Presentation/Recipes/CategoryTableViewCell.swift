@@ -6,6 +6,8 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
+import UIKit
+
 class CategoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak public var titleLabel: UILabel!

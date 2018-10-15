@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SideMenu
 
 class HintViewController: UIViewController {
     
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var exploreImage: UIImageView!
+
+	var appWireframe: AppWireframe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +22,7 @@ class HintViewController: UIViewController {
         self.title = "hint.title".localized
         self.hintLabel.text = "hint.message".localized
         
-        UIView.animate(withDuration: 1.0, delay: 3.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 1.0, options: .curveEaseOut, animations: {
             // Here you will get the animation you want
             self.exploreImage.alpha = 1
         }, completion: { finished in
@@ -37,7 +40,7 @@ class HintViewController: UIViewController {
             // Here you hide it when animation done
             self.exploreImage.isHidden = true
         })
-        
-        self.revealViewController().revealToggle(nil)
+
+		self.appWireframe?.showMenu()
     }
 }

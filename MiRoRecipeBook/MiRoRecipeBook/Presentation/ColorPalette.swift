@@ -6,7 +6,7 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ColorPalette: NSObject {
  

@@ -6,6 +6,8 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
+import UIKit
+
 class CategoryTableViewDelegate: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -6,16 +6,12 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class IngredientsWireframe: CommonWireframe {
     
     fileprivate let recipeManager = RecipeManager()
     fileprivate let kIngredientsStoryboardName = "Ingredients"
-    
-    override init(withRootNavigationController navigationController: UINavigationController?) {
-        super.init(withRootNavigationController: navigationController)
-    }
     
     func getIngredientsInterface() -> IngredientsTableViewController {
         let ingredientsTableViewController = IngredientsTableViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)

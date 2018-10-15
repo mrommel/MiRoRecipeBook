@@ -6,6 +6,8 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
+import UIKit
+
 class UIRoundedImageView: UIImageView {
     
     required init?(coder aDecoder: NSCoder) {

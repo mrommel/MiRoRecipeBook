@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         AppDelegate.shared = self
-        self.appDependecies = AppDependecies.init(withWindow: self.window!)
+        self.appDependecies = AppDependecies.init(with: self.window!)
         configureAppStyling()
         
         // init core data

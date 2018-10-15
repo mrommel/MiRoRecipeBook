@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045979A02174E7AE006803CF /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459799F2174E7AE006803CF /* SplashViewController.swift */; };
 		1A19CC911E0031E700A3DA32 /* RecipeIngredient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */; };
 		1A19CC931E003EA400A3DA32 /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19CC921E003EA400A3DA32 /* explore.png */; };
 		1A19CC951E0041EA00A3DA32 /* UIRoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC941E0041EA00A3DA32 /* UIRoundedImageView.swift */; };
@@ -35,7 +36,6 @@
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
 		1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C351DE4E87200E11D14 /* Assets.xcassets */; };
 		1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C371DE4E87200E11D14 /* LaunchScreen.storyboard */; };
-		1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */; };
 		1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */; };
 		1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */; };
 		1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
@@ -97,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		0120B57678DA6E78ECEA1273 /* Pods-MiRoRecipeBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.debug.xcconfig"; sourceTree = "<group>"; };
+		0459799F2174E7AE006803CF /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = Presentation/App/SplashViewController.swift; sourceTree = "<group>"; };
 		05094A111C1E31252AEFA12C /* Pods-MiRoRecipeBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiRoRecipeBook.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MiRoRecipeBook/Pods-MiRoRecipeBook.release.xcconfig"; sourceTree = "<group>"; };
 		09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiRoRecipeBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeIngredient+Parsing.swift"; path = "Data/RecipeIngredient+Parsing.swift"; sourceTree = "<group>"; };
@@ -136,8 +137,6 @@
 		1A8B5C5E1DE4E9FE00E11D14 /* MiRoRecipeBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A8B5C5F1DE4E9FE00E11D14 /* MiRoRecipeBookTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBookTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A8B5C601DE4E9FE00E11D14 /* MiRoRecipeBookUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBookUITests-Bridging-Header.h"; sourceTree = "<group>"; };
-		1A8B5C611DE4E9FE00E11D14 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-24.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-24.png"; sourceTree = "<group>"; };
 		1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-32.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-32.png"; sourceTree = "<group>"; };
 		1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-512.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-512.png"; sourceTree = "<group>"; };
@@ -261,6 +260,7 @@
 				1ABF9AB41E08258C00E6DC6A /* AppDelegate.swift */,
 				1ABF9AB51E08258C00E6DC6A /* AppDependecies.swift */,
 				1ABF9AB61E08258C00E6DC6A /* AppWireframe.swift */,
+				0459799F2174E7AE006803CF /* SplashViewController.swift */,
 				1ABF9AB71E08258C00E6DC6A /* HintViewController.swift */,
 				1ABF9AB81E08258C00E6DC6A /* MenuTableViewController.swift */,
 				1A68C3181DFECC7700C025E4 /* App.storyboard */,
@@ -352,21 +352,11 @@
 		1A8B5C5C1DE4E9B000E11D14 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				1A8B5C5D1DE4E9BE00E11D14 /* SWRevealViewController */,
 				1A8B5C5E1DE4E9FE00E11D14 /* MiRoRecipeBook-Bridging-Header.h */,
 				1A8B5C5F1DE4E9FE00E11D14 /* MiRoRecipeBookTests-Bridging-Header.h */,
 				1A8B5C601DE4E9FE00E11D14 /* MiRoRecipeBookUITests-Bridging-Header.h */,
 			);
 			name = Libs;
-			sourceTree = "<group>";
-		};
-		1A8B5C5D1DE4E9BE00E11D14 /* SWRevealViewController */ = {
-			isa = PBXGroup;
-			children = (
-				1A8B5C611DE4E9FE00E11D14 /* SWRevealViewController.h */,
-				1A8B5C621DE4E9FE00E11D14 /* SWRevealViewController.m */,
-			);
-			name = SWRevealViewController;
 			sourceTree = "<group>";
 		};
 		1A8B5C661DE4EBB500E11D14 /* Presentation */ = {
@@ -667,8 +657,8 @@
 				1ABF9ABA1E08258C00E6DC6A /* AppDependecies.swift in Sources */,
 				1AC7DB331E0AD31400D0D759 /* Quantity.swift in Sources */,
 				1A68C3291E000E0B00C025E4 /* Localizable.swift in Sources */,
+				045979A02174E7AE006803CF /* SplashViewController.swift in Sources */,
 				1A68C30E1DFE093800C025E4 /* CommonWireframe.swift in Sources */,
-				1A8B5C631DE4E9FE00E11D14 /* SWRevealViewController.m in Sources */,
 				1ABF9AA31E08253600E6DC6A /* Category+CoreDataProperties.swift in Sources */,
 				1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */,
 				1ABF9AC31E08263300E6DC6A /* IntegrientsTableViewController.swift in Sources */,

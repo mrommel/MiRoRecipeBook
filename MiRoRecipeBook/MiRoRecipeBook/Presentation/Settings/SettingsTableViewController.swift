@@ -9,6 +9,7 @@
 import UIKit
 import SwiftSpinner
 import MapleBacon
+import SideMenu
 
 class SettingsTableViewController: UITableViewController {
     
@@ -132,6 +133,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func openMenu(_ sender: AnyObject) {
-        self.revealViewController().revealToggle(nil)
+		self.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
 }

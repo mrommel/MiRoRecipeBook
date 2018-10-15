@@ -6,15 +6,11 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class RecipesWireframe: CommonWireframe {
 
     fileprivate let kRecipesStoryboardName = "Recipes"
-
-    override init(withRootNavigationController navigationController: UINavigationController?) {
-        super.init(withRootNavigationController: navigationController)
-    }
     
     func getRecipesInterface() -> RecipeCollectionViewController {
         //let recipesTableViewController = RecipesTableViewController.instantiate(fromStoryboard: kRecipesStoryboardName)

@@ -6,7 +6,7 @@
 //  Copyright © 2016 MiRo Soft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class AppDependecies: NSObject {
     
@@ -20,26 +20,21 @@ class AppDependecies: NSObject {
     var categoriesWireframe: CategoriesWireframe? = nil
     var settingsWireframe: SettingsWireframe? = nil
     
-    override init() {
-        super.init()
-    }
-    
-    convenience init(withWindow window: UIWindow) {
+    convenience init(with window: UIWindow) {
         self.init()
-        self.rootNavigationController = UINavigationController.init()
+
+		self.appWireframe = AppWireframe.init(withWindow: window)
+
+		self.rootNavigationController = self.appWireframe?.rootNavigationController
         self.rootNavigationController?.view.backgroundColor = ColorPalette.tintColor
         self.rootNavigationController?.navigationBar.tintColor = ColorPalette.tintColor
         self.rootNavigationController?.navigationBar.barTintColor = ColorPalette.themeColor
-        
         self.rootNavigationController?.navigationBar.isHidden = false
         
-        self.recipesWireframe = RecipesWireframe.init(withRootNavigationController: self.rootNavigationController)
-        self.ingredientsWireframe = IngredientsWireframe.init(withRootNavigationController: self.rootNavigationController)
-        self.settingsWireframe = SettingsWireframe.init(withRootNavigationController: self.rootNavigationController)
-        self.categoriesWireframe = CategoriesWireframe.init(withRootNavigationController: self.rootNavigationController)
-        
-        self.appWireframe = AppWireframe.init(withWindow:window, andNavigationController:self.rootNavigationController, appDependencies:self)
-        self.appWireframe?.presentRootViewController()
+        self.recipesWireframe = RecipesWireframe()
+        self.ingredientsWireframe = IngredientsWireframe()
+        self.settingsWireframe = SettingsWireframe()
+        self.categoriesWireframe = CategoriesWireframe()
     }
     
 }
