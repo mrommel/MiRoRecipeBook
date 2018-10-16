@@ -26,6 +26,15 @@ class CategoriesWireframe: CommonWireframe {
         let recipesListViewController = RecipesListViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
         recipesListViewController.recipeListTitle = "CategoryRecipes.of".localized + " " + (category?.name)!
         recipesListViewController.recipes = recipeManager.getRecipes(forCategoryIdentifier: categoryIdentifier)
-        self.rootNavigationController?.pushViewController(recipesListViewController, animated: true)
+
+		let menuButton = UIButton(type: .custom)
+		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+		menuButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+		recipesListViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+
+		let targetNavigationController = UINavigationController(rootViewController: recipesListViewController)
+
+		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: true, completion: nil)
     }
 }

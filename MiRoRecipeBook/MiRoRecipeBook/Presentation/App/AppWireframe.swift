@@ -29,13 +29,25 @@ class AppWireframe: CommonWireframe {
 		self.rootNavigationController?.present(hintViewController, animated: true, completion: nil)
 	}
 
-	func showDetail(navigationController: UINavigationController?) {
+	func showDetail(for viewController: UIViewController?) {
+
+		let menuButton = UIButton(type: .custom)
+		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+		menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+		viewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+
+		let targetNavigationController = UINavigationController(rootViewController: viewController!)
 
 		if let hintViewController = self.rootNavigationController?.presentedViewController as? HintViewController {
 			hintViewController.dismiss(animated: true, completion: {
-				hintViewController.show(navigationController!, sender: nil)
+				hintViewController.show(targetNavigationController, sender: nil)
 			})
 		}
+	}
+
+	@objc func openMenu(_ sender: AnyObject) {
+		self.showMenu()
 	}
 
 	func showMenu() {

@@ -20,9 +20,18 @@ class RecipesWireframe: CommonWireframe {
     }
     
     func presentDetail(forRecipe recipe: Recipe?) {
+		
         let recipesDetailViewController = RecipeDetailViewController.instantiate(fromStoryboard: kRecipesStoryboardName)
         recipesDetailViewController.recipe = recipe
-        self.rootNavigationController?.pushViewController(recipesDetailViewController, animated: true)
-    }
 
+		let menuButton = UIButton(type: .custom)
+		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+		menuButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
+		recipesDetailViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+
+		let targetNavigationController = UINavigationController(rootViewController: recipesDetailViewController)
+
+		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: true, completion: nil)
+    }
 }

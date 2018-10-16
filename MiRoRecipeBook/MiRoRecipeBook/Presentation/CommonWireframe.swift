@@ -21,4 +21,8 @@ class CommonWireframe: NSObject {
     func popToPreviousController() {
         _ = self.rootNavigationController?.popViewController(animated: true)
     }
+
+	@objc func goBack(_ sender: AnyObject) {
+		UIApplication.shared.topMostViewController()?.dismiss(animated: true, completion: nil)
+	}
 }

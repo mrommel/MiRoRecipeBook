@@ -25,6 +25,11 @@ class IngredientsWireframe: CommonWireframe {
         let recipesListViewController = RecipesListViewController.instantiate(fromStoryboard: kIngredientsStoryboardName)
         recipesListViewController.recipeListTitle = "IngredientRecipes.of".localized + " " + (ingredient?.name)!
         recipesListViewController.recipes = recipeManager.getRecipes(forIngredient: ingredientIdentifier)
-        self.rootNavigationController?.pushViewController(recipesListViewController, animated: true)
+
+		recipesListViewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< " + "Ingredients".localized, style: .plain, target: self, action: #selector(goBack))
+
+		let targetNavigationController = UINavigationController(rootViewController: recipesListViewController)
+
+		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: true, completion: nil)
     }
 }

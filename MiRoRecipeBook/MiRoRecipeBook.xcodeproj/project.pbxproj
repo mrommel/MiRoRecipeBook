@@ -247,8 +247,8 @@
 		1A68C3091DFE08B000C025E4 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				1ABF9AC41E08263D00E6DC6A /* SettingsTableViewController.swift */,
 				1A68C30B1DFE08F600C025E4 /* SettingsWireframe.swift */,
+				1ABF9AC41E08263D00E6DC6A /* SettingsTableViewController.swift */,
 				1A68C3131DFEC56800C025E4 /* Settings.storyboard */,
 			);
 			name = Settings;
