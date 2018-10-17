@@ -20,7 +20,7 @@ class RecipesWireframe: CommonWireframe {
     }
     
     func presentDetail(forRecipe recipe: Recipe?) {
-		
+
         let recipesDetailViewController = RecipeDetailViewController.instantiate(fromStoryboard: kRecipesStoryboardName)
         recipesDetailViewController.recipe = recipe
 
@@ -32,6 +32,6 @@ class RecipesWireframe: CommonWireframe {
 
 		let targetNavigationController = UINavigationController(rootViewController: recipesDetailViewController)
 
-		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: true, completion: nil)
+		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: false, completion: nil)
     }
 }

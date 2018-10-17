@@ -30,6 +30,6 @@ class IngredientsWireframe: CommonWireframe {
 
 		let targetNavigationController = UINavigationController(rootViewController: recipesListViewController)
 
-		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: true, completion: nil)
+		UIApplication.shared.topMostViewController()?.present(targetNavigationController, animated: false, completion: nil)
     }
 }

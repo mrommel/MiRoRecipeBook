@@ -20,37 +20,6 @@ class AppWireframe: CommonWireframe {
 		self.window = window
 
         super.init()
-    }
-
-	func showHintScreen() {
-
-		let hintViewController = HintViewController.instantiate(fromStoryboard: kAppStoryboardName)
-		hintViewController.appWireframe = self
-		self.rootNavigationController?.present(hintViewController, animated: true, completion: nil)
-	}
-
-	func showDetail(for viewController: UIViewController?) {
-
-		let menuButton = UIButton(type: .custom)
-		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
-		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
-		menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
-		viewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
-
-		let targetNavigationController = UINavigationController(rootViewController: viewController!)
-
-		if let hintViewController = self.rootNavigationController?.presentedViewController as? HintViewController {
-			hintViewController.dismiss(animated: true, completion: {
-				hintViewController.show(targetNavigationController, sender: nil)
-			})
-		}
-	}
-
-	@objc func openMenu(_ sender: AnyObject) {
-		self.showMenu()
-	}
-
-	func showMenu() {
 
 		if SideMenuManager.default.menuLeftNavigationController == nil {
 			// Define the menus
@@ -70,17 +39,47 @@ class AppWireframe: CommonWireframe {
 			// (Optional) Prevent status bar area from turning black when menu appears:
 			SideMenuManager.default.menuFadeStatusBar = false
 		}
+    }
 
-		//if let hintViewController = self.rootNavigationController?.presentedViewController as? HintViewController {
+	func showHintScreen() {
+
+		let hintViewController = HintViewController.instantiate(fromStoryboard: kAppStoryboardName)
+		hintViewController.appWireframe = self
+		self.rootNavigationController?.present(hintViewController, animated: false, completion: nil)
+	}
+
+	func showDetail(for viewController: UIViewController?) {
+
+		let menuButton = UIButton(type: .custom)
+		menuButton.setImage(UIImage(named: "menu-alt-24.png"), for: .normal)
+		menuButton.frame = CGRect(x: 10, y: 0, width: 42, height: 42)
+		menuButton.addTarget(self, action: #selector(openMenu), for: .touchUpInside)
+		viewController?.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+
+		let targetNavigationController = UINavigationController(rootViewController: viewController!)
+
+		self.hideMenu(completion: {
+			if let hintViewController = self.rootNavigationController?.presentedViewController as? HintViewController {
+				hintViewController.present(targetNavigationController, animated: false, completion: nil)
+			}
+		})
+	}
+
+	@objc func openMenu(_ sender: AnyObject) {
+		self.showMenu()
+	}
+
+	func showMenu(completion: (() -> Void)? = nil) {
+
 		if let viewController = UIApplication.shared.topMostViewController() {
-			viewController.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+			viewController.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: completion)
 		}
 	}
 
-	func hideMenu() {
+	func hideMenu(completion: (() -> Void)? = nil) {
+
 		if let hintViewController = self.rootNavigationController?.presentedViewController as? HintViewController {
-			hintViewController.dismiss(animated: true, completion: nil)
+			hintViewController.dismiss(animated: true, completion: completion)
 		}
 	}
-    
 }
