@@ -27,7 +27,7 @@ class RestApiManager: NSObject {
     static let baseURL = "http://localhost:8023/"
 #else
     // device
-    static let baseURL = "http://192.168.52.24:8023/"
+    static let baseURL = "http://192.168.52.44:8023/"
 #endif
     
     func makeHTTPGetRequest(path: String, onCompletion: @escaping ServiceResponse) {

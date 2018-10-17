@@ -27,7 +27,6 @@ class RecipesTableViewController: UITableViewController {
         self.title = "Recipes".localized
         
         self.recipes = recipeManager.allRecipes()
-        NSLog("recipes: %d", recipes!.count)
     }
 
 }

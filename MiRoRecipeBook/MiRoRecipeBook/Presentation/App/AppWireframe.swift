@@ -31,13 +31,11 @@ class AppWireframe: CommonWireframe {
 			// of it here like setting its viewControllers. If you're using storyboards, you'll want to do something like:
 			SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
 
-			// (Optional) Enable gestures. The left and/or right menus must be set up above for these to work.
-			// Note that these continue to work on the Navigation Controller independent of the view controller it displays!
-			//SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-			//SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-
 			// (Optional) Prevent status bar area from turning black when menu appears:
 			SideMenuManager.default.menuFadeStatusBar = false
+
+			// set menu width to 300px
+			SideMenuManager.default.menuWidth = 300
 		}
     }
 
@@ -46,6 +44,10 @@ class AppWireframe: CommonWireframe {
 		let hintViewController = HintViewController.instantiate(fromStoryboard: kAppStoryboardName)
 		hintViewController.appWireframe = self
 		self.rootNavigationController?.present(hintViewController, animated: false, completion: nil)
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+			self.showMenu()
+		})
 	}
 
 	func showDetail(for viewController: UIViewController?) {
@@ -72,7 +74,9 @@ class AppWireframe: CommonWireframe {
 	func showMenu(completion: (() -> Void)? = nil) {
 
 		if let viewController = UIApplication.shared.topMostViewController() {
-			viewController.present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: completion)
+			if let menuLeftNavigationController = SideMenuManager.default.menuLeftNavigationController {
+				viewController.present(menuLeftNavigationController, animated: true, completion: completion)
+			}
 		}
 	}
 

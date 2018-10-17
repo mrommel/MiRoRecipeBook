@@ -310,9 +310,6 @@ extension RecipeManager: RecipesProtocol {
             // go get the results
             let searchResults = try context.fetch(fetchRequest)
             
-            // I like to check the size of the returned results!
-            print ("num of results = \(searchResults.count)")
-            
             var recipes: [Recipe]? = []
             
             // You need to convert to NSManagedObject to use 'for' loops
@@ -507,9 +504,6 @@ extension RecipeManager: IngredientsProtocol {
             // go get the results
             let searchResults = try context.fetch(fetchRequest)
             
-            // I like to check the size of the returned results!
-            print ("num of results = \(searchResults.count)")
-            
             var ingredients: [Ingredient]? = []
             
             // You need to convert to NSManagedObject to use 'for' loops
@@ -603,9 +597,6 @@ extension RecipeManager: CategoriesProtocol {
         do {
             // go get the results
             let searchResults = try context.fetch(fetchRequest)
-            
-            // I like to check the size of the returned results!
-            print ("num of results = \(searchResults.count)")
             
             var categories: [Category]? = []
             

@@ -63,7 +63,6 @@ class RecipeCollectionViewController: UICollectionViewController {
         self.title = "Recipes".localized
         
         self.recipes = recipeManager.allRecipes()
-        NSLog("recipes: %d", recipes!.count)
         
         self.recipeDatasource = RecipeCollectionViewDataSource.init(withRecipes: self.recipes)
         self.collectionView?.dataSource = self.recipeDatasource

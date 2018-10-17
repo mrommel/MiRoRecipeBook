@@ -20,7 +20,6 @@ class IngredientsTableViewController: UITableViewController {
         self.title = "Ingredients".localized
         
         self.ingredients = recipeManager.allIngredients()
-        NSLog("recipes: %d", self.ingredients!.count)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -18,8 +18,6 @@ class RecipesListViewController: UITableViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         self.title = self.recipeListTitle
-        
-        NSLog("recipes: %d", self.recipes!.count)
     }
     
 }
