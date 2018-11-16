@@ -11,9 +11,6 @@
 		1A19CC911E0031E700A3DA32 /* RecipeIngredient+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */; };
 		1A19CC931E003EA400A3DA32 /* explore.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19CC921E003EA400A3DA32 /* explore.png */; };
 		1A19CC951E0041EA00A3DA32 /* UIRoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC941E0041EA00A3DA32 /* UIRoundedImageView.swift */; };
-		1A19CC991E004E9900A3DA32 /* menu-ingredients.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19CC961E004E9900A3DA32 /* menu-ingredients.png */; };
-		1A19CC9A1E004E9900A3DA32 /* menu-recipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19CC971E004E9900A3DA32 /* menu-recipe.png */; };
-		1A19CC9B1E004E9900A3DA32 /* menu-settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A19CC981E004E9900A3DA32 /* menu-settings.png */; };
 		1A19CC9E1E00A0F600A3DA32 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A19CC9D1E00A0F600A3DA32 /* CoreDataManager.m */; };
 		1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A45C0901DEF730E009C9C4E /* recipe-default-image.png */; };
 		1A5317761DEB2EA4002FF14B /* Recipe+Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5317751DEB2EA4002FF14B /* Recipe+Parsing.swift */; };
@@ -36,9 +33,6 @@
 		1A8B5C341DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C321DE4E87200E11D14 /* MiRoRecipeBook.xcdatamodeld */; };
 		1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C351DE4E87200E11D14 /* Assets.xcassets */; };
 		1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C371DE4E87200E11D14 /* LaunchScreen.storyboard */; };
-		1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */; };
-		1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */; };
-		1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */; };
 		1A8B5C841DE579E200E11D14 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B5C831DE579E200E11D14 /* ColorPalette.swift */; };
 		1A8B5C861DE5EE1100E11D14 /* ingredients-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */; };
 		1A8B5C881DE5EF2300E11D14 /* ingredients-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */; };
@@ -90,7 +84,6 @@
 		1ABF9ADD1E08266300E6DC6A /* number9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AD31E08266300E6DC6A /* number9.png */; };
 		1ABF9ADF1E08266E00E6DC6A /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9ADE1E08266E00E6DC6A /* photo-frame.png */; };
 		1ABF9AE11E0826C300E6DC6A /* Ingredients.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */; };
-		1ABF9AE51E08288F00E6DC6A /* menu-category.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ABF9AE41E08288F00E6DC6A /* menu-category.png */; };
 		1AC7DB331E0AD31400D0D759 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC7DB321E0AD31400D0D759 /* Quantity.swift */; };
 		47334B7E056F7E9A512C1BE1 /* Pods_MiRoRecipeBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B87F787982A074FDE21D6D /* Pods_MiRoRecipeBook.framework */; };
 /* End PBXBuildFile section */
@@ -103,9 +96,6 @@
 		1A19CC901E0031E700A3DA32 /* RecipeIngredient+Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "RecipeIngredient+Parsing.swift"; path = "Data/RecipeIngredient+Parsing.swift"; sourceTree = "<group>"; };
 		1A19CC921E003EA400A3DA32 /* explore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = explore.png; path = MiRoRecipeBook/Resources/Images/explore.png; sourceTree = "<group>"; };
 		1A19CC941E0041EA00A3DA32 /* UIRoundedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIRoundedImageView.swift; path = Presentation/Views/UIRoundedImageView.swift; sourceTree = "<group>"; };
-		1A19CC961E004E9900A3DA32 /* menu-ingredients.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-ingredients.png"; path = "MiRoRecipeBook/Resources/Images/menu-ingredients.png"; sourceTree = "<group>"; };
-		1A19CC971E004E9900A3DA32 /* menu-recipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-recipe.png"; path = "MiRoRecipeBook/Resources/Images/menu-recipe.png"; sourceTree = "<group>"; };
-		1A19CC981E004E9900A3DA32 /* menu-settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-settings.png"; path = "MiRoRecipeBook/Resources/Images/menu-settings.png"; sourceTree = "<group>"; };
 		1A19CC9C1E00A0F600A3DA32 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataManager.h; path = Services/CoreDataManager.h; sourceTree = "<group>"; };
 		1A19CC9D1E00A0F600A3DA32 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataManager.m; path = Services/CoreDataManager.m; sourceTree = "<group>"; };
 		1A45C0901DEF730E009C9C4E /* recipe-default-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "recipe-default-image.png"; path = "MiRoRecipeBook/Resources/Images/recipe-default-image.png"; sourceTree = "<group>"; };
@@ -137,9 +127,6 @@
 		1A8B5C5E1DE4E9FE00E11D14 /* MiRoRecipeBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A8B5C5F1DE4E9FE00E11D14 /* MiRoRecipeBookTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBookTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1A8B5C601DE4E9FE00E11D14 /* MiRoRecipeBookUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MiRoRecipeBookUITests-Bridging-Header.h"; sourceTree = "<group>"; };
-		1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-24.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-24.png"; sourceTree = "<group>"; };
-		1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-32.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-32.png"; sourceTree = "<group>"; };
-		1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-alt-512.png"; path = "MiRoRecipeBook/Resources/Images/menu-alt-512.png"; sourceTree = "<group>"; };
 		1A8B5C831DE579E200E11D14 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorPalette.swift; path = Presentation/ColorPalette.swift; sourceTree = "<group>"; };
 		1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-512.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-512.png"; sourceTree = "<group>"; };
 		1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ingredients-64.png"; path = "MiRoRecipeBook/Resources/Images/ingredients-64.png"; sourceTree = "<group>"; };
@@ -191,7 +178,6 @@
 		1ABF9AD31E08266300E6DC6A /* number9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = number9.png; path = MiRoRecipeBook/Resources/Images/number9.png; sourceTree = "<group>"; };
 		1ABF9ADE1E08266E00E6DC6A /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "photo-frame.png"; path = "MiRoRecipeBook/Resources/Images/photo-frame.png"; sourceTree = "<group>"; };
 		1ABF9AE01E0826C300E6DC6A /* Ingredients.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Ingredients.storyboard; path = Presentation/Integrients/Ingredients.storyboard; sourceTree = "<group>"; };
-		1ABF9AE41E08288F00E6DC6A /* menu-category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-category.png"; path = "MiRoRecipeBook/Resources/Images/menu-category.png"; sourceTree = "<group>"; };
 		1ABF9AE61E088C3000E6DC6A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
 		1ABF9AE91E088C4000E6DC6A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		1AC7DB321E0AD31400D0D759 /* Quantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Quantity.swift; path = Utils/Quantity.swift; sourceTree = "<group>"; };
@@ -404,14 +390,7 @@
 				1A68C3071DFE000100C025E4 /* sync-64.png */,
 				1A68C3051DFDFFA400C025E4 /* settings-64.png */,
 				1A45C0901DEF730E009C9C4E /* recipe-default-image.png */,
-				1A8B5C751DE4EC2F00E11D14 /* menu-alt-24.png */,
 				1ABF9ADE1E08266E00E6DC6A /* photo-frame.png */,
-				1A8B5C761DE4EC2F00E11D14 /* menu-alt-32.png */,
-				1ABF9AE41E08288F00E6DC6A /* menu-category.png */,
-				1A19CC961E004E9900A3DA32 /* menu-ingredients.png */,
-				1A19CC971E004E9900A3DA32 /* menu-recipe.png */,
-				1A19CC981E004E9900A3DA32 /* menu-settings.png */,
-				1A8B5C771DE4EC2F00E11D14 /* menu-alt-512.png */,
 				1A8B5C871DE5EF2300E11D14 /* ingredients-64.png */,
 				1A8B5C851DE5EE1100E11D14 /* ingredients-512.png */,
 			);
@@ -530,31 +509,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8B5C881DE5EF2300E11D14 /* ingredients-64.png in Resources */,
-				1A19CC991E004E9900A3DA32 /* menu-ingredients.png in Resources */,
 				1ABF9ADA1E08266300E6DC6A /* number6.png in Resources */,
 				1A8B5C861DE5EE1100E11D14 /* ingredients-512.png in Resources */,
 				1ABF9ADD1E08266300E6DC6A /* number9.png in Resources */,
 				1A68C3081DFE000100C025E4 /* sync-64.png in Resources */,
-				1A8B5C781DE4EC2F00E11D14 /* menu-alt-24.png in Resources */,
 				1ABF9ADC1E08266300E6DC6A /* number8.png in Resources */,
 				1A68C3221DFF470800C025E4 /* recipe_background.jpg in Resources */,
 				1ABF9AD91E08266300E6DC6A /* number5.png in Resources */,
 				1ABF9AD71E08266300E6DC6A /* number3.png in Resources */,
 				1A68C31E1DFF397800C025E4 /* Recipes.storyboard in Resources */,
-				1A19CC9B1E004E9900A3DA32 /* menu-settings.png in Resources */,
 				1ABF9AD61E08266300E6DC6A /* number2.png in Resources */,
 				1A68C3191DFECC7700C025E4 /* App.storyboard in Resources */,
 				1ABF9ADB1E08266300E6DC6A /* number7.png in Resources */,
-				1A8B5C7E1DE4EC2F00E11D14 /* menu-alt-512.png in Resources */,
-				1A8B5C7B1DE4EC2F00E11D14 /* menu-alt-32.png in Resources */,
 				1ABF9AC91E08265A00E6DC6A /* reset.png in Resources */,
-				1A19CC9A1E004E9900A3DA32 /* menu-recipe.png in Resources */,
 				1A65E3D31E0A6CD800D48A14 /* Info.plist in Resources */,
 				1A45C0911DEF730E009C9C4E /* recipe-default-image.png in Resources */,
 				1A68C3061DFDFFA400C025E4 /* settings-64.png in Resources */,
 				1A8B5C391DE4E87200E11D14 /* LaunchScreen.storyboard in Resources */,
 				1ABF9AC81E08265A00E6DC6A /* download.png in Resources */,
-				1ABF9AE51E08288F00E6DC6A /* menu-category.png in Resources */,
 				1ABF9A951E07138E00E6DC6A /* Categories.storyboard in Resources */,
 				1ABF9AD41E08266300E6DC6A /* number0.png in Resources */,
 				1A8B5C361DE4E87200E11D14 /* Assets.xcassets in Resources */,
